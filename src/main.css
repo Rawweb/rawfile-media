@@ -40,7 +40,7 @@
 }
 @layer components {
   .container {
-    @apply mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto  px-4 sm:px-6 lg:px-8;
   }
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-md bg-black text-white px-5 py-3 font-semibold hover:opacity-90 transition;
@@ -65,8 +65,37 @@
   }
 }
 
+@keyframes purpleGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(129, 110, 235, 0.4),
+                0 0 15px rgba(119, 97, 240, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(118, 96, 241, 0.8),
+                0 0 25px rgba(112, 89, 241, 0.6);
+  }
+}
+
+@layer utilities {
+  .animate-purple-glow {
+    animation: purpleGlow 2s ease-in-out infinite;
+  }
+}
+
+
 @layer utilities {
   .animate-glow {
     animation: glow 2s ease-in-out infinite;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
   }
 }

@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Contact Button */}
-        <button className="bg-dark-midLight py-2 px-4 rounded-md transition duration-300 hover:bg-dark-light hover:shadow-[0_0_20px_rgba(255,255,255,0.9)] animate-glow md:block hidden">
+        <button className="bg-dark-midLight py-2 px-4 rounded-md transition duration-300 hover:bg-dark-light   md:block hidden">
           Contact Me
         </button>
 
@@ -84,7 +84,7 @@ const Navbar = () => {
 
               <button
                 onClick={() => setMobileOpen(false)}
-                className="bg-dark-midLight text-absolute py-2 px-4 rounded-md transition duration-300 hover:bg-dark-light  hover:shadow-[0_0_15px_rgba(255,255,255,0.7)] animate-glow"
+                className="bg-dark-midLight text-absolute py-2 px-4 rounded-md transition duration-300 hover:bg-dark-light  "
               >
                 Contact Me
               </button>
