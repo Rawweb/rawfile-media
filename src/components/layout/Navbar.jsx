@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Contact Button */}
-        <button className="button  md:block hidden">Contact Me</button>
+        <Link to="/contact" className="button  md:block hidden">Contact Me</Link>
 
         {/* Mobile Menu Toggle */}
         <button

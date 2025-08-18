@@ -52,6 +52,10 @@
   .btn {
     @apply p-2 bg-dark-midLight rounded-full hover:bg-purple-midDark size-10  flex items-center justify-center transition duration-300;
   }
+
+  .highlight-btn {
+    @apply flex items-center text-sm text-grey-midDark border py-3 px-6 rounded-lg border-dark-midLight gap-2 hover:bg-dark-midDark transition duration-300 hover:text-grey-light;
+  }
   .section-heading {
     @apply py-12;
   }

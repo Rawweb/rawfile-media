@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   FaArrowRight,
   FaFacebookF,
@@ -10,7 +11,7 @@ import rawfileImage from '../assets/rawfile.png'
 
 const AboutSection = () => {
   return (
-    <div className="container section-heading">
+    <section className="container section-heading">
       {/* TOP */}
       <div className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8">
         <div>
@@ -20,12 +21,12 @@ const AboutSection = () => {
           </h1>
         </div>
 
-        <button className="button flex items-center gap-2 ">
+        <Link to="/about" className="button flex items-center gap-2 ">
           Learn More
           <span>
             <FaArrowRight />
           </span>
-        </button>
+        </Link>
       </div>
 
       {/* BOTTOM */}
@@ -100,16 +101,16 @@ const AboutSection = () => {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto text-sm xl:text-base">
-                <button className="button w-full sm:w-auto">
+                <Link to="/contact" className="button w-full sm:w-auto">
                   Let&apos;s Work
-                </button>
-                <button className="button w-full sm:w-auto">Download CV</button>
+                </Link>
+                <Link className="button w-full sm:w-auto">Download CV</Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

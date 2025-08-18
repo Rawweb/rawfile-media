@@ -67,7 +67,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <div>
+    <section>
       {/* ---------------------- Hero Heading ---------------------- */}
       <div className="relative border-b border-dark-midDark section-heading overflow-hidden">
         <img
@@ -113,7 +113,7 @@ const HeroSection = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
