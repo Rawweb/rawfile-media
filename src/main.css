@@ -45,11 +45,11 @@
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-md bg-black text-white px-5 py-3 font-semibold hover:opacity-90 transition;
   }
-  .card {
-    @apply rounded-2xl border p-6 bg-white shadow-sm;
+  .button {
+    @apply bg-dark-midLight py-2 px-4 rounded-md transition duration-300 hover:bg-dark-light;
   }
   .section-heading {
-    @apply text-3xl font-bold mb-8 text-center;
+    @apply py-12;
   }
 }
 
@@ -66,13 +66,14 @@
 }
 
 @keyframes purpleGlow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 8px rgba(129, 110, 235, 0.4),
-                0 0 15px rgba(119, 97, 240, 0.3);
+      0 0 15px rgba(119, 97, 240, 0.3);
   }
   50% {
     box-shadow: 0 0 15px rgba(118, 96, 241, 0.8),
-                0 0 25px rgba(112, 89, 241, 0.6);
+      0 0 25px rgba(112, 89, 241, 0.6);
   }
 }
 
@@ -82,7 +83,6 @@
   }
 }
 
-
 @layer utilities {
   .animate-glow {
     animation: glow 2s ease-in-out infinite;
@@ -90,8 +90,12 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @layer utilities {

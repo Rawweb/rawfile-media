@@ -1,10 +1,11 @@
 import React from 'react';
+import Cta from '../components/Cta';
+import Hero from '../components/Hero';
 
 const Home = () => {
   return (
-    <div className="container">
-      <h1 className="section-heading">Home Page</h1>
-      <p>Welcome to Kingsley Rawfile Photography Portfolio</p>
+    <div>
+      <Hero />
     </div>
   );
 };
