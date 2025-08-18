@@ -1,8 +1,8 @@
 import { FiArrowUpRight } from 'react-icons/fi';
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import MarqueeItems from './MarqueeItems';
-import Cta from './Cta';
+import MarqueeItems from '../ui/MarqueeItems';
+import Cta from '../ui/Cta';
 
 const Footer = () => {
   return (
@@ -138,22 +138,13 @@ const Footer = () => {
           </a>
         </div>
         <div className="flex gap-3">
-          <a
-            href="#"
-            className="p-2 bg-dark-midLight rounded-full hover:bg-purple-midDark transition"
-          >
+          <a href="#" className="btn">
             <FaFacebookF />
           </a>
-          <a
-            href="#"
-            className="p-2 bg-dark-midLight rounded-full hover:bg-purple-midDark transition"
-          >
+          <a href="#" className="btn">
             <FaTwitter />
           </a>
-          <a
-            href="#"
-            className="p-2 bg-dark-midLight rounded-full hover:bg-purple-midDark transition"
-          >
+          <a href="#" className="btn">
             <FaLinkedinIn />
           </a>
         </div>

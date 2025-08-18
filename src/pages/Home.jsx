@@ -1,11 +1,13 @@
 import React from 'react';
-import Cta from '../components/Cta';
-import Hero from '../components/Hero';
+
+import HeroSection from '../sections/HeroSection';
+import AboutSection from '../sections/AboutSection';
 
 const Home = () => {
   return (
     <div>
-      <Hero />
+      <HeroSection />
+      <AboutSection/>
     </div>
   );
 };
