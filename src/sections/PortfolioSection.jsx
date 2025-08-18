@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import portfolio from '../assets/portfolio.jpg';
@@ -49,6 +49,9 @@ const PortfolioCards = () => {
 
         <Link to="/projects" className="button flex items-center gap-2">
           View More
+          <span>
+            <FaArrowRight className="size-3" />
+          </span>
         </Link>
       </div>
 

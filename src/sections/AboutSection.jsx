@@ -7,7 +7,7 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa';
 import { GiNinjaStar } from 'react-icons/gi';
-import rawfileImage from '../assets/rawfile.png'
+import rawfileImage from '../assets/rawfile.png';
 
 const AboutSection = () => {
   return (
@@ -24,7 +24,7 @@ const AboutSection = () => {
         <Link to="/about" className="button flex items-center gap-2 ">
           Learn More
           <span>
-            <FaArrowRight />
+            <FaArrowRight className="size-3" />
           </span>
         </Link>
       </div>

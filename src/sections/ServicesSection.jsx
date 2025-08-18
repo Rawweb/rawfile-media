@@ -22,7 +22,7 @@ const ServicesSection = () => {
         <Link to="/services" className="button flex items-center gap-2 ">
           View More
           <span>
-            <FaArrowRight />
+            <FaArrowRight className="size-3" />
           </span>
         </Link>
       </div>
@@ -48,24 +48,24 @@ const ServicesSection = () => {
           <div className="space-y-3">
             <h1 className="text-sm text-grey-midLight">Service Highlights</h1>
             <div className="highlight-btn">
-              <GiLaserSparks className='text-purple-dark' />
+              <GiLaserSparks className="text-purple-dark" />
               <p>
                 Coverage for weddings, parties, corporate functions, and more.
               </p>
             </div>
 
             <div className="highlight-btn">
-              <GiLaserSparks className='text-purple-dark' />
+              <GiLaserSparks className="text-purple-dark" />
               <p>Skilled photographers who know how to seize the moment.</p>
             </div>
 
             <div className="highlight-btn">
-              <GiLaserSparks className='text-purple-dark' />
+              <GiLaserSparks className="text-purple-dark" />
               <p>A mix of candid and posed shots for a comprehensive story.</p>
             </div>
 
             <div className="highlight-btn">
-              <GiLaserSparks className='text-purple-dark' />
+              <GiLaserSparks className="text-purple-dark" />
               <p>Quick turnaround for you to relive the day's highlights.</p>
             </div>
           </div>

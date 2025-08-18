@@ -46,7 +46,7 @@
     @apply inline-flex items-center justify-center rounded-md bg-black text-white px-5 py-3 font-semibold hover:opacity-90 transition;
   }
   .button {
-    @apply bg-dark-midLight py-2 px-4 rounded-md transition duration-300 border border-dark-light hover:bg-dark-light;
+    @apply bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light hover:bg-dark-light text-sm;
   }
 
   .btn {
