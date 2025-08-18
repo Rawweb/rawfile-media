@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="bg-dark-dark text-grey-light border-b border-dark-midLight">
       <div className="container flex justify-between items-center py-5 border-r border-l border-dark-midLight">
         {/* Logo */}
-        <h1 className="text-2xl uppercase">rawfile</h1>
+        <Link to="/" className="text-2xl uppercase">rawfile</Link>
 
         {/* Desktop Nav */}
         <div className="hidden gap-1 md:flex">

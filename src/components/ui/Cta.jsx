@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const Cta = () => {
   // Pairs of phrases
@@ -93,9 +94,9 @@ const Cta = () => {
           {letDisplayed}
           {cursorVisible && <span className="animate-pulse">|</span>}
         </h1>
-        <button className="flex items-center gap-2 bg-purple-dark hover:bg-purple-midDark text-white px-5 md:px-8 py-2 rounded-full transition duration-300 hover:shadow-[0_0_20px_rgba(174,161,247,0.9)] animate-purple-glow">
+        <Link to='/services' className="flex items-center gap-2 bg-purple-dark hover:bg-purple-midDark text-white px-5 md:px-8 py-2 rounded-full transition duration-300 hover:shadow-[0_0_20px_rgba(174,161,247,0.9)] animate-purple-glow">
           <FiArrowUpRight className="size-5" />
-        </button>
+        </Link>
       </div>
 
       {/* Second line: Work Together */}
