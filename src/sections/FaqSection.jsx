@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
@@ -38,79 +39,102 @@ const faqs = [
       'Yes, prints are available upon request. You can let me know your preferred size and format, and I’ll provide options and pricing details.',
   },
   {
-    question:
-      'How long does it take to receive the edited photos after a session?',
+    question: 'How long does it take to receive the edited photos after a session?',
     answer:
-      'For regular photo sessions (such as portraits or lifestyle shoots), edited photos are usually delivered within 48–72 hours. For larger projects like events or commercial photography, delivery typically takes 1–2 weeks. Please note that these timelines may vary depending on the season and workload.',
+      'For regular photo sessions, edited photos are delivered within 48–72 hours. For larger projects like events, delivery usually takes 1–2 weeks.',
   },
   {
     question: 'How do you handle cancellations or rescheduling?',
     answer:
-      'For event coverage (such as weddings or corporate photography), cancellations or rescheduling should be communicated at least 2 months in advance to allow proper adjustments. For studio or regular sessions, please provide at least 7 days’ notice. Deposits are non-refundable, but they can be applied to a future session if rescheduled within the agreed timeframe.',
+      'For events, cancellations or rescheduling should be communicated at least 2 months in advance. For regular sessions, 7 days’ notice is required. Deposits are non-refundable but can be applied to a future session.',
   },
   {
     question: 'Do you offer customized photography packages?',
     answer:
-      'Yes, packages can be tailored to your specific needs. Whether you require extended coverage, additional locations, or special edits, I can create a package that fits your vision and budget.',
+      'Yes, packages can be tailored to your specific needs — extended coverage, additional locations, or special edits can all be included.',
   },
 ];
 
 const FaqSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const toggleFAQ = index => {
+  const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
     <section className="container section-heading">
       {/* TOP */}
-      <div className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8">
+      <motion.div
+        className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: 'spring', stiffness: 70 }}
+        viewport={{ once: true, amount: 0.4 }}
+      >
         <div>
           <p className="text-grey-midDark uppercase text-sm">FAQ's</p>
           <h1 className="uppercase text-2xl md:text-3xl font-bold leading-tight">
             frequently asked questions
           </h1>
         </div>
-      </div>
+      </motion.div>
 
       {/* FAQ Grid */}
-      <div className="grid md:grid-cols-2 gap-6 pt-12">
+      <motion.div
+        className="grid md:grid-cols-2 gap-6 pt-12"
+        initial="hidden"
+        whileInView="visible"
+        transition={{ staggerChildren: 0.15 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {faqs.map((faq, index) => (
-          <div
+          <motion.div
             key={index}
             className="border-b border-dark-midLight pb-4 cursor-pointer"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            onClick={() => toggleFAQ(index)}
           >
             {/* Question Row */}
-            <div
-              className="flex justify-between items-center"
-              onClick={() => toggleFAQ(index)}
-            >
+            <div className="flex justify-between items-center">
               <h3 className="font-semibold uppercase text-grey-midLight">
                 {faq.question}
               </h3>
-              <div className="w-5 h-5 flex items-center justify-center rounded-full border border-dark-midLight">
+              <motion.div
+                animate={{ rotate: activeIndex === index ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-5 h-5 flex items-center justify-center rounded-full border border-dark-midLight"
+              >
                 {activeIndex === index ? (
                   <FiChevronUp className="size-4" />
                 ) : (
                   <FiChevronDown className="size-4" />
                 )}
-              </div>
+              </motion.div>
             </div>
 
-            {/* Answer with transition */}
-            <div
-              className={`transition-all duration-500 ease-in-out overflow-hidden ${
-                activeIndex === index ? 'max-h-40 mt-3' : 'max-h-0'
-              }`}
-            >
-              <p className="text-sm text-grey-midDark leading-relaxed">
-                {faq.answer}
-              </p>
-            </div>
-          </div>
+            {/* Answer with smooth expand */}
+            <AnimatePresence initial={false}>
+              {activeIndex === index && (
+                <motion.div
+                  key="content"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  className="mt-3"
+                >
+                  <p className="text-sm text-grey-midDark leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

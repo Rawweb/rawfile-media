@@ -92,17 +92,17 @@ const TestimonialsPage = () => {
       {/* STATS */}
       <div className="flex flex-col sm:flex-row justify-center gap-8 mb-12 text-center">
         <div>
-          <h2 className="text-3xl font-bold text-yellow-400">4.8</h2>
+          <h2 className="text-3xl font-bold text-purple-light">4.8</h2>
           <p className="text-grey-dark">Average Rating</p>
         </div>
         <div>
-          <h2 className="text-3xl font-bold text-yellow-400">
+          <h2 className="text-3xl font-bold text-purple-light">
             {testimonials.length}
           </h2>
           <p className="text-grey-dark">Total Reviews</p>
         </div>
         <div>
-          <h2 className="text-3xl font-bold text-yellow-400">100%</h2>
+          <h2 className="text-3xl font-bold text-purple-light">100%</h2>
           <p className="text-grey-dark">Client Satisfaction</p>
         </div>
       </div>
@@ -127,7 +127,7 @@ const TestimonialsPage = () => {
             </div>
 
             {/* Stars */}
-            <div className="flex gap-1 items-center text-yellow-400 relative z-10">
+            <div className="flex gap-1 items-center text-yellow-light relative z-10">
               {Array.from({ length: testimonial.rating }).map((_, i) => (
                 <TiStarFullOutline key={i} className="size-5" />
               ))}
@@ -171,7 +171,7 @@ const TestimonialsPage = () => {
 
       {/* LOAD MORE / PAGINATION */}
       <div className="flex justify-center mt-12">
-        <button className="px-6 py-3 rounded-xl bg-yellow-400 text-black font-semibold hover:bg-yellow-500 transition">
+        <button className="px-6 py-3 rounded-xl bg-purple-light font-semibold hover:bg-purple-midLight text-grey-light transition">
           Load More
         </button>
       </div>

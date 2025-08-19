@@ -13,10 +13,17 @@ export default {
 
         // Purple Shades (4 levels)
         purple: {
-          light: '#EAE7FD', // 95
-          midLight: '#AEA1F7', // 80
-          midDark: '#5E43EF', // 60
-          dark: '#4A42ED', // 55
+          light: '#A855F7', // 400
+          midLight: '#9333EA', // 500
+          lighter: '#C084FC', // 600
+          dark: '#7E22CE', // 700
+        },
+
+        yellow: {
+          light: '#FACC15', // 400
+          midLight: '#EAB308', // 500
+          lighter: '#CA8A04', // 600
+          dark: '#A16207', // 700
         },
 
         // Dark Shades (4 levels)

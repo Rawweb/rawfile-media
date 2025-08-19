@@ -46,11 +46,11 @@
     @apply inline-flex items-center justify-center rounded-md bg-black text-white px-5 py-3 font-semibold hover:opacity-90 transition;
   }
   .button {
-    @apply bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light hover:bg-dark-light text-sm;
+    @apply bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light hover:bg-purple-midLight text-sm;
   }
 
   .btn {
-    @apply p-2 bg-dark-midLight rounded-full hover:bg-purple-midDark size-10  flex items-center justify-center transition duration-300;
+    @apply p-2 bg-dark-midLight rounded-full hover:bg-purple-midLight size-10  flex items-center justify-center transition duration-300;
   }
 
   .highlight-btn {
