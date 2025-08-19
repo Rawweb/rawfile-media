@@ -4,7 +4,7 @@ import { FiArrowUpRight } from 'react-icons/fi';
 import { GiLaserSparks } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'; // ✅ added
-import tall3 from '../assets/tall-3.jpg';
+import tall3 from '../../assets/tall-3.jpg';
 
 const ServicesSection = () => {
   return (

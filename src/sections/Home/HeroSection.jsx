@@ -1,27 +1,67 @@
 import React from 'react';
-import { motion } from 'framer-motion'; 
-import Cta from '../components/ui/Cta';
-import MarqueeItems from '../components/ui/MarqueeItems';
-import spiralBg from '../assets/spiralBg.png';
-import tall from '../assets/tall.jpg';
-import tall2 from '../assets/tall-2.jpg';
-import tall3 from '../assets/tall-3.jpg';
-import big from '../assets/big.jpg';
-import big2 from '../assets/big-2.jpg';
-import tall4 from '../assets/tall-4.jpg';
-import small2 from '../assets/small-2.jpg';
-import small3 from '../assets/small-3.jpg';
+import { motion } from 'framer-motion';
+import Cta from '../../components/ui/Cta';
+import MarqueeItems from '../../components/ui/MarqueeItems';
+import spiralBg from '../../assets/spiralBg.png';
+import tall from '../../assets/tall.jpg';
+import tall2 from '../../assets/tall-2.jpg';
+import tall3 from '../../assets/tall-3.jpg';
+import big from '../../assets/big.jpg';
+import big2 from '../../assets/big-2.jpg';
+import tall4 from '../../assets/tall-4.jpg';
+import small2 from '../../assets/small-2.jpg';
+import small3 from '../../assets/small-3.jpg';
 
 const HeroSection = () => {
   const images = [
-    { src: tall2, col: 'col-span-2', row: 'row-span-3', alt: 'Tall left feature image' },
-    { src: tall4, col: 'col-span-2', row: 'row-span-2', alt: 'Top wide feature image' },
-    { src: tall3, col: 'col-span-1', row: 'row-span-1', alt: 'Top right small image' },
-    { src: tall,  col: 'col-span-1', row: 'row-span-2', alt: 'Middle right tall image' },
-    { src: small2, col: 'col-span-2', row: 'row-span-2', alt: 'Bottom wide image' },
-    { src: big,   col: 'col-span-1', row: 'row-span-1', alt: 'Bottom left filler' },
-    { src: big2,  col: 'col-span-1', row: 'row-span-1', alt: 'Bottom middle filler' },
-    { src: small3,col: 'col-span-1', row: 'row-span-1', alt: 'Bottom right filler' },
+    {
+      src: tall2,
+      col: 'col-span-2',
+      row: 'row-span-3',
+      alt: 'Tall left feature image',
+    },
+    {
+      src: tall4,
+      col: 'col-span-2',
+      row: 'row-span-2',
+      alt: 'Top wide feature image',
+    },
+    {
+      src: tall3,
+      col: 'col-span-1',
+      row: 'row-span-1',
+      alt: 'Top right small image',
+    },
+    {
+      src: tall,
+      col: 'col-span-1',
+      row: 'row-span-2',
+      alt: 'Middle right tall image',
+    },
+    {
+      src: small2,
+      col: 'col-span-2',
+      row: 'row-span-2',
+      alt: 'Bottom wide image',
+    },
+    {
+      src: big,
+      col: 'col-span-1',
+      row: 'row-span-1',
+      alt: 'Bottom left filler',
+    },
+    {
+      src: big2,
+      col: 'col-span-1',
+      row: 'row-span-1',
+      alt: 'Bottom middle filler',
+    },
+    {
+      src: small3,
+      col: 'col-span-1',
+      row: 'row-span-1',
+      alt: 'Bottom right filler',
+    },
   ];
 
   return (
@@ -39,7 +79,12 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ type: 'spring', stiffness: 70, damping: 20, duration: 0.8 }}
+              transition={{
+                type: 'spring',
+                stiffness: 70,
+                damping: 20,
+                duration: 0.8,
+              }}
               viewport={{ once: true, amount: 0.6 }}
             >
               <p className="text-grey-midDark uppercase mb-2 text-sm md:text-base">
@@ -53,7 +98,12 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, type: 'spring', stiffness: 80, damping: 15 }}
+              transition={{
+                delay: 0.4,
+                type: 'spring',
+                stiffness: 80,
+                damping: 15,
+              }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
             >

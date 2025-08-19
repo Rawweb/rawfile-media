@@ -25,9 +25,9 @@ function App() {
       {loading ? (
         <Loader />
       ) : (
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <Navbar />
-          <main className="min-h-screen bg-dark-dark text-grey-light">
+          <main className="min-h-screen bg-dark-dark text-grey-light overflow-hidden">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

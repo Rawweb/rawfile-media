@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaArrowRight, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import { GiNinjaStar } from 'react-icons/gi';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import rawfileImage from '../assets/rawfile.png';
+import rawfileImage from '../../assets/rawfile.png';
 
 const AboutSection = () => {
   const sectionRef = useRef(null);
