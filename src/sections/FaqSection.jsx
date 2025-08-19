@@ -62,11 +62,25 @@ const FaqSection = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  // Variants for staggered entrance
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
-    <section className="container section-heading">
+    <section className="container section-heading relative">
       {/* TOP */}
       <motion.div
-        className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8"
+        className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8 relative"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, type: 'spring', stiffness: 70 }}
@@ -82,19 +96,17 @@ const FaqSection = () => {
 
       {/* FAQ Grid */}
       <motion.div
-        className="grid md:grid-cols-2 gap-6 pt-12"
+        className="grid md:grid-cols-2 gap-6 pt-12 relative"
+        variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        transition={{ staggerChildren: 0.15 }}
         viewport={{ once: true, amount: 0.2 }}
       >
         {faqs.map((faq, index) => (
           <motion.div
             key={index}
-            className="border-b border-dark-midLight pb-4 cursor-pointer"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            variants={itemVariants}
+            className="border-b border-dark-midLight pb-4 cursor-pointer relative"
             onClick={() => toggleFAQ(index)}
           >
             {/* Question Row */}

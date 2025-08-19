@@ -1,11 +1,6 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  FaArrowRight,
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-} from 'react-icons/fa';
+import { FaArrowRight, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import { GiNinjaStar } from 'react-icons/gi';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import rawfileImage from '../assets/rawfile.png';
@@ -13,13 +8,11 @@ import rawfileImage from '../assets/rawfile.png';
 const AboutSection = () => {
   const sectionRef = useRef(null);
 
-  // Track scroll for parallax
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  // Subtle upward drift for the accent
   const y = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
   return (
@@ -55,6 +48,7 @@ const AboutSection = () => {
           transition={{ delay: 0.3, type: 'spring' }}
           viewport={{ once: true }}
           whileHover={{ scale: 1.05 }}
+          className="relative"
         >
           <Link to="/about" className="button flex items-center gap-2 ">
             Learn More
@@ -69,14 +63,13 @@ const AboutSection = () => {
       <div className="pt-12 flex flex-col md:flex-row gap-5 items-center relative z-10">
         {/* LEFT IMAGE */}
         <motion.div
-          className="w-full md:flex-1"
+          className="w-full md:flex-1 relative"
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.5 }}
         >
           <div className="relative w-full rounded-[40px] overflow-hidden">
-            {/* Masks */}
             <div className="absolute -top-4 -left-4 w-20 h-20 bg-black rounded-br-[100px]" />
             <div className="absolute -bottom-4 -right-4 w-40 h-40 bg-black rounded-tl-[100px]" />
 
@@ -92,14 +85,14 @@ const AboutSection = () => {
 
         {/* RIGHT PANEL */}
         <motion.div
-          className="flex-1 border border-dark-midLight rounded-[30px] flex flex-col gap-8 bg-dark-dark/30 backdrop-blur-sm"
+          className="flex-1 border border-dark-midLight rounded-[30px] flex flex-col gap-8 bg-dark-dark/30 backdrop-blur-sm relative"
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.5 }}
         >
           {/* INTRODUCTION */}
-          <div className=" border-b border-dark-midLight pb-6 p-6">
+          <div className="border-b border-dark-midLight pb-6 p-6">
             <h3 className="text-lg font-medium mb-2 flex items-center gap-2">
               <span className="text-purple-light">
                 <GiNinjaStar />
@@ -138,7 +131,7 @@ const AboutSection = () => {
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
               {/* Social */}
               <motion.div
-                className="flex items-center gap-2 border border-dark-midLight rounded-full p-2"
+                className="flex items-center gap-2 border border-dark-midLight rounded-full p-2 relative"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
@@ -151,7 +144,7 @@ const AboutSection = () => {
 
               {/* Buttons */}
               <motion.div
-                className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto text-sm xl:text-base"
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto text-sm xl:text-base relative"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}

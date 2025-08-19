@@ -1,51 +1,52 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { IoFilter } from 'react-icons/io5';
-import { MdClose } from 'react-icons/md';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { IoFilter } from "react-icons/io5";
+import { MdClose } from "react-icons/md";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Services', path: '/services' },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Portfolio", path: "/portfolio" },
+    { name: "Services", path: "/services" },
   ];
 
   return (
     <motion.nav
-      initial={{ boxShadow: '0 0 0 rgba(168,85,247,0.0)' }}
+      initial={{ boxShadow: "0 0 0 rgba(168,85,247,0.0)" }}
       animate={{
         boxShadow: [
-          '0 0 0 rgba(168,85,247,0.0)',
-          '0 0 20px rgba(168,85,247,0.25)',
-          '0 0 0 rgba(168,85,247,0.0)',
+          "0 0 0 rgba(168,85,247,0.0)",
+          "0 0 20px rgba(168,85,247,0.25)",
+          "0 0 0 rgba(168,85,247,0.0)",
         ],
       }}
-      transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      className="sticky top-0 z-50 bg-dark-dark text-grey-light border-b border-dark-midLight overflow-hidden"
+      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      className="sticky top-0 z-50 bg-dark-dark text-grey-light border-b border-dark-midLight overflow-hidden relative"
     >
       {/* Floating Purple Orb */}
       <motion.div
         className="absolute -top-10 left-1/3 w-72 h-72 rounded-full bg-purple-500/20 blur-3xl pointer-events-none"
         animate={{ x: [0, 100, -100, 0], y: [0, -30, 30, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       />
 
+      {/* Container */}
       <div className="container relative flex justify-between items-center py-5 border-r border-l border-dark-midLight">
         {/* Logo with shimmer + glow */}
         <motion.div
           animate={{
             textShadow: [
-              '0 0 0px rgba(168,85,247,0)',
-              '0 0 15px rgba(168,85,247,0.8)',
-              '0 0 0px rgba(168,85,247,0)',
+              "0 0 0px rgba(168,85,247,0)",
+              "0 0 15px rgba(168,85,247,0.8)",
+              "0 0 0px rgba(168,85,247,0)",
             ],
           }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
           <Link
             to="/"
@@ -55,11 +56,11 @@ const Navbar = () => {
             {/* shimmer sweep overlay */}
             <motion.span
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent"
-              animate={{ x: ['-100%', '200%'] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+              animate={{ x: ["-100%", "200%"] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               style={{
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
               }}
             />
           </Link>
@@ -67,14 +68,16 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden gap-2 md:flex relative">
-          {navLinks.map(link => {
+          {navLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (
               <div key={link.path} className="relative group">
                 <Link
                   to={link.path}
                   className={`py-2 px-4 rounded-md transition duration-300 ${
-                    isActive ? 'bg-purple-midLight/20' : 'hover:bg-purple-midLight/20'
+                    isActive
+                      ? "bg-purple-midLight/20"
+                      : "hover:bg-purple-midLight/20"
                   }`}
                 >
                   {link.name}
@@ -88,9 +91,9 @@ const Navbar = () => {
         <motion.div
           animate={{
             boxShadow: [
-              '0 0 0 rgba(168,85,247,0)',
-              '0 0 15px rgba(168,85,247,0.4)',
-              '0 0 0 rgba(168,85,247,0)',
+              "0 0 0 rgba(168,85,247,0)",
+              "0 0 15px rgba(168,85,247,0.4)",
+              "0 0 0 rgba(168,85,247,0)",
             ],
           }}
           transition={{ duration: 5, repeat: Infinity }}
@@ -105,7 +108,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          onClick={() => setMobileOpen(prev => !prev)}
+          onClick={() => setMobileOpen((prev) => !prev)}
           className="md:hidden block transition"
         >
           {mobileOpen ? (
@@ -124,10 +127,10 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-dark-dark border-b border-dark-midDark overflow-hidden"
+            className="md:hidden bg-dark-dark border-b border-dark-midDark overflow-hidden relative"
           >
             <div className="flex flex-col p-4 gap-3">
-              {navLinks.map(link => {
+              {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
                   <Link
@@ -136,8 +139,8 @@ const Navbar = () => {
                     onClick={() => setMobileOpen(false)}
                     className={`py-2 px-4 rounded-md transition duration-300 ${
                       isActive
-                        ? 'bg-purple-midLight/20 text-grey-light'
-                        : 'hover:bg-purple-midLight/20 hover:text-grey-light'
+                        ? "bg-purple-midLight/20 text-grey-light"
+                        : "hover:bg-purple-midLight/20 hover:text-grey-light"
                     }`}
                   >
                     {link.name}
@@ -145,20 +148,24 @@ const Navbar = () => {
                 );
               })}
 
-              <motion.button
+              <motion.div
                 animate={{
                   boxShadow: [
-                    '0 0 0 rgba(168,85,247,0)',
-                    '0 0 15px rgba(168,85,247,0.4)',
-                    '0 0 0 rgba(168,85,247,0)',
+                    "0 0 0 rgba(168,85,247,0)",
+                    "0 0 15px rgba(168,85,247,0.4)",
+                    "0 0 0 rgba(168,85,247,0)",
                   ],
                 }}
                 transition={{ duration: 5, repeat: Infinity }}
-                onClick={() => setMobileOpen(false)}
-                className="button"
               >
-                Contact Me
-              </motion.button>
+                <Link
+                  to="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="button block text-center"
+                >
+                  Contact Me
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}

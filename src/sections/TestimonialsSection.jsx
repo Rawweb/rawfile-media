@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  FaArrowRight,
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-} from 'react-icons/fa';
+import { FaArrowRight, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import { TiStarFullOutline } from 'react-icons/ti';
 import { motion, useMotionValue, animate } from 'framer-motion';
 
 const TestimonialsSection = () => {
-  const x = useMotionValue(0); // track position
+  const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [constraints, setConstraints] = useState({ left: 0, right: 0 });
@@ -108,7 +103,7 @@ const TestimonialsSection = () => {
   // Track active testimonial index (for dots)
   useEffect(() => {
     const unsubscribe = x.on('change', latest => {
-      const cardWidth = 320; // ~width of one card + gap
+      const cardWidth = 320;
       const index =
         Math.abs(Math.round(latest / cardWidth)) % testimonials.length;
       setActiveIndex(index);
@@ -129,9 +124,9 @@ const TestimonialsSection = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="container section-heading">
+    <section className="container section-heading relative">
       {/* TOP */}
-      <div className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8">
+      <div className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8 relative">
         <div>
           <p className="text-grey-midDark uppercase text-sm">testimonials</p>
           <h1 className="uppercase text-2xl md:text-3xl font-bold leading-tight">
@@ -149,14 +144,14 @@ const TestimonialsSection = () => {
         </Link>
       </div>
 
-      {/* BOTTOM - Auto Scroll + Drag/Swipe */}
+      {/* BOTTOM */}
       <div
         ref={containerRef}
-        className="relative overflow-hidden" // no vertical scrollbar
+        className="relative overflow-hidden"
       >
         <motion.div
           ref={carouselRef}
-          className="pt-12 flex gap-6 cursor-grab active:cursor-grabbing"
+          className="pt-12 flex gap-6 cursor-grab active:cursor-grabbing relative"
           style={{ x }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -173,7 +168,7 @@ const TestimonialsSection = () => {
                 animate={{
                   scale: isActive ? 1.0 : 0.9,
                   boxShadow: isActive
-                    ? '0 0 25px rgba(168,85,247,0.5)' // purple glow
+                    ? '0 0 25px rgba(168,85,247,0.5)'
                     : '0 0 0 rgba(0,0,0,0)',
                 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
@@ -183,38 +178,25 @@ const TestimonialsSection = () => {
                     : 'border-dark-midLight'
                 }`}
               >
-                {/* Overlay / mask */}
+                {/* Overlay */}
                 <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-dark-midLight/50 to-transparent rounded-bl-[150px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-bl from-dark-midLight/50 to-transparent rounded-tr-[150px] pointer-events-none" />
 
                 {/* Heading */}
                 <div className="flex justify-between items-center gap-4 relative z-10">
                   <div>
-                    <h1 className="text-grey-midLight text-sm">
-                      {testimonial.name}
-                    </h1>
-                    <p className="text-xs text-grey-dark">
-                      {testimonial.location}
-                    </p>
+                    <h1 className="text-grey-midLight text-sm">{testimonial.name}</h1>
+                    <p className="text-xs text-grey-dark">{testimonial.location}</p>
                   </div>
                   <div>
                     <div className="flex items-center gap-2 border bg-dark-dark border-dark-midLight rounded-full p-2">
-                      <a
-                        href="#"
-                        className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition"
-                      >
+                      <a href="#" className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition">
                         <FaFacebookF />
                       </a>
-                      <a
-                        href="#"
-                        className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition"
-                      >
+                      <a href="#" className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition">
                         <FaTwitter />
                       </a>
-                      <a
-                        href="#"
-                        className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition"
-                      >
+                      <a href="#" className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition">
                         <FaLinkedinIn />
                       </a>
                     </div>
@@ -226,17 +208,12 @@ const TestimonialsSection = () => {
                   {Array.from({ length: testimonial.rating }).map((_, index) => (
                     <TiStarFullOutline key={index} className="size-5" />
                   ))}
-                  {Array.from({ length: 5 - testimonial.rating }).map(
-                    (_, index) => (
-                      <TiStarFullOutline
-                        key={`empty-${index}`}
-                        className="size-5 text-grey-dark"
-                      />
-                    )
-                  )}
+                  {Array.from({ length: 5 - testimonial.rating }).map((_, index) => (
+                    <TiStarFullOutline key={`empty-${index}`} className="size-5 text-grey-dark" />
+                  ))}
                 </div>
 
-                {/* Review Text */}
+                {/* Review */}
                 <p className="text-grey-midLight text-sm relative z-10">
                   {testimonial.review}
                 </p>
@@ -246,8 +223,8 @@ const TestimonialsSection = () => {
         </motion.div>
       </div>
 
-      {/* Pagination Dots */}
-      <div className="flex justify-center mt-6 gap-2">
+      {/* Dots */}
+      <div className="flex justify-center mt-6 gap-2 relative">
         {testimonials.map((_, index) => (
           <button
             key={index}
@@ -256,7 +233,7 @@ const TestimonialsSection = () => {
             }`}
             onClick={() => {
               animationRef.current?.stop();
-              x.set(-index * 320); // jump to testimonial
+              x.set(-index * 320);
               setActiveIndex(index);
             }}
           />

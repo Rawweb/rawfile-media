@@ -87,23 +87,32 @@ const Cta = () => {
   ]);
 
   return (
-    <div>
+    <div className="flex flex-col">
       {/* First line: Let's + Button */}
       <div className="flex items-center gap-2 mb-4">
         <h1 className="text-3xl md:text-4xl text-white uppercase">
           {letDisplayed}
-          {cursorVisible && <span className="animate-pulse">|</span>}
+          {phase.includes('Let') && cursorVisible && (
+            <span className="animate-pulse">|</span>
+          )}
         </h1>
-        <Link to='/services' className="flex items-center gap-2 bg-purple-light hover:bg-purple-midLight text-white px-5 md:px-8 py-2 rounded-full transition duration-300 hover:shadow-[0_0_20px_rgba(174,161,247,0.9)] animate-purple-glow">
+        <Link
+          to="/services"
+          className="flex items-center gap-2 bg-purple-light hover:bg-purple-midLight text-white px-5 md:px-8 py-2 rounded-full transition duration-300 hover:shadow-[0_0_20px_rgba(174,161,247,0.9)] animate-purple-glow"
+        >
           <FiArrowUpRight className="size-5" />
         </Link>
       </div>
 
       {/* Second line: Work Together */}
-      <h1 className="text-3xl md:text-4xl text-white uppercase">
-        {workDisplayed}
-        {cursorVisible && <span className="animate-pulse">|</span>}
-      </h1>
+      <div className="min-h-[2.5rem] md:min-h-[3rem]">
+        <h1 className="text-3xl md:text-4xl text-white uppercase leading-tight">
+          {workDisplayed || <span>&nbsp;</span>}
+          {phase.includes('Work') && cursorVisible && (
+            <span className="animate-pulse">|</span>
+          )}
+        </h1>
+      </div>
     </div>
   );
 };

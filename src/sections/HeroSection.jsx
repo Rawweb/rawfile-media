@@ -26,14 +26,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative">
-      {/* 🔮 Cinematic glowing orb in background */}
-      {/* <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.15, scale: 1 }}
-        transition={{ duration: 2, ease: 'easeOut' }}
-        className="absolute -top-32 -left-32 w-[1000px] h-[1000px] rounded-full bg-purple-600 blur-[120px] pointer-events-none"
-      /> */}
-
       {/* ---------------------- Hero Heading ---------------------- */}
       <div className="relative border-b border-dark-midDark section-heading overflow-hidden">
         <img
@@ -77,13 +69,13 @@ const HeroSection = () => {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: 'easeOut' }}
         viewport={{ once: true }}
-        className="overflow-hidden text-grey-midLight bg-dark-midDark border border-dark-midLight border-l-0 border-r-0"
+        className="overflow-hidden text-grey-midLight bg-dark-midDark border border-dark-midLight border-l-0 border-r-0 relative"
       >
         <MarqueeItems />
       </motion.div>
 
       {/* ---------------------- Collage Grid ---------------------- */}
-      <div className="container">
+      <div className="container relative">
         <motion.div
           className="grid gap-2 grid-cols-5 auto-rows-[80px] md:auto-rows-[120px]"
           initial="hidden"
@@ -94,7 +86,7 @@ const HeroSection = () => {
           {images.map((img, i) => (
             <motion.div
               key={i}
-              className={`rounded-lg overflow-hidden ${img.col} ${img.row}`}
+              className={`rounded-lg overflow-hidden ${img.col} ${img.row} relative`}
               variants={{
                 hidden: { opacity: 0, scale: 0.9, y: 40 },
                 visible: {
@@ -111,7 +103,7 @@ const HeroSection = () => {
                 src={img.src}
                 alt={img.alt}
                 className="w-full h-full object-cover"
-                whileHover={{ scale: 1.0}}
+                whileHover={{ scale: 1.0 }}
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
               />
             </motion.div>

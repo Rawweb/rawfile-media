@@ -8,13 +8,18 @@ import tall3 from '../assets/tall-3.jpg';
 
 const ServicesSection = () => {
   return (
-    <section className="container section-heading">
+    <section className="container section-heading relative">
       {/* TOP */}
       <motion.div
         className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, type: 'spring', stiffness: 70, damping: 20 }}
+        transition={{
+          duration: 0.8,
+          type: 'spring',
+          stiffness: 70,
+          damping: 20,
+        }}
         viewport={{ once: true, amount: 0.5 }}
       >
         <div>
@@ -74,9 +79,9 @@ const ServicesSection = () => {
             transition={{ staggerChildren: 0.15 }}
           >
             {[
-              "Coverage for weddings, parties, corporate functions, and more.",
-              "Skilled photographers who know how to seize the moment.",
-              "A mix of candid and posed shots for a comprehensive story.",
+              'Coverage for weddings, parties, corporate functions, and more.',
+              'Skilled photographers who know how to seize the moment.',
+              'A mix of candid and posed shots for a comprehensive story.',
               "Quick turnaround for you to relive the day's highlights.",
             ].map((text, i) => (
               <motion.div
@@ -95,7 +100,7 @@ const ServicesSection = () => {
         </motion.div>
 
         {/* RIGHT PANEL - IMAGE */}
-        <motion.light
+        <motion.div
           className="w-full md:flex-1"
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -111,7 +116,7 @@ const ServicesSection = () => {
               transition={{ duration: 0.4 }}
             />
           </div>
-        </motion.light>
+        </motion.div>
       </div>
     </section>
   );
