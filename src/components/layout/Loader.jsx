@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Logo from '../../assets/logo.svg'; // your logo
+import Logo from '@assets/logo.svg'; // your logo
 
 const Loader = ({ onFinish }) => {
   useEffect(() => {

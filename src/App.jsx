@@ -1,15 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
-import Loader from './components/layout/Loader';
+import Navbar from '@components/layout/Navbar'
+import Footer from '@components/layout/Footer';
+import Loader from '@components/layout/Loader';
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import TestimonialsPage from './pages/TestimonialsPage';
+import Home from '@pages/Home';
+import About from '@pages/About';
+import Portfolio from '@pages/Portfolio';
+import Services from '@pages/Services';
+import Contact from '@pages/Contact';
+import TestimonialsPage from '@pages/TestimonialsPage';
+
 
 function App() {
   const [loading, setLoading] = useState(true);

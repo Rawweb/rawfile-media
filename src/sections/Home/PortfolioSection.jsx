@@ -4,9 +4,9 @@ import { FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-import portfolio from '../../assets/portfolio.jpg';
-import portfolio1 from '../../assets/portfolio-1.jpg';
-import portfolio3 from '../../assets/portfolio-3.jpg';
+import portfolio from '@assets/portfolio.jpg';
+import portfolio1 from '@assets/portfolio-1.jpg';
+import portfolio3 from '@assets/portfolio-3.jpg';
 
 const projects = [
   { name: 'Faces of Resilience', date: 'March 2022', image: portfolio },

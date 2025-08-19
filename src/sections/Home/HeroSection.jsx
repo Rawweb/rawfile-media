@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Cta from '../../components/ui/Cta';
-import MarqueeItems from '../../components/ui/MarqueeItems';
-import spiralBg from '../../assets/spiralBg.png';
-import tall from '../../assets/tall.jpg';
-import tall2 from '../../assets/tall-2.jpg';
-import tall3 from '../../assets/tall-3.jpg';
-import big from '../../assets/big.jpg';
-import big2 from '../../assets/big-2.jpg';
-import tall4 from '../../assets/tall-4.jpg';
-import small2 from '../../assets/small-2.jpg';
-import small3 from '../../assets/small-3.jpg';
+import Cta from '@components/ui/Cta';
+import MarqueeItems from '@components/ui/MarqueeItems';
+import spiralBg from '@assets/spiralBg.png';
+import tall from '@assets/tall.jpg';
+import tall2 from '@assets/tall-2.jpg';
+import tall3 from '@assets/tall-3.jpg';
+import big from '@assets/big.jpg';
+import big2 from '@assets/big-2.jpg';
+import tall4 from '@assets/tall-4.jpg';
+import small2 from '@assets/small-2.jpg';
+import small3 from '@assets/small-3.jpg';
 
 const HeroSection = () => {
   const images = [

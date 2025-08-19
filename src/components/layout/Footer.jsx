@@ -1,8 +1,8 @@
 import { FiArrowUpRight } from 'react-icons/fi';
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import MarqueeItems from '../ui/MarqueeItems';
-import Cta from '../ui/Cta';
+import MarqueeItems from '@components/ui/MarqueeItems'
+import Cta from '@components/ui/Cta';
 import { motion } from 'framer-motion';
 
 const Footer = () => {

@@ -1,12 +1,10 @@
-import React from 'react'
+import React from 'react';
+import AboutHero from '@sections/About/AboutHero';
 
 const About = () => {
-  return (
-     <div className="container">
-      <h1 className="section-heading">About Page</h1>
-      <p>Welcome to Kingsley Rawfile Photography Portfolio</p>
-    </div>
-  )
-}
+  return <div className="relative">
+    <AboutHero/>
+  </div>;
+};
 
-export default About
+export default About;
