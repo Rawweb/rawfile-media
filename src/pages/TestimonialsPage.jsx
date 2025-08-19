@@ -1,117 +1,156 @@
-import React from "react";
-import { TiStarFullOutline } from "react-icons/ti";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import React from 'react';
+import { TiStarFullOutline } from 'react-icons/ti';
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const TestimonialsPage = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Chinedu Okafor",
-      location: "Awka, Anambra State",
+      name: 'Chinedu Okafor',
+      location: 'Awka, Anambra State',
       rating: 5,
       review:
-        "Rawfile’s photography made my event unforgettable. Every moment was captured beautifully.",
+        'Rawfile’s photography made my event unforgettable. Every moment was captured beautifully.',
     },
     {
       id: 2,
-      name: "Amaka Nwosu",
-      location: "Asaba, Delta State",
+      name: 'Amaka Nwosu',
+      location: 'Asaba, Delta State',
       rating: 4,
       review:
-        "The pictures were absolutely stunning. He has a way of bringing emotions alive in photos.",
+        'The pictures were absolutely stunning. He has a way of bringing emotions alive in photos.',
     },
     {
       id: 3,
-      name: "Obinna Eze",
-      location: "Enugu, Enugu State",
+      name: 'Obinna Eze',
+      location: 'Enugu, Enugu State',
       rating: 5,
       review:
-        "Fantastic experience! From the session to the final photos, everything was perfect.",
+        'Fantastic experience! From the session to the final photos, everything was perfect.',
     },
     {
       id: 4,
-      name: "Ngozi Ibeh",
-      location: "Owerri, Imo State",
+      name: 'Ngozi Ibeh',
+      location: 'Owerri, Imo State',
       rating: 5,
       review:
-        "I was amazed by the attention to detail. The photos speak louder than words!",
+        'I was amazed by the attention to detail. The photos speak louder than words!',
     },
     {
       id: 5,
-      name: "Kelechi Umeh",
-      location: "Aba, Abia State",
+      name: 'Kelechi Umeh',
+      location: 'Aba, Abia State',
       rating: 4,
       review:
-        "Creative, professional, and truly talented. Highly recommended for any occasion.",
+        'Creative, professional, and truly talented. Highly recommended for any occasion.',
     },
     {
       id: 6,
-      name: "Tolu Adebayo",
-      location: "Lagos, Nigeria",
+      name: 'Tolu Adebayo',
+      location: 'Lagos, Nigeria',
       rating: 5,
       review:
-        "The photoshoot exceeded my expectations. Every detail was captured perfectly.",
+        'The photoshoot exceeded my expectations. Every detail was captured perfectly.',
     },
     {
       id: 7,
-      name: "Ifeanyi Nnaji",
-      location: "Nnewi, Anambra State",
+      name: 'Ifeanyi Nnaji',
+      location: 'Nnewi, Anambra State',
       rating: 5,
-      review: "Absolutely amazing work! My family and I love every single shot.",
+      review:
+        'Absolutely amazing work! My family and I love every single shot.',
     },
     {
       id: 8,
-      name: "Chisom Aniekwe",
-      location: "Nsugbe, Anambra State",
+      name: 'Chisom Aniekwe',
+      location: 'Nsugbe, Anambra State',
       rating: 4,
       review:
-        "He turned simple moments into timeless memories. I’ll definitely book again.",
+        'He turned simple moments into timeless memories. I’ll definitely book again.',
     },
     {
       id: 9,
-      name: "Adaeze Okeke",
-      location: "Ifite, Awka",
+      name: 'Adaeze Okeke',
+      location: 'Ifite, Awka',
       rating: 5,
       review:
-        "Rawfile has a special gift. The photos feel alive, like you’re reliving the day again.",
+        'Rawfile has a special gift. The photos feel alive, like you’re reliving the day again.',
     },
   ];
+
+  // Variants
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 24, filter: 'blur(2px)' },
+    whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
+    transition: { duration: 0.6, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.4 },
+  });
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const card = {
+    hidden: { opacity: 0, scale: 0.95, y: 20 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  };
 
   return (
     <section className="container py-16">
       {/* HERO */}
-      <div className="text-center mb-12">
+      <motion.div className="text-center mb-12" {...fadeUp(0)}>
         <h1 className="uppercase text-3xl md:text-4xl font-bold text-white">
           What My Clients Say
         </h1>
         <p className="text-grey-midLight mt-2">
           Real stories and feedback from amazing people I’ve worked with.
         </p>
-      </div>
+      </motion.div>
 
       {/* STATS */}
-      <div className="flex flex-col sm:flex-row justify-center gap-8 mb-12 text-center">
-        <div>
+      <motion.div
+        className="flex flex-col sm:flex-row justify-center gap-8 mb-12 text-center"
+        {...fadeUp(0.1)}
+      >
+        <motion.div {...fadeUp(0.15)}>
           <h2 className="text-3xl font-bold text-purple-light">4.8</h2>
           <p className="text-grey-dark">Average Rating</p>
-        </div>
-        <div>
+        </motion.div>
+        <motion.div {...fadeUp(0.2)}>
           <h2 className="text-3xl font-bold text-purple-light">
             {testimonials.length}
           </h2>
           <p className="text-grey-dark">Total Reviews</p>
-        </div>
-        <div>
+        </motion.div>
+        <motion.div {...fadeUp(0.25)}>
           <h2 className="text-3xl font-bold text-purple-light">100%</h2>
           <p className="text-grey-dark">Client Satisfaction</p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* GRID OF TESTIMONIALS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {testimonials.map((testimonial) => (
-          <div
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        {testimonials.map(testimonial => (
+          <motion.div
             key={testimonial.id}
+            variants={card}
             className="relative border border-dark-midLight rounded-xl p-6 bg-dark-dark space-y-4 overflow-hidden"
           >
             {/* Overlay / mask */}
@@ -165,16 +204,22 @@ const TestimonialsPage = () => {
                 <FaLinkedinIn />
               </a>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* LOAD MORE / PAGINATION */}
-      <div className="flex justify-center mt-12">
+      <motion.div
+        className="flex justify-center mt-12"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        viewport={{ once: true }}
+      >
         <button className="px-6 py-3 rounded-xl bg-purple-light font-semibold hover:bg-purple-midLight text-grey-light transition">
           Load More
         </button>
-      </div>
+      </motion.div>
     </section>
   );
 };

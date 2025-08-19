@@ -23,11 +23,10 @@ const AboutHero = () => {
   ];
 
   return (
-    <section className="section-heading relative bg-dark-dark">
+    <section className="section-heading relative">
       {/* ---------- MOBILE HERO IMAGE (no mask) ---------- */}
       <div className="container md:hidden">
         <div className="relative w-full rounded-2xl overflow-hidden mb-6">
-          {/* keep a friendly aspect on mobile; tweak if you like */}
           <img
             src={aboutHero}
             alt=""
@@ -46,7 +45,7 @@ const AboutHero = () => {
       {/* ---------- Heading + badges ---------- */}
       <div className="container">
         <motion.p
-          className="text-grey-midDark uppercase text-sm"
+          className="text-grey-midDark uppercase text-sm mb-2"
           {...fadeUp(0)}
         >
           About
@@ -62,7 +61,7 @@ const AboutHero = () => {
 
           {/* background accent – desktop only */}
           <motion.div
-            className="absolute right-0 top-0 h-12 w-[55%] hidden md:block rounded-[14px] overflow-hidden"
+            className="absolute right-0 -top-6 h-16 w-[55%] hidden md:block rounded-[14px] overflow-hidden"
             {...fadeUp(0.1)}
           >
             <img
@@ -93,7 +92,7 @@ const AboutHero = () => {
 
       {/* DESKTOP MASKED HERO + ANIMATIONS */}
       <motion.div
-        className="container px-0 hidden md:block"
+        className="container hidden md:block"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -164,18 +163,18 @@ const AboutHero = () => {
       </motion.div>
 
       {/* ---------- Divider + bio ---------- */}
-      <div className="container">
+      <div className="container border border-dark-midLight rounded-xl border-t-0 pb-6 shadow-sm shadow-purple-dark/30 ">
         <div className="h-px w-full bg-dark-midLight/50 my-10" />
         <motion.div {...fadeUp(0.12)}>
-          <h2 className="text-xl md:text-2xl font-semibold tracking-tight mb-3">
+          <h2 className="text-xl md:text-2xl font-semibold tracking-tight mb-3 uppercase text-grey-midLight">
             My Biography
           </h2>
-          <div className="space-y-2 text-sm md:text-[15px] leading-7 text-grey-midLight text-justify">
+          <div className="space-y-2 text-sm md:text-[15px] leading-7  text-justify text-grey-dark">
             <p>
-              Kingsley Rawfile&apos;s love affair with photography began at a young
-              age, nurtured by captivating landscapes and vibrant cultures.  His
-              passion for storytelling through imagery led to a journey that
-              spans over 15 years.
+              Kingsley Rawfile&apos;s love affair with photography began at a
+              young age, nurtured by captivating landscapes and vibrant
+              cultures. His passion for storytelling through imagery led to a
+              journey that spans over 15 years.
             </p>
             <p>
               Driven by curiosity to find beauty in everyday moments, Kingsley
@@ -186,8 +185,8 @@ const AboutHero = () => {
             <p>
               This journey is more than taking pictures; it&apos;s about the
               essence of the human spirit, the fleeting magic of nature, and the
-              feelings that define our lives. With each click, he weaves
-              stories that transcend time and space.
+              feelings that define our lives. With each click, he weaves stories
+              that transcend time and space.
             </p>
           </div>
         </motion.div>
