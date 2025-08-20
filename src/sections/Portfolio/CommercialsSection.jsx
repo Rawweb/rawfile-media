@@ -13,15 +13,17 @@ const projects = [
   { name: 'Urban Exploration', date: 'September 2021', image: portfolio4 },
 ];
 
-const PortfolioSection = () => {
+const CommercialsSection = () => {
   return (
-    <PortfolioGrid
-      title="Explore My Photography Work"
-      subtitle="Portfolio"
-      projects={projects}
-      viewMoreLink="/projects"
-    />
+    <div>
+      <PortfolioGrid
+        className="border-t border-b border-dark-midLight"
+        title="Commercials"
+        subtitle="A collection of captivating commercials"
+        projects={projects}
+      />
+    </div>
   );
 };
 
-export default PortfolioSection;
+export default CommercialsSection;

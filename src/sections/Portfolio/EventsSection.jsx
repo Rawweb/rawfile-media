@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+
 import PortfolioGrid from '@components/ui/PortfolioGrid';
 
 import portfolio from '@assets/portfolio.jpg';
@@ -13,15 +14,16 @@ const projects = [
   { name: 'Urban Exploration', date: 'September 2021', image: portfolio4 },
 ];
 
-const PortfolioSection = () => {
+const EventsSection = () => {
   return (
-    <PortfolioGrid
-      title="Explore My Photography Work"
-      subtitle="Portfolio"
-      projects={projects}
-      viewMoreLink="/projects"
-    />
-  );
-};
+    <div>
+      <PortfolioGrid className='border-t border-b border-dark-midLight'
+        title="Events"
+        subtitle="A collection of memorable events"
+        projects={projects}
+      />
+    </div>
+  )
+}
 
-export default PortfolioSection;
+export default EventsSection

@@ -44,7 +44,7 @@
     @apply mx-auto px-4 sm:px-6 lg:px-8;
   }
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-black text-white px-5 py-3 font-semibold hover:opacity-90 transition;
+    @apply bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light hover:bg-purple-midLight text-xs;
   }
   .button {
     @apply bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light hover:bg-purple-midLight text-sm;
@@ -121,6 +121,34 @@
   background-size: 128px 128px; /* small tile for seamless repeat */
   opacity: 0.08; /* adjust intensity */
   animation: grainAnimation 1s steps(6) infinite;
+}
+
+.scrollbar-blue {
+  position: relative;
+}
+
+/* Hide scrollbar initially */
+.scrollbar-blue::-webkit-scrollbar {
+  height: 0px;
+  transition: height 0.3s ease-in-out;
+}
+
+/* Show scrollbar on hover */
+.scrollbar-blue:hover::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scrollbar-blue::-webkit-scrollbar-track {
+  background: transprent;
+}
+
+.scrollbar-blue::-webkit-scrollbar-thumb {
+  background-color: #9333EA;
+  border-radius: 10px;
+}
+
+.scrollbar-blue:hover::-webkit-scrollbar-thumb {
+  background-color: #9333EA;
 }
 
 @keyframes grainAnimation {
