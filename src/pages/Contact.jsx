@@ -1,10 +1,12 @@
 import React from 'react'
+import ContactHero from '@sections/Contact/ContactHero'
+import ContactInfoSection from '@sections/Contact/ContactInfoSection'
 
 const Contact = () => {
   return (
-     <div className="container">
-      <h1 className="section-heading">Contact Page</h1>
-      <p>Welcome to Kingsley Rawfile Photography Portfolio</p>
+     <div className="relative">
+      <ContactHero />
+      <ContactInfoSection/>
     </div>
   )
 }

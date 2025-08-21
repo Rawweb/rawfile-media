@@ -1,6 +1,11 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import {
+  FaArrowRight,
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+} from 'react-icons/fa';
 import { GiNinjaStar } from 'react-icons/gi';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import rawfileImage from '@assets/rawfile.png';
@@ -10,10 +15,31 @@ const AboutSection = () => {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"],
+    offset: ['start end', 'end start'],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
+  const slideLeft = (delay = 0) => ({
+    initial: { opacity: 0, x: -60 },
+    whileInView: { opacity: 1, x: 0 },
+    transition: { duration: 0.9, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.5 },
+  });
+
+  const slideRight = (delay = 0) => ({
+    initial: { opacity: 0, x: 60 },
+    whileInView: { opacity: 1, x: 0 },
+    transition: { duration: 0.9, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.5 },
+  });
+
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 24, filter: 'blur(2px)' },
+    whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
+    transition: { duration: 0.6, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.45 },
+  });
 
   return (
     <section ref={sectionRef} className="container section-heading relative">
@@ -30,26 +56,24 @@ const AboutSection = () => {
       {/* TOP */}
       <motion.div
         className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8 relative z-10"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, type: 'spring', stiffness: 70, damping: 20 }}
-        viewport={{ once: true, amount: 0.5 }}
+        {...fadeUp(0.4)}
       >
         <div>
-          <p className="text-grey-midDark uppercase text-sm">about</p>
-          <h1 className="uppercase text-2xl md:text-3xl font-bold leading-tight">
+          <motion.p
+            className="text-grey-midDark uppercase text-sm"
+            {...fadeUp(0.4)}
+          >
+            about
+          </motion.p>
+          <motion.h1
+            className="uppercase text-2xl md:text-3xl font-bold leading-tight"
+            {...fadeUp(0.4)}
+          >
             I am Kingsley
-          </h1>
+          </motion.h1>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, type: 'spring' }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.05 }}
-          className="relative"
-        >
+        <motion.div className="relative" {...fadeUp(0.4)}>
           <Link to="/about" className="button flex items-center gap-2 ">
             Learn More
             <span>
@@ -62,13 +86,7 @@ const AboutSection = () => {
       {/* BOTTOM */}
       <div className="pt-12 flex flex-col md:flex-row gap-5 items-center relative z-10">
         {/* LEFT IMAGE */}
-        <motion.div
-          className="w-full md:flex-1 relative"
-          initial={{ opacity: 0, x: -60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
+        <motion.div className="w-full md:flex-1 relative" {...slideLeft(0.2)}>
           <div className="relative w-full rounded-[40px] overflow-hidden">
             <div className="absolute -top-4 -left-4 w-20 h-20 bg-black rounded-br-[100px]" />
             <div className="absolute -bottom-4 -right-4 w-40 h-40 bg-black rounded-tl-[100px]" />
@@ -86,10 +104,7 @@ const AboutSection = () => {
         {/* RIGHT PANEL */}
         <motion.div
           className="flex-1 border border-dark-midLight rounded-[30px] flex flex-col gap-8 bg-dark-dark/30 backdrop-blur-sm relative"
-          initial={{ opacity: 0, x: 60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
-          viewport={{ once: true, amount: 0.5 }}
+          {...slideRight(0.2)}
         >
           {/* INTRODUCTION */}
           <div className="border-b border-dark-midLight pb-6 p-6">
@@ -132,23 +147,23 @@ const AboutSection = () => {
               {/* Social */}
               <motion.div
                 className="flex items-center gap-2 border border-dark-midLight rounded-full p-2 relative"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
+                {...fadeUp(0.4)}
               >
-                <a href="#" className="btn"><FaFacebookF /></a>
-                <a href="#" className="btn"><FaTwitter /></a>
-                <a href="#" className="btn"><FaLinkedinIn /></a>
+                <a href="#" className="btn">
+                  <FaFacebookF />
+                </a>
+                <a href="#" className="btn">
+                  <FaTwitter />
+                </a>
+                <a href="#" className="btn">
+                  <FaLinkedinIn />
+                </a>
               </motion.div>
 
               {/* Buttons */}
               <motion.div
                 className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto text-sm xl:text-base relative"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                viewport={{ once: true }}
+                {...fadeUp(0.4)}
               >
                 <Link to="/contact" className="button w-full sm:w-auto">
                   Let&apos;s Work

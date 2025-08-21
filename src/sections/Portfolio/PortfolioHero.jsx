@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import portfolioHero from '@assets/portfolio-hero.jpg';
-import portfolioCard from '@assets/portfolio-hero-card.png'; // mask shape
+import portfolioCard from '@assets/portfolio-hero-card.png';
 import Brands from '@components/ui/Brands';
 
 const PortfolioHero = () => {
@@ -14,11 +14,25 @@ const PortfolioHero = () => {
     viewport: { once: true, amount: 0.45 },
   });
 
+  const slideLeft =(delay = 0) => ({
+    initial: { opacity: 0, x: -60 },
+    whileInView: { opacity: 1, x: 0 },
+    transition: { duration: 0.9, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.5 },
+  })
+  
+  const slideRight = (delay = 0) => ({
+    initial: { opacity: 0, x: 60 },
+    whileInView: { opacity: 1, x: 0 },
+    transition: { duration: 0.9, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.5 },
+  })
+
   return (
     <section className="section-heading relative">
-      {/* ---------- MOBILE HERO IMAGE (no mask) ---------- */}
+      {/* MOBILE HERO IMAGE */}
       <div className="container md:hidden">
-        <div className="relative w-full rounded-2xl overflow-hidden mb-6">
+        <motion.div className="relative w-full rounded-2xl overflow-hidden mb-6" {...slideLeft(0.2)}>
           <img
             src={portfolioHero}
             alt=""
@@ -27,14 +41,14 @@ const PortfolioHero = () => {
 
           {/* small star puck on mobile */}
           <div className="absolute left-3 -bottom-4">
-            <div className="size-14 rounded-full border border-dark-midLight/70 bg-black/50 backdrop-blur-sm flex items-center justify-center">
+            <div className="size-14 rounded-full border border-dark-midLight/70 bg-dark-dark/50 backdrop-blur-sm flex items-center justify-center">
               <Star className="opacity-80" size={16} />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* stacked text on mobile */}
-        <motion.div className="mt-6" {...fadeUp(0.1)}>
+        <motion.div className="mt-6" {...slideRight(0.2)}>
           <p className="text-grey-midDark uppercase text-sm mb-2">Portfolio</p>
           <h1 className="uppercase text-2xl font-bold leading-tight text-white">
             Visual Poetry in Pixels
@@ -49,7 +63,7 @@ const PortfolioHero = () => {
       </div>
 
       {/* ---------- DESKTOP MASKED HERO + ANIMATIONS ---------- */}
-      <motion.div className="container hidden md:block" {...fadeUp(0)}>
+      <div className="container hidden md:block">
         <div className="relative w-full aspect-[1200/420]">
           {/* masked photo */}
           <motion.div
@@ -65,29 +79,26 @@ const PortfolioHero = () => {
               maskSize: '100% 100%',
               maskPosition: 'center',
             }}
-            initial={{ opacity: 0, scale: 1.04 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
-            viewport={{ once: true, amount: 0.45 }}
+            {...fadeUp(0.4)}
           />
 
           {/* HEADING -TEXT OVERLAY (desktop only) */}
           <motion.div
             className="absolute z-10 top-[0%] lg:top-[3%] xl:top-[3.5%] left-[0%] md:w-[500px] lg:w-[650px] xl:w-[800px]"
-            {...fadeUp(0.15)}
+            {...fadeUp(0.4)}
           >
             <p className="text-grey-midDark uppercase text-sm mb-2 md:hidden">
               Portfolio
             </p>
-            <h1 className="uppercase text-2xl xl:text-4xl font-bold leading-tight text-white">
+            <h1 className="uppercase text-2xl xl:text-4xl font-bold leading-tight text-white" {...fadeUp(0.2)}>
               Visual Poetry in Pixels
             </h1>
-            <p className="mt-2 xl:mt-3 text-grey-dark text-sm lg:text-base xl:text-lg leading-tight">
+            <motion.p className="mt-2 xl:mt-3 text-grey-dark text-sm lg:text-base xl:text-lg leading-tight" {...fadeUp(0.2)}>
               Step into a visual journey that encapsulates the essence of my
               lens. Each photograph in this portfolio is a narrative, a frozen
               moment in time, and a testament to the artistry and passion poured
               into every frame.
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* star puck */}
@@ -124,7 +135,7 @@ const PortfolioHero = () => {
             SCROLL DOWN TO SEE <br /> THE WORKS
           </motion.div>
         </div>
-      </motion.div>
+      </div>
 
       <Brands/>
     </section>

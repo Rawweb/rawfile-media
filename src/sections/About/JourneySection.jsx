@@ -3,18 +3,40 @@ import { motion } from 'framer-motion';
 
 const JourneySection = () => {
   const fadeUp = (delay = 0) => ({
-    hidden: { opacity: 0, y: 24, filter: 'blur(2px)' },
-    show: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: { duration: 0.6, ease: 'easeOut', delay },
-    },
+    initial: { opacity: 0, y: 24, filter: 'blur(2px)' },
+    whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
+    transition: { duration: 0.6, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.45 },
   });
 
   const container = {
     hidden: {},
     show: { transition: { staggerChildren: 0.12 } },
+  };
+
+    // Parent motion config
+  const parentMotion = {
+    variants: {
+      hidden: {},
+      visible: {
+        transition: { staggerChildren: 0.15 },
+      },
+    },
+    initial: 'hidden',
+    whileInView: 'visible',
+    viewport: { once: true, amount: 0.3 },
+  };
+
+  // Child motion config
+  const childMotion = {
+    variants: {
+      hidden: { opacity: 0, y: 20 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+      },
+    },
   };
 
   const journey = [
@@ -57,19 +79,13 @@ const JourneySection = () => {
         <div className="border-b border-dark-midLight pb-8">
           <motion.p
             className="text-grey-midDark uppercase text-sm mb-2"
-            variants={fadeUp(0)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.5 }}
+            {...fadeUp(0.4)}
           >
             journey
           </motion.p>
           <motion.h1
             className="uppercase text-2xl md:text-3xl font-bold leading-tight"
-            variants={fadeUp(0.05)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.5 }}
+            {...fadeUp(0.4)}
           >
             RAWFILE&apos;S JOURNEY - A TIMELINE
           </motion.h1>
@@ -77,24 +93,13 @@ const JourneySection = () => {
 
         {/* GRID OF CARDS */}
         <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          {...parentMotion}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12"
         >
           {journey.map((item, i) => (
-            <motion.div
+            <motion.div {...childMotion}
               key={i}
-              variants={fadeUp(i * 0.1)}
-              animate={{ y: [0, -6, 0] }} // floating effect
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                repeatType: 'mirror',
-                ease: 'easeInOut',
-                delay: i * 0.2, // stagger float so they don’t move all at once
-              }}
+              
               className="group relative border border-dark-midLight rounded-xl p-6 bg-dark-dark space-y-4 overflow-hidden transition duration-300 hover:border-purple-light"
             >
               {/* Overlay / mask for subtle design consistency */}

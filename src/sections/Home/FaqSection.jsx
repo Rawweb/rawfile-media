@@ -63,17 +63,29 @@ const FaqSection = () => {
   };
 
   // Variants for staggered entrance
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
+   // Parent motion config
+  const parentMotion = {
+    variants: {
+      hidden: {},
+      visible: {
+        transition: { staggerChildren: 0.15 },
+      },
     },
+    initial: 'hidden',
+    whileInView: 'visible',
+    viewport: { once: true, amount: 0.3 },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  // Child motion config
+  const childMotion = {
+    variants: {
+      hidden: { opacity: 0, y: 20 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+      },
+    },
   };
 
   return (
@@ -97,15 +109,12 @@ const FaqSection = () => {
       {/* FAQ Grid */}
       <motion.div
         className="grid md:grid-cols-2 gap-6 pt-12 relative"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        {...parentMotion}
       >
         {faqs.map((faq, index) => (
           <motion.div
             key={index}
-            variants={itemVariants}
+            {...childMotion}
             className="border-b border-dark-midLight pb-4 cursor-pointer relative"
             onClick={() => toggleFAQ(index)}
           >

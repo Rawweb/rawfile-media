@@ -60,6 +60,68 @@
   .section-heading {
     @apply py-12;
   }
+
+  .input-style {
+    @apply w-full bg-transparent border border-dark-midLight focus:border-dark-light focus:ring-0 text-absolute-white placeholder-grey-dark px-4 py-3 outline-none;
+  }
+
+  .input-style[aria-invalid='true'] {
+    @apply border-red-500 focus:border-red-500 ring-0;
+  }
+
+  .error-text {
+    @apply mt-1 text-sm text-red-400;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-purple-glow {
+    animation: purpleGlow 2s ease-in-out infinite;
+  }
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .grain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background-image: url('/src/assets/noise-texture.png'); */
+    background-size: 128px 128px; /* small tile for seamless repeat */
+    opacity: 0.08; /* adjust intensity */
+    animation: grainAnimation 1s steps(6) infinite;
+  }
+
+  .scrollbar-blue {
+    position: relative;
+  }
+
+  /* Hide scrollbar initially */
+  .scrollbar-blue::-webkit-scrollbar {
+    height: 0px;
+    transition: height 0.3s ease-in-out;
+  }
+
+  /* Show scrollbar on hover */
+  .scrollbar-blue:hover::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .scrollbar-blue::-webkit-scrollbar-track {
+    background: transprent;
+  }
+
+  .scrollbar-blue::-webkit-scrollbar-thumb {
+    background-color: #9333ea;
+    border-radius: 10px;
+  }
+
+  .scrollbar-blue:hover::-webkit-scrollbar-thumb {
+    background-color: #9333ea;
+  }
 }
 
 @keyframes glow {
@@ -86,18 +148,6 @@
   }
 }
 
-@layer utilities {
-  .animate-purple-glow {
-    animation: purpleGlow 2s ease-in-out infinite;
-  }
-}
-
-@layer utilities {
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite;
-  }
-}
-
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -105,50 +155,6 @@
   100% {
     transform: translateX(-50%);
   }
-}
-
-@layer utilities {
-  .animate-marquee {
-    animation: marquee 25s linear infinite;
-  }
-}
-
-.grain {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  /* background-image: url('/src/assets/noise-texture.png'); */
-  background-size: 128px 128px; /* small tile for seamless repeat */
-  opacity: 0.08; /* adjust intensity */
-  animation: grainAnimation 1s steps(6) infinite;
-}
-
-.scrollbar-blue {
-  position: relative;
-}
-
-/* Hide scrollbar initially */
-.scrollbar-blue::-webkit-scrollbar {
-  height: 0px;
-  transition: height 0.3s ease-in-out;
-}
-
-/* Show scrollbar on hover */
-.scrollbar-blue:hover::-webkit-scrollbar {
-  height: 4px;
-}
-
-.scrollbar-blue::-webkit-scrollbar-track {
-  background: transprent;
-}
-
-.scrollbar-blue::-webkit-scrollbar-thumb {
-  background-color: #9333EA;
-  border-radius: 10px;
-}
-
-.scrollbar-blue:hover::-webkit-scrollbar-thumb {
-  background-color: #9333EA;
 }
 
 @keyframes grainAnimation {

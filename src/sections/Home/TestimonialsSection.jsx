@@ -13,6 +13,14 @@ const TestimonialsSection = () => {
   const containerRef = useRef(null);
   const animationRef = useRef(null);
 
+   const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 24, filter: 'blur(2px)' },
+    whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
+    transition: { duration: 0.6, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.45 },
+  });
+
+
   const testimonials = [
     {
       id: 1,
@@ -128,12 +136,12 @@ const TestimonialsSection = () => {
       {/* TOP */}
       <div className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8 relative">
         <div>
-          <p className="text-grey-midDark uppercase text-sm">testimonials</p>
-          <h1 className="uppercase text-2xl md:text-3xl font-bold leading-tight">
+          <motion.p className="text-grey-midDark uppercase text-sm" {...fadeUp(0.4)}>testimonials</motion.p>
+          <motion.h1 className="uppercase text-2xl md:text-3xl font-bold leading-tight" {...fadeUp(0.4)}>
             what my clients say
-          </h1>
-          <p className="text-xs mt-2 text-grey-dark">Total Reviews</p>
-          <p>{testimonials.length}</p>
+          </motion.h1>
+          <motion.p className="text-xs mt-2 text-grey-dark" {...fadeUp(0.4)}>Total Reviews</motion.p>
+          <motion.p {...fadeUp(0.4)}>{testimonials.length}</motion.p>
         </div>
 
         <Link to="/testimonials" className="button flex items-center gap-2 ">

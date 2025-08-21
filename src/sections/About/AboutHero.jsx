@@ -13,6 +13,63 @@ const AboutHero = () => {
     viewport: { once: true, amount: 0.5 },
   });
 
+  const slideLeft = (delay = 0) => ({
+    initial: { opacity: 0, x: -60 },
+    whileInView: { opacity: 1, x: 0 },
+    transition: { duration: 0.9, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.5 },
+  });
+
+  const slideRight = (delay = 0) => ({
+    initial: { opacity: 0, x: 60 },
+    whileInView: { opacity: 1, x: 0 },
+    transition: { duration: 0.9, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.5 },
+  });
+
+  const bounce = (delay = 0) => ({
+    initial: { opacity: 0, scale: 0.8, y: 8 },
+    whileInView: { opacity: 1, scale: 1, y: 0 },
+    transition: { duration: 0.5, ease: 'easeOut', delay: 0.15 },
+    viewport: { once: true, amount: 0.45 },
+  });
+
+  // Floating animation (y oscillates up/down)
+  const floatAnim = {
+    animate: { y: [0, -6, 0] },
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      repeatType: 'mirror',
+      ease: 'easeInOut',
+    },
+  };
+
+   // Parent motion config
+  const parentMotion = {
+    variants: {
+      hidden: {},
+      visible: {
+        transition: { staggerChildren: 0.15 },
+      },
+    },
+    initial: 'hidden',
+    whileInView: 'visible',
+    viewport: { once: true, amount: 0.3 },
+  };
+
+  // Child motion config
+  const childMotion = {
+    variants: {
+      hidden: { opacity: 0, y: 20 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+      },
+    },
+  };
+
   const stats = [
     { k: '7+', v: 'Years in Business' },
     { k: '2000+', v: 'Happy Clients' },
@@ -22,11 +79,16 @@ const AboutHero = () => {
     { k: '92%', v: 'Client Retention Rate' },
   ];
 
+ 
+
   return (
     <section className="section-heading relative">
       {/* ---------- MOBILE HERO IMAGE (no mask) ---------- */}
       <div className="container md:hidden">
-        <div className="relative w-full rounded-2xl overflow-hidden mb-6">
+        <motion.div
+          className="relative w-full rounded-2xl overflow-hidden mb-6"
+          {...slideLeft(0.2)}
+        >
           <img
             src={aboutHero}
             alt=""
@@ -39,14 +101,14 @@ const AboutHero = () => {
               <Star className="opacity-80" size={16} />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* ---------- Heading + badges ---------- */}
       <div className="container">
         <motion.p
           className="text-grey-midDark uppercase text-sm mb-2"
-          {...fadeUp(0)}
+          {...fadeUp(0.4)}
         >
           About
         </motion.p>
@@ -54,7 +116,7 @@ const AboutHero = () => {
         <div className="relative mb-6">
           <motion.h1
             className="uppercase text-2xl md:text-3xl font-bold leading-tight"
-            {...fadeUp(0.05)}
+            {...fadeUp(0.4)}
           >
             Kingsley Rawfile
           </motion.h1>
@@ -62,7 +124,7 @@ const AboutHero = () => {
           {/* background accent – desktop only */}
           <motion.div
             className="absolute right-0 -top-6 h-16 w-[55%] hidden md:block rounded-[14px] overflow-hidden"
-            {...fadeUp(0.1)}
+            {...fadeUp(0.4)}
           >
             <img
               src={aboutHero1}
@@ -74,18 +136,19 @@ const AboutHero = () => {
 
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-8"
-          {...fadeUp(0.12)}
+          {...parentMotion}
         >
           {stats.map((s, i) => (
-            <div
+            <motion.div
               key={i}
               className="rounded-2xl border border-dark-midLight bg-dark-dark/60 px-4 py-4"
+              {...childMotion}
             >
               <p className="text-2xl md:text-[28px] font-bold">{s.k}</p>
               <p className="mt-1 text-[11px] md:text-xs text-grey-midDark">
                 {s.v}
               </p>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>
@@ -113,10 +176,7 @@ const AboutHero = () => {
               maskSize: '100% 100%',
               maskPosition: 'center',
             }}
-            initial={{ opacity: 0, scale: 1.04 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.05 }}
-            viewport={{ once: true, amount: 0.45 }}
+            {...fadeUp(0.4)}
           />
 
           {/* star puck – outer (enter) */}
@@ -129,21 +189,12 @@ const AboutHero = () => {
               bottom: '0%',
               transform: 'translate(-50%, 0)',
             }}
-            initial={{ opacity: 0, scale: 0.8, y: 8 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
-            viewport={{ once: true, amount: 0.45 }}
+            {...bounce(0.4)}
           >
             {/* star puck – inner (float loop) */}
             <motion.div
               className="w-full h-full rounded-full border border-dark-midLight bg-black/50 backdrop-blur-sm flex items-center justify-center"
-              animate={{ y: [0, -6, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                repeatType: 'mirror',
-                ease: 'easeInOut',
-              }}
+              {...floatAnim}
             >
               <Star className="opacity-80" />
             </motion.div>
@@ -165,7 +216,7 @@ const AboutHero = () => {
       {/* ---------- Divider + bio ---------- */}
       <div className="container border border-dark-midLight rounded-xl border-t-0 pb-6 shadow-sm shadow-purple-dark/30 ">
         <div className="h-px w-full bg-dark-midLight/50 my-10" />
-        <motion.div {...fadeUp(0.12)}>
+        <motion.div {...fadeUp(0.4)}>
           <h2 className="text-xl md:text-2xl font-semibold tracking-tight mb-3 uppercase text-grey-midLight">
             My Biography
           </h2>

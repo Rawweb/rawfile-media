@@ -17,13 +17,20 @@ const brands = [
 ];
 
 const Brands = () => {
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 24, filter: 'blur(2px)' },
+    whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
+    transition: { duration: 0.6, ease: 'easeOut', delay },
+    viewport: { once: true, amount: 0.45 },
+  });
+
   return (
     <section className="py-12 overflow-hidden">
       <div className="container">
         {/* heading */}
-        <p className="uppercase text-[11px] tracking-[3px] text-grey-midDark mb-8 text-center">
+        <motion.p className="uppercase text-[11px] tracking-[3px] text-grey-midDark mb-8 text-center" {...fadeUp(0.2)}>
           Brands I Have Worked With
-        </p>
+        </motion.p>
 
         {/* marquee row */}
         <div className="relative flex overflow-hidden">
