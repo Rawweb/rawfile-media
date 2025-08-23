@@ -88,8 +88,8 @@ const AboutSection = () => {
         {/* LEFT IMAGE */}
         <motion.div className="w-full md:flex-1 relative" {...slideLeft(0.2)}>
           <div className="relative w-full rounded-[40px] overflow-hidden">
-            <div className="absolute -top-4 -left-4 w-20 h-20 bg-black rounded-br-[100px]" />
-            <div className="absolute -bottom-4 -right-4 w-40 h-40 bg-black rounded-tl-[100px]" />
+            <div className="absolute -top-4 -left-4 w-20 h-20 dark:bg-black bg-absolute-white/90 rounded-br-[100px] " />
+            <div className="absolute -bottom-4 -right-4 w-40 h-40 dark:bg-black bg-absolute-white rounded-tl-[100px]" />
 
             <motion.img
               src={rawfileImage}
@@ -103,7 +103,7 @@ const AboutSection = () => {
 
         {/* RIGHT PANEL */}
         <motion.div
-          className="flex-1 border border-dark-midLight rounded-[30px] flex flex-col gap-8 bg-dark-dark/30 backdrop-blur-sm relative"
+          className="flex-1 border border-dark-midLight rounded-[30px] flex flex-col gap-8 dark:bg-dark-dark/30 backdrop-blur-sm relative"
           {...slideRight(0.2)}
         >
           {/* INTRODUCTION */}
@@ -135,8 +135,8 @@ const AboutSection = () => {
             </h3>
             <div className="flex flex-col lg:flex-row justify-between gap-5 mb-6">
               <p className="flex flex-col ">
-                <span className="text-grey-midDark mb-1">Email</span>
-                <span className="text-base text-grey-light">
+                <span className="text-grey-dark mb-1">Email</span>
+                <span className="text-base text-grey-midDark">
                   rawfilefotografy@gmail.com
                 </span>
               </p>

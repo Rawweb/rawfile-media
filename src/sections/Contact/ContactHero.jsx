@@ -33,7 +33,7 @@ const ContactHero = () => {
   });
 
   return (
-    <section className="section-heading relative">
+    <section className="section-heading relative pt-28">
       {/* MOBILE HERO IMAGE */}
       <div className="container md:hidden">
         <motion.div
@@ -63,7 +63,7 @@ const ContactHero = () => {
             Contact
           </motion.p>
           <motion.h1
-            className="uppercase text-2xl font-bold leading-tight text-white"
+            className="uppercase text-2xl font-bold leading-tight dark:text-white"
             {...fadeUp(0.4)}
           >
             Get in Touch with Me
@@ -107,7 +107,7 @@ const ContactHero = () => {
               contact me
             </p>
             <motion.h1
-              className="uppercase text-2xl xl:text-4xl font-bold leading-tight text-white"
+              className="uppercase text-2xl xl:text-4xl font-bold leading-tight dark:text-white"
               {...fadeUp(0.2)}
             >
               Get in Touch with Me
@@ -130,19 +130,19 @@ const ContactHero = () => {
           >
             <a
               href="#"
-              className="p-2 bg-dark-midLight rounded-full hover:bg-purple-midLight lg:size-10 flex items-center justify-center transition duration-300"
+              className="p-2 dark:bg-dark-midLight border border-dark-dark rounded-full dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white lg:size-10 flex items-center justify-center transition duration-300"
             >
               <FaFacebookF />
             </a>
             <a
               href="#"
-              className="p-2 bg-dark-midLight rounded-full hover:bg-purple-midLight lg:size-10 flex items-center justify-center transition duration-300"
+              className="p-2 dark:bg-dark-midLight border border-dark-dark rounded-full dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white lg:size-10 flex items-center justify-center transition duration-300"
             >
               <FaTwitter />
             </a>
             <a
               href="#"
-              className="p-2 bg-dark-midLight rounded-full hover:bg-purple-midLight lg:size-10 flex items-center justify-center transition duration-300"
+              className="p-2 dark:bg-dark-midLight border border-dark-dark rounded-full dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white lg:size-10 flex items-center justify-center transition duration-300"
             >
               <FaLinkedinIn />
             </a>

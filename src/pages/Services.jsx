@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import ServiceHero from '@sections/Service/ServiceHero';
 
 const Services = () => {
   return (
-     <div className="container">
-      <h1 className="section-heading">Services Page</h1>
-      <p>Welcome to Kingsley Rawfile Photography Portfolio</p>
+    <div className="relative">
+      <ServiceHero />
     </div>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;
+``;

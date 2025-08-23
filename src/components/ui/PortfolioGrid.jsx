@@ -126,16 +126,16 @@ const PortfolioGrid = ({
               alt={item.name}
               className="w-full h-96 object-cover"
             />
-            <div className="flex flex-col lg:flex-row items-start justify-between pt-4 gap-2 bg-dark-dark p-3">
+            <div className="flex flex-col lg:flex-row items-start justify-between pt-4 gap-2 dark:bg-dark-dark p-3">
               <div>
-                <h3 className="text-grey-light text-sm xl:text-base font-semibold uppercase">
+                <h3 className="dark:text-grey-light text-sm xl:text-base font-semibold uppercase">
                   {item.name}
                 </h3>
                 <p className="text-grey-midDark text-xs mt-1">{item.date}</p>
               </div>
               <Link
                 to={viewMoreLink}
-                className="w-full lg:w-32 flex items-center justify-between gap-1 text-grey-light btn-primary uppercase transition"
+                className="w-full lg:w-32 flex items-center justify-between gap-1  btn-primary uppercase transition"
               >
                 View Project <FiArrowUpRight />
               </Link>
@@ -163,9 +163,9 @@ const PortfolioGrid = ({
                   alt={projects[currentIndex].name}
                   className="w-full h-96 object-cover"
                 />
-                <div className="flex items-start justify-between pt-4 bg-dark-dark p-3">
+                <div className="flex items-start justify-between pt-4 dark:bg-dark-dark p-3">
                   <div>
-                    <h3 className="text-grey-light font-semibold uppercase">
+                    <h3 className="dark:text-grey-light font-semibold uppercase">
                       {projects[currentIndex].name}
                     </h3>
                     <p className="text-grey-midDark text-xs mt-1">
@@ -174,7 +174,7 @@ const PortfolioGrid = ({
                   </div>
                   <Link
                     to={viewMoreLink}
-                    className="flex items-center gap-1 text-grey-light button uppercase transition"
+                    className="flex items-center gap-1 dark:text-grey-light button uppercase transition"
                   >
                     View Project <FiArrowUpRight />
                   </Link>

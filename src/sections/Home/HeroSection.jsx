@@ -65,9 +65,9 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative">
+    <section className="relative pt-20">
       {/* ---------------------- Hero Heading ---------------------- */}
-      <div className="relative border-b border-dark-midDark section-heading overflow-hidden">
+      <div className="relative section-heading overflow-hidden">
         <img
           src={spiralBg}
           alt="background spiral"
@@ -125,7 +125,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* ---------------------- Collage Grid ---------------------- */}
-      <div className="container relative">
+      <div className="container relative border-b border-dark-midDark dark:border-dark-midLight pb-8">
         <motion.div
           className="grid gap-2 grid-cols-5 auto-rows-[80px] md:auto-rows-[120px]"
           initial="hidden"

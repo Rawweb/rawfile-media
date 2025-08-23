@@ -44,14 +44,14 @@
     @apply mx-auto px-4 sm:px-6 lg:px-8;
   }
   .btn-primary {
-    @apply bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light hover:bg-purple-midLight text-xs;
+    @apply dark:bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light shadow-sm dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white text-xs;
   }
   .button {
-    @apply bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light hover:bg-purple-midLight text-sm;
+    @apply dark:bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light shadow-sm dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white text-sm;
   }
 
   .btn {
-    @apply p-2 bg-dark-midLight rounded-full hover:bg-purple-midLight size-10  flex items-center justify-center transition duration-300;
+    @apply p-2 dark:bg-dark-midLight border border-dark-dark rounded-full dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white size-10  flex items-center justify-center transition duration-300;
   }
 
   .highlight-btn {

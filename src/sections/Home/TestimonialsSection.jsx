@@ -180,7 +180,7 @@ const TestimonialsSection = () => {
                     : '0 0 0 rgba(0,0,0,0)',
                 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className={`relative min-w-[280px] sm:min-w-[300px] max-w-[350px] border rounded-xl p-6 space-y-4 overflow-hidden bg-dark-dark ${
+                className={`relative min-w-[280px] sm:min-w-[300px] max-w-[350px] border rounded-xl p-6 space-y-4 overflow-hidden dark:bg-dark-dark ${
                   isActive
                     ? 'border-purple-500 ring-2 ring-purple-500/80'
                     : 'border-dark-midLight'
@@ -193,11 +193,11 @@ const TestimonialsSection = () => {
                 {/* Heading */}
                 <div className="flex justify-between items-center gap-4 relative z-10">
                   <div>
-                    <h1 className="text-grey-midLight text-sm">{testimonial.name}</h1>
-                    <p className="text-xs text-grey-dark">{testimonial.location}</p>
+                    <h1 className="dark:text-grey-midLight text-sm">{testimonial.name}</h1>
+                    <p className="text-xs dark:text-grey-midDark">{testimonial.location}</p>
                   </div>
                   <div>
-                    <div className="flex items-center gap-2 border bg-dark-dark border-dark-midLight rounded-full p-2">
+                    <div className="flex items-center gap-2 border dark:bg-dark-dark border-dark-midLight rounded-full p-2">
                       <a href="#" className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition">
                         <FaFacebookF />
                       </a>
@@ -222,7 +222,7 @@ const TestimonialsSection = () => {
                 </div>
 
                 {/* Review */}
-                <p className="text-grey-midLight text-sm relative z-10">
+                <p className="dak:text-grey-midLight text-sm relative z-10">
                   {testimonial.review}
                 </p>
               </motion.div>

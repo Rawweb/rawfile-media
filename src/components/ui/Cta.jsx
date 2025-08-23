@@ -90,7 +90,7 @@ const Cta = () => {
     <div className="flex flex-col">
       {/* First line: Let's + Button */}
       <div className="flex items-center gap-2 mb-4">
-        <h1 className="text-3xl md:text-4xl text-white uppercase">
+        <h1 className="text-3xl md:text-4xl dark:text-white uppercase">
           {letDisplayed}
           {phase.includes('Let') && cursorVisible && (
             <span className="animate-pulse">|</span>
@@ -106,7 +106,7 @@ const Cta = () => {
 
       {/* Second line: Work Together */}
       <div className="min-h-[2.5rem] md:min-h-[3rem]">
-        <h1 className="text-3xl md:text-4xl text-white uppercase leading-tight">
+        <h1 className="text-3xl md:text-4xl dark:text-white uppercase leading-tight">
           {workDisplayed || <span>&nbsp;</span>}
           {phase.includes('Work') && cursorVisible && (
             <span className="animate-pulse">|</span>

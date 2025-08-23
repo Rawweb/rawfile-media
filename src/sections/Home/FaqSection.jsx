@@ -120,7 +120,7 @@ const FaqSection = () => {
           >
             {/* Question Row */}
             <div className="flex justify-between items-center">
-              <h3 className="font-semibold uppercase text-grey-midLight">
+              <h3 className="font-semibold uppercase dark:text-grey-midLight">
                 {faq.question}
               </h3>
               <motion.div

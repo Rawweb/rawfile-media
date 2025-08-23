@@ -86,9 +86,9 @@ const ServicesSection = () => {
       {/* BOTTOM */}
       <div className="pt-12 flex flex-col md:flex-row gap-5 items-center">
         {/* LEFT PANEL - SERVICES LIST */}
-        <motion.div className="space-y-6 flex-1" {...slideLeft(0.2)}>
+        <motion.div className="space-y-6 flex-1 border border-dark-dark rounded-[30px] p-4 dark:p-0" {...slideLeft(0.2)}>
           <div className="flex items-center gap-2">
-            <h1 className="text-xl uppercase text-grey-midLight">events</h1>
+            <h1 className="text-xl uppercase dark:text-grey-midLight">events</h1>
             <button className="flex items-center gap-2 bg-purple-light hover:bg-purple-midLight text-white px-6 py-2 rounded-full transition duration-300 hover:shadow-[0_0_20px_rgba(174,161,247,0.9)] animate-purple-glow">
               <FiArrowUpRight className="size-5" />
             </button>

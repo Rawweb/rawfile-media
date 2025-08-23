@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden bg-dark-dark text-grey-light">
+    <footer className="relative overflow-hidden dark:bg-dark-dark dark:text-grey-light">
       {/* Floating Orb Background (Purple Drift) */}
       <motion.div
         className="absolute w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"
@@ -26,7 +26,7 @@ const Footer = () => {
       {/* Big Background Heading with Purple Glow */}
       <div className="container relative z-10">
         <motion.h1
-          className="text-[120px] md:text-[180px] lg:text-[230px] uppercase text-dark-midLight text-right relative"
+          className="text-[120px] md:text-[180px] lg:text-[230px] uppercase dark:text-dark-midLight text-grey-light text-right relative"
           animate={{
             textShadow: [
               "0 0 10px rgba(168,85,247,0.3)", // soft purple
@@ -44,7 +44,7 @@ const Footer = () => {
       </div>
 
       {/* Moving Marquee */}
-      <div className="overflow-hidden text-grey-midLight bg-dark-midDark border border-dark-midLight border-l-0 border-r-0 relative z-10">
+      <div className="overflow-hidden dark:text-grey-midLight bg-dark-midDark border border-dark-midLight border-l-0 border-r-0 relative z-10">
         <MarqueeItems />
       </div>
 
@@ -59,7 +59,7 @@ const Footer = () => {
       <div className="border-b border-dark-midLight relative z-10">
         <div className="container border-r border-l border-dark-midLight py-10 grid grid-cols-2 md:grid-cols-5 gap-8">
           <div>
-            <p className="text-sm uppercase mb-4 text-grey-midLight">
+            <p className="text-sm uppercase mb-4 text-grey-dark font-bold">
               A More Meaningful Home for Photography
             </p>
           </div>

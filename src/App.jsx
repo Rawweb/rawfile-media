@@ -52,10 +52,13 @@ function App() {
       {loading ? (
         <Loader />
       ) : (
-        <div className="relative overflow-hidden">
+        <div className="relative">
           <Navbar />
           <ScrollToTop />
-          <main className="min-h-screen bg-dark-dark text-grey-light overflow-hidden">
+          <main
+            className="min-h-screen bg-absolute-white text-dark-dark 
+  dark:bg-dark-dark dark:text-grey-light"
+          >
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

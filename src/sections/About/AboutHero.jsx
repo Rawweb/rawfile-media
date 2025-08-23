@@ -82,7 +82,7 @@ const AboutHero = () => {
  
 
   return (
-    <section className="section-heading relative">
+    <section className="section-heading relative pt-28">
       {/* ---------- MOBILE HERO IMAGE (no mask) ---------- */}
       <div className="container md:hidden">
         <motion.div
@@ -141,7 +141,7 @@ const AboutHero = () => {
           {stats.map((s, i) => (
             <motion.div
               key={i}
-              className="rounded-2xl border border-dark-midLight bg-dark-dark/60 px-4 py-4"
+              className="rounded-2xl border border-dark-midLight dark:bg-dark-dark/60 px-4 py-4"
               {...childMotion}
             >
               <p className="text-2xl md:text-[28px] font-bold">{s.k}</p>
@@ -217,7 +217,7 @@ const AboutHero = () => {
       <div className="container border border-dark-midLight rounded-xl border-t-0 pb-6 shadow-sm shadow-purple-dark/30 ">
         <div className="h-px w-full bg-dark-midLight/50 my-10" />
         <motion.div {...fadeUp(0.4)}>
-          <h2 className="text-xl md:text-2xl font-semibold tracking-tight mb-3 uppercase text-grey-midLight">
+          <h2 className="text-xl md:text-2xl font-semibold tracking-tight mb-3 uppercase dark:text-grey-midLight">
             My Biography
           </h2>
           <div className="space-y-2 text-sm md:text-[15px] leading-7  text-justify text-grey-dark">

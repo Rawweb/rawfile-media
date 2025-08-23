@@ -100,7 +100,7 @@ const JourneySection = () => {
             <motion.div {...childMotion}
               key={i}
               
-              className="group relative border border-dark-midLight rounded-xl p-6 bg-dark-dark space-y-4 overflow-hidden transition duration-300 hover:border-purple-light"
+              className="group relative border border-dark-midLight rounded-xl p-6 dark:bg-dark-dark space-y-4 overflow-hidden transition duration-300 hover:border-purple-light"
             >
               {/* Overlay / mask for subtle design consistency */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-dark-midLight/40 to-transparent rounded-bl-[150px] pointer-events-none" />
@@ -108,7 +108,7 @@ const JourneySection = () => {
 
               {/* Year */}
               <div className="relative z-10">
-                <h2 className="text-lg md:text-xl font-bold text-grey-midLight group-hover:text-purple-light transition">
+                <h2 className="text-lg md:text-xl font-bold dark:text-grey-midLight group-hover:text-purple-light transition">
                   YEAR - {item.year}
                 </h2>
               </div>

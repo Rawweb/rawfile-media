@@ -1,12 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
-import portfolioHero from '@assets/portfolio-hero.jpg';
-import portfolioCard from '@assets/portfolio-hero-card.png';
-import Brands from '@components/ui/Brands';
+import serviceCard from '@assets/service-hero-card.png';
+import serviceHero from '@assets/service-hero.jpg';
 
-const PortfolioHero = () => {
-
+const ServiceHero = () => {
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 24, filter: 'blur(2px)' },
     whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
@@ -14,27 +12,29 @@ const PortfolioHero = () => {
     viewport: { once: true, amount: 0.45 },
   });
 
-  const slideLeft =(delay = 0) => ({
+  const slideLeft = (delay = 0) => ({
     initial: { opacity: 0, x: -60 },
     whileInView: { opacity: 1, x: 0 },
     transition: { duration: 0.9, ease: 'easeOut', delay },
     viewport: { once: true, amount: 0.5 },
-  })
-  
+  });
+
   const slideRight = (delay = 0) => ({
     initial: { opacity: 0, x: 60 },
     whileInView: { opacity: 1, x: 0 },
     transition: { duration: 0.9, ease: 'easeOut', delay },
     viewport: { once: true, amount: 0.5 },
-  })
-
+  });
   return (
     <section className="section-heading relative pt-28">
       {/* MOBILE HERO IMAGE */}
       <div className="container md:hidden">
-        <motion.div className="relative w-full rounded-2xl overflow-hidden mb-6" {...slideLeft(0.2)}>
+        <motion.div
+          className="relative w-full rounded-2xl overflow-hidden mb-6"
+          {...slideLeft(0.2)}
+        >
           <img
-            src={portfolioHero}
+            src={serviceHero}
             alt=""
             className="w-full h-auto aspect-[4/3] object-cover"
           />
@@ -49,15 +49,15 @@ const PortfolioHero = () => {
 
         {/* stacked text on mobile */}
         <motion.div className="mt-6" {...slideRight(0.2)}>
-          <p className="text-grey-midDark uppercase text-sm mb-2">Portfolio</p>
+          <p className="text-grey-midDark uppercase text-sm mb-2">Services</p>
           <h1 className="uppercase text-2xl font-bold leading-tight dark:text-white">
-            Visual Poetry in Pixels
+            Diverse Photography Offerings
           </h1>
           <p className="mt-3 text-grey-dark text-sm leading-7">
-            Step into a visual journey that encapsulates the essence of my lens.
-            Each photograph in this portfolio is a narrative, a frozen moment in
-            time, and a testament to the artistry and passion poured into every
-            frame.
+            Unlock the full spectrum of professional photography services
+            tailored to your vision. From timeless portraits to captivating
+            event coverage, I bring a unique blend of creativity and technical
+            expertise to each project.
           </p>
         </motion.div>
       </div>
@@ -69,12 +69,12 @@ const PortfolioHero = () => {
           <motion.div
             className="absolute inset-0 bg-center bg-cover"
             style={{
-              backgroundImage: `url(${portfolioHero})`,
-              WebkitMaskImage: `url(${portfolioCard})`,
+              backgroundImage: `url(${serviceHero})`,
+              WebkitMaskImage: `url(${serviceCard})`,
               WebkitMaskRepeat: 'no-repeat',
               WebkitMaskSize: '100% 100%',
               WebkitMaskPosition: 'center',
-              maskImage: `url(${portfolioCard})`,
+              maskImage: `url(${serviceCard})`,
               maskRepeat: 'no-repeat',
               maskSize: '100% 100%',
               maskPosition: 'center',
@@ -83,21 +83,27 @@ const PortfolioHero = () => {
           />
 
           {/* HEADING -TEXT OVERLAY (desktop only) */}
-          <div
-            className="absolute z-10 top-[0%] lg:top-[3%] xl:top-[3.5%] left-[0%] md:w-[500px] lg:w-[650px] xl:w-[800px]"
-            
-          >
-            <motion.p className="text-grey-midDark uppercase text-sm mb-2 md:hidden" {...fadeUp(0.2)}>
+          <div className="absolute z-10 top-[1%] lg:top-[3%] xl:top-[3.5%] left-[15%] md:w-[600px] lg:w-[800px] xl:w-[900px]">
+            <motion.p
+              className="text-grey-midDark uppercase text-sm mb-2 md:hidden"
+              {...fadeUp(0.2)}
+            >
               Portfolio
             </motion.p>
-            <motion.h1 className="uppercase text-2xl xl:text-4xl font-bold leading-tight dark:text-white" {...fadeUp(0.2)}>
+            <motion.h1
+              className="uppercase text-xl lg:text-2xl xl:text-4xl font-bold leading-tight darktext-white"
+              {...fadeUp(0.2)}
+            >
               Visual Poetry in Pixels
             </motion.h1>
-            <motion.p className="mt-2 xl:mt-3 text-grey-dark text-sm lg:text-base xl:text-lg leading-tight" {...fadeUp(0.2)}>
+            <motion.p
+              className="mt-2 xl:mt-3 text-grey-dark text-xs lg:text-base xl:text-lg leading-tight"
+              {...fadeUp(0.2)}
+            >
               Step into a visual journey that encapsulates the essence of my
-              lens. Each photograph in this portfolio is a narrative, a frozen
-              moment in time, and a testament to the artistry and passion poured
-              into every frame.
+              lens. Each photograph in this portfolio is a narrative, a moment
+              in time, and a testament to the artistry and passion poured into
+              every frame.
             </motion.p>
           </div>
 
@@ -129,17 +135,15 @@ const PortfolioHero = () => {
 
           {/* right caption */}
           <motion.div
-            className="absolute z-10 bottom-[9%] right-[1.5%] lg:right-[4%] max-w-[140px] text-[11px] lg:text-[13px] leading-relaxed tracking-wide text-grey-midDark"
+            className="absolute z-10 bottom-[4%] right-[1.5%] lg:right-[4%] max-w-[140px] text-[11px] lg:text-[13px] leading-relaxed tracking-wide text-grey-midDark"
             {...fadeUp(0.25)}
           >
             SCROLL DOWN TO SEE <br /> THE WORKS
           </motion.div>
         </div>
       </div>
-
-      <Brands/>
     </section>
   );
 };
 
-export default PortfolioHero;
+export default ServiceHero;
