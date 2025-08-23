@@ -115,13 +115,16 @@ const AboutSection = () => {
               Introduction
             </h3>
             <p className="text-grey-midDark text-sm leading-relaxed">
-              My journey as a photographer has been a lifelong quest to capture
-              the extraordinary in the ordinary, to freeze fleeting moments in
-              time, and to share the world’s beauty as I see it. Based in the
-              enchanting landscapes of the USA, I find inspiration in every
-              corner of this diverse and vibrant country. Join me as we embark
-              on a visual odyssey, where each photograph tells a story, and
-              every frame is a piece of my heart.
+              Growing up in Anambra, Nigeria, I learned to see beauty where
+              others might overlook it, the laughter of family gatherings, the
+              colors of daily life, and the quiet poetry of simple moments. That
+              early curiosity became a lifelong calling; to turn the ordinary
+              into the extraordinary through photography. Each click of the
+              shutter is my way of honoring life’s stories, whether it’s a
+              portrait, a celebration, or a fleeting glance that deserves to be
+              remembered. Photography, for me, isn’t just about images; it’s
+              about creating memories that live on long after the moment has
+              passed.
             </p>
           </div>
 

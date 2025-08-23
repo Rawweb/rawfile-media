@@ -166,7 +166,13 @@ const ContactInfoSection = () => {
           botcheck: '',
         });
         setErrors({});
-        navigate('/thank-you');
+        navigate('/thank-you', {
+          state: {
+            name: form.Name,
+            email: form.email,
+            phone: form.phone,
+          },
+        });
       } else {
         toast.error(
           result.message || 'Something went wrong. Please try again.'

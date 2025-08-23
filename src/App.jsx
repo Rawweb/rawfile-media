@@ -17,6 +17,7 @@ import Services from '@pages/Services';
 import Contact from '@pages/Contact';
 import TestimonialsPage from '@pages/TestimonialsPage';
 import ThankYou from '@pages/ThankYou';
+import Booking from '@pages/Booking';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -67,6 +68,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/testimonials" element={<TestimonialsPage />} />
               <Route path="/thank-you" element={<ThankYou />} />
+              <Route path="/book-us" element={<Booking />} />
             </Routes>
           </main>
           <Footer />

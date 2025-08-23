@@ -46,6 +46,7 @@
   .btn-primary {
     @apply dark:bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light shadow-sm dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white text-xs;
   }
+  
   .button {
     @apply dark:bg-dark-midLight py-2 px-3 rounded-md transition duration-300 border border-dark-light shadow-sm dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white text-sm;
   }
@@ -62,8 +63,12 @@
   }
 
   .input-style {
-    @apply w-full bg-transparent border border-dark-midLight focus:border-dark-light focus:ring-0 text-absolute-white placeholder-grey-dark px-4 py-3 outline-none;
+    @apply w-full bg-transparent border border-dark-midLight focus:border-dark-light focus:ring-0 dark:text-absolute-white placeholder-grey-dark px-4 py-3 outline-none;
   }
+
+ .dark .input-style {
+  color-scheme: dark;
+}
 
   .input-style[aria-invalid='true'] {
     @apply border-red-500 focus:border-red-500 ring-0;
