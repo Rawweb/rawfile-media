@@ -180,9 +180,10 @@ const Portrait = () => {
           {...slideLeft(0.4)}
         >
           <p className="dark:text-grey-midLight">Individual Session</p>
+          <h1 className="text-2xl font-bold uppercase">Starting From</h1>
           <div className="flex gap-2 items-center justify-between md:justify-normal">
             <motion.h1 className="text-5xl font-bold" {...fadeUp(0.7)}>
-              ₦250
+              ₦25K
             </motion.h1>
             <Link
               to="/book-us"
@@ -212,6 +213,26 @@ const Portrait = () => {
                 <p>{text}</p>
               </motion.div>
             ))}
+
+            {/* Quick chips to specify Milestone types */}
+            <div className="flex flex-wrap gap-2 pt-3">
+              {[
+                { label: 'Headshots', slug: 'headshot' },
+                { label: 'Personal Branding', slug: 'branding' },
+                { label: 'Social Media Content', slug: 'social' },
+                { label: 'Creative Portraits', slug: 'creative' },
+              ].map(tag => (
+                <Link
+                  key={tag.slug}
+                  to={`/book-us?type=milestone&sub=${tag.slug}`}
+                  className="px-3 py-1 rounded-full border border-dark-midLight/60 text-xs
+                             dark:text-grey-midLight hover:border-purple-midLight hover:text-purple-midLight
+                             transition-colors duration-200"
+                >
+                  {tag.label}
+                </Link>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>
@@ -224,9 +245,10 @@ const Portrait = () => {
           {...slideLeft(0.4)}
         >
           <p className="dark:text-grey-midLight">Family Session</p>
+          <h1 className="text-2xl font-bold uppercase">Starting From</h1>
           <div className="flex gap-2 items-center justify-between md:justify-normal">
             <motion.h1 className="text-5xl font-bold" {...fadeUp(0.7)}>
-              ₦250
+              ₦30K
             </motion.h1>
             <Link
               to="/book-us"
@@ -256,6 +278,26 @@ const Portrait = () => {
                 <p>{text}</p>
               </motion.div>
             ))}
+
+            {/* Quick chips to specify Milestone types */}
+            <div className="flex flex-wrap gap-2 pt-3">
+              {[
+                { label: 'Nuclear Family', slug: 'nuclear' },
+                { label: 'Extended Family', slug: 'extended' },
+                { label: 'Generational Portraits', slug: 'generational' },
+                { label: 'Holiday & Festive Shoots', slug: 'holiday' },
+              ].map(tag => (
+                <Link
+                  key={tag.slug}
+                  to={`/book-us?type=milestone&sub=${tag.slug}`}
+                  className="px-3 py-1 rounded-full border border-dark-midLight/60 text-xs
+                             dark:text-grey-midLight hover:border-purple-midLight hover:text-purple-midLight
+                             transition-colors duration-200"
+                >
+                  {tag.label}
+                </Link>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>
@@ -268,9 +310,10 @@ const Portrait = () => {
           {...slideLeft(0.4)}
         >
           <p className="dark:text-grey-midLight">Couple Session</p>
+          <h1 className="text-2xl font-bold uppercase">Starting From</h1>
           <div className="flex gap-2 items-center justify-between md:justify-normal">
             <motion.h1 className="text-5xl font-bold" {...fadeUp(0.7)}>
-              ₦250
+              ₦30K
             </motion.h1>
             <Link
               to="/book-us"
@@ -300,6 +343,26 @@ const Portrait = () => {
                 <p>{text}</p>
               </motion.div>
             ))}
+
+            {/* Quick chips to specify Milestone types */}
+            <div className="flex flex-wrap gap-2 pt-3">
+              {[
+                { label: 'Romantic Shoot', slug: 'romantic' },
+                { label: 'Pre-Wedding', slug: 'pre-wedding' },
+                { label: 'Anniversary Shoot', slug: 'anniversary' },
+                { label: 'Casual Lifestyle', slug: 'lifestyle' },
+              ].map(tag => (
+                <Link
+                  key={tag.slug}
+                  to={`/book-us?type=milestone&sub=${tag.slug}`}
+                  className="px-3 py-1 rounded-full border border-dark-midLight/60 text-xs
+                             dark:text-grey-midLight hover:border-purple-midLight hover:text-purple-midLight
+                             transition-colors duration-200"
+                >
+                  {tag.label}
+                </Link>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>

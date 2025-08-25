@@ -171,17 +171,18 @@ const Events = () => {
       </div>
 
       {/* PRICE SECTIONS */}
-      {/* Individual Sessions */}
+      {/* Wedding Coverage */}
       <div className="container section-heading grid gap-10 md:grid-cols-12 border-b border-dark-midLight">
         {/* LEFT COLUMN */}
         <motion.div
           className="md:col-span-5 w-full min-w-0 space-y-2"
           {...slideLeft(0.4)}
         >
-          <p className="dark:text-grey-midLight">Wedding Photography</p>
+          <p className="dark:text-grey-midLight">Wedding Session</p>
+          <h1 className="text-2xl font-bold uppercase">Starting From</h1>
           <div className="flex gap-2 items-center justify-between md:justify-normal">
             <motion.h1 className="text-5xl font-bold" {...fadeUp(0.7)}>
-              ₦200
+              ₦500K
             </motion.h1>
             <Link
               to="/book-us"
@@ -201,31 +202,58 @@ const Events = () => {
           {/* SERVICE HIGHLIGHTS */}
           <motion.div className="space-y-3" {...parentMotion}>
             {[
-              'Perfect for professional headshots, social media, or personal branding.',
-              'Expert posing guidance to bring out your best angles.',
-              'Studio or outdoor location of your choice.',
-              'Additional retouched images available on request.',
+              'Full-day coverage of your wedding ceremony & reception.',
+              'Candid & posed shots to capture genuine emotions.',
+              'Optional pre-wedding (engagement) or post-wedding shoots.',
+              'Indoor, outdoor, or destination coverage available.',
+              'Professional retouching & curated photo album.',
+              'High-resolution digital gallery & print options.',
+              'Family & group portraits beautifully composed.',
+              'Creative direction to tell your unique love story.',
             ].map((text, i) => (
               <motion.div key={i} className="highlight-btn" {...childMotion}>
                 <GiLaserSparks className="text-purple-light" />
                 <p>{text}</p>
               </motion.div>
             ))}
+
+            {/* Quick chips to specify Milestone types */}
+            <div className="flex flex-wrap gap-2 pt-3">
+              {[
+                { label: 'Traditional Wedding', slug: 'traditional' },
+                { label: 'White Wedding', slug: 'white' },
+                { label: 'Engagement Shoot', slug: 'engagement' },
+                { label: 'Pre-Wedding Session', slug: 'pre-wedding' },
+                { label: 'Destination Wedding', slug: 'destination' },
+                { label: 'Post-Wedding Shoot', slug: 'post-wedding' },
+              ].map(tag => (
+                <Link
+                  key={tag.slug}
+                  to={`/book-us?type=milestone&sub=${tag.slug}`}
+                  className="px-3 py-1 rounded-full border border-dark-midLight/60 text-xs
+                 dark:text-grey-midLight hover:border-purple-midLight hover:text-purple-midLight
+                 transition-colors duration-200"
+                >
+                  {tag.label}
+                </Link>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Family Sessions */}
+      {/* Party Coverage */}
       <div className="container section-heading grid gap-10 md:grid-cols-12 border-b border-dark-midLight">
         {/* LEFT COLUMN */}
         <motion.div
           className="md:col-span-5 w-full min-w-0 space-y-2"
           {...slideLeft(0.4)}
         >
-          <p className="dark:text-grey-midLight">Family Session</p>
+          <p className="dark:text-grey-midLight">Party Coverage</p>
+          <h1 className="text-2xl font-bold uppercase">Starting From</h1>
           <div className="flex gap-2 items-center justify-between md:justify-normal">
             <motion.h1 className="text-5xl font-bold" {...fadeUp(0.7)}>
-              ₦250
+              ₦300k
             </motion.h1>
             <Link
               to="/book-us"
@@ -245,31 +273,55 @@ const Events = () => {
           {/* SERVICE HIGHLIGHTS */}
           <motion.div className="space-y-3" {...parentMotion}>
             {[
-              'Create timeless memories with your loved ones in a relaxed setting.',
-              'Skilled photographers who know how to seize the moment.',
-              'Choice of outdoor or in-home location for a personal touch.',
-              'Additional retouched images available on request.',
+              'Comprehensive coverage of birthdays, anniversaries & social events.',
+              'Candid and group shots to capture energy & fun.',
+              'Indoor, outdoor, or venue-based photography available.',
+              'Professional editing & retouching of selected images.',
+              'High-resolution digital gallery for easy sharing.',
+              'Special attention to décor, details & atmosphere.',
+              'Optional highlight video add-on.',
             ].map((text, i) => (
               <motion.div key={i} className="highlight-btn" {...childMotion}>
                 <GiLaserSparks className="text-purple-light" />
                 <p>{text}</p>
               </motion.div>
             ))}
+
+            {/* Quick chips to specify Milestone types */}
+            <div className="flex flex-wrap gap-2 pt-3">
+              {[
+                { label: 'Birthday Party', slug: 'birthday' },
+                { label: 'Bridal Shower', slug: 'bridal-shower' },
+                { label: 'Baby Shower', slug: 'baby-shower' },
+                { label: 'House Party', slug: 'house-party' },
+                { label: 'Corporate Party', slug: 'corporate-party' },
+              ].map(tag => (
+                <Link
+                  key={tag.slug}
+                  to={`/book-us?type=milestone&sub=${tag.slug}`}
+                  className="px-3 py-1 rounded-full border border-dark-midLight/60 text-xs
+                 dark:text-grey-midLight hover:border-purple-midLight hover:text-purple-midLight
+                 transition-colors duration-200"
+                >
+                  {tag.label}
+                </Link>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Couple Sessions */}
+      {/* Milestone Coverage */}
       <div className="container section-heading grid gap-10 md:grid-cols-12 border-b border-dark-midLight">
         {/* LEFT COLUMN */}
         <motion.div
           className="md:col-span-5 w-full min-w-0 space-y-2"
           {...slideLeft(0.4)}
         >
-          <p className="dark:text-grey-midLight">Couple Session</p>
+          <p className="dark:text-grey-midLight">Milestones</p>
           <div className="flex gap-2 items-center justify-between md:justify-normal">
             <motion.h1 className="text-5xl font-bold" {...fadeUp(0.7)}>
-              ₦250
+              Custom Pricing
             </motion.h1>
             <Link
               to="/book-us"
@@ -289,16 +341,41 @@ const Events = () => {
           {/* SERVICE HIGHLIGHTS */}
           <motion.div className="space-y-3" {...parentMotion}>
             {[
-              'Celebrate your love story with intimate, candid, and posed shots.',
-              '2–3 outfit changes for variety and personality.',
-              'Romantic studio or an outdoor location to match your style.',
-              'Additional retouched images available on request.',
+              'Capture life’s unforgettable milestones — graduations, dedications, retirements & anniversaries.',
+              'Candid and posed portraits to preserve genuine emotions.',
+              'On-location coverage at schools, halls, homes, or outdoor venues.',
+              'Family & group portraits included for lasting memories.',
+              'Professional editing & retouching for a polished look.',
+              'High-resolution digital gallery for easy sharing & printing.',
+              'Tailored packages based on event size and duration.',
             ].map((text, i) => (
               <motion.div key={i} className="highlight-btn" {...childMotion}>
                 <GiLaserSparks className="text-purple-light" />
                 <p>{text}</p>
               </motion.div>
             ))}
+
+            {/* Optional: quick chips to specify Milestone types */}
+            <div className="flex flex-wrap gap-2 pt-3">
+              {[
+                { label: 'Convocation', slug: 'convocation' },
+                { label: 'Child Dedication', slug: 'child-dedication' },
+                { label: 'Anniversary', slug: 'anniversary' },
+                { label: 'Retirement', slug: 'retirement' },
+                { label: 'Achievement Award', slug: 'achievement' },
+                { label: 'Naming Ceremony', slug: 'naming' },
+              ].map(tag => (
+                <Link
+                  key={tag.slug}
+                  to={`/book-us?type=milestone&sub=${tag.slug}`}
+                  className="px-3 py-1 rounded-full border border-dark-midLight/60 text-xs
+                 dark:text-grey-midLight hover:border-purple-midLight hover:text-purple-midLight
+                 transition-colors duration-200"
+                >
+                  {tag.label}
+                </Link>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>

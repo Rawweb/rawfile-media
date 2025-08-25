@@ -4,17 +4,40 @@ import { FiArrowUpRight } from 'react-icons/fi';
 import { toast } from 'sonner';
 import { submitContact } from '@components/utils/submitContact';
 import { useNavigate } from 'react-router-dom';
+import SessionSelect from '@components/ui/SessionSelect';
+import DateSelect from '@components/ui/DateSelect';
+import TimeSelect from '@components/ui/TimeSelect';
+import VariantSelect from '@components/ui/VariantSelect';
+import { getDefaultVariant, getVariants } from '@components/ui/SessionVariants';
+
+
+
+
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 const PHONE_RE = /^\+?[0-9()\-\s]{7,}$/;
 
 const sessions = [
-  { name: 'Individual Session', price: '$250' },
-  { name: 'Family Session', price: '$400' },
-  { name: 'Couple Session', price: '$300' },
-  { name: 'Wedding Session', price: 'Custom Quote' },
-  { name: 'Commercial Session', price: 'Custom Quote' },
+  {
+    group: 'Portrait Sessions',
+    items: [
+      { name: 'Individual Session' },
+      { name: 'Family Session' },
+      { name: 'Couple Session' },
+    ],
+  },
+  {
+    group: 'Event Coverage',
+    items: [
+      { name: 'Wedding Session' },
+      { name: 'Party Coverage' },
+      { name: 'Milestone Coverage' },
+    ],
+  },
+  { group: 'Other', items: [{ name: 'Commercial Session' }] },
 ];
+
+const firstSession = sessions[0].items[0].name;
 
 const BookingPage = () => {
   // ---------- Motion Variants ----------
@@ -58,7 +81,8 @@ const BookingPage = () => {
 
   // ---------- State ----------
   const [form, setForm] = useState({
-    session: sessions[0].name,
+    session: firstSession,
+    variant: getDefaultVariant(firstSession),
     date: '',
     time: '',
     name: '',
@@ -77,6 +101,11 @@ const BookingPage = () => {
   const validate = values => {
     const next = {};
     if (!values.session) next.session = 'Session is required.';
+
+    const needsVariant = getVariants(values.session).length > 0;
+    if (needsVariant && !values.variant)
+      next.variant = 'Please choose an option.';
+
     if (!values.date) next.date = 'Date is required.';
     if (!values.time) next.time = 'Time is required.';
     if (!values.name?.trim()) next.name = 'Full name is required.';
@@ -96,9 +125,13 @@ const BookingPage = () => {
   const handleChange = e => {
     const { name, value } = e.target;
     const updated = { ...form, [name]: value };
+
+    if (name === 'session') {
+      updated.variant = getDefaultVariant(value); // auto-pick first option or ''
+    }
+
     setForm(updated);
 
-    // live validate only the changed field
     const fieldErrs = validate(updated);
     setErrors(prev => {
       const merged = { ...prev, [name]: fieldErrs[name] };
@@ -139,13 +172,16 @@ const BookingPage = () => {
     const bookingMessage = [
       'New Booking Request',
       `Session: ${form.session}`,
+      form.variant ? `Option: ${form.variant}` : null, // NEW
       `Preferred Date: ${form.date}`,
       `Preferred Time: ${form.time}`,
       `Full Name: ${form.name}`,
       `Email: ${form.email}`,
       `Phone: ${form.phone}`,
       `Notes: ${form.notes || '-'}`,
-    ].join('\n');
+    ]
+      .filter(Boolean)
+      .join('\n');
 
     let toastId;
     try {
@@ -170,7 +206,7 @@ const BookingPage = () => {
           result.message || "Booking request sent! We'll be in touch soon."
         );
         setForm({
-          session: sessions[0].name,
+          session: sessions[0].items[0].name,
           date: '',
           time: '',
           name: '',
@@ -185,6 +221,7 @@ const BookingPage = () => {
             name: form.name,
             email: form.email,
             session: form.session,
+            variant: form.variant,
             date: form.date,
             time: form.time,
           },
@@ -249,71 +286,56 @@ const BookingPage = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Session */}
-                <motion.label
-                  className="block"
-                  {...childMotion}
-                  htmlFor="session"
-                >
+                <motion.label className="block" {...childMotion}>
                   <span className="block text-xs dark:text-grey-midLight mb-2">
                     Session Type
                   </span>
-                  <select
-                    id="session"
-                    name="session"
+                  <SessionSelect
+                    sessions={sessions}
                     value={form.session}
                     onChange={handleChange}
-                    className={`input-style ${
-                      errors.session ? 'ring-1 ring-red-500' : ''
-                    }`}
                     disabled={isSubmitting}
-                    aria-required="true"
-                    aria-invalid={!!errors.session}
-                  >
-                    {sessions.map((s, i) => (
-                      <option key={i} value={s.name}>
-                        {s.name} ({s.price})
-                      </option>
-                    ))}
-                  </select>
-                </motion.label>
-
-                {/* Date */}
-                <motion.label className="block" {...childMotion} htmlFor="date">
-                  <span className="block text-xs dark:text-grey-midLight mb-2">
-                    Preferred Date
-                  </span>
-                  <input
-                    id="date"
-                    type="date"
-                    name="date"
-                    value={form.date}
-                    onChange={handleChange}
-                    className={`input-style ${
-                      errors.date ? 'ring-1 ring-red-500' : ''
-                    }`}
-                    disabled={isSubmitting}
-                    aria-required="true"
-                    aria-invalid={!!errors.date}
+                    error={errors.session}
                   />
                 </motion.label>
 
+                {/* Variant (auto-hides if none) */}
+                <motion.div className="block" {...childMotion}>
+                  <VariantSelect
+                    session={form.session}
+                    value={form.variant}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    error={errors.variant}
+                    label={
+                      /Session$/.test(form.session)
+                        ? 'Location / Type'
+                        : 'Coverage Type'
+                    }
+                  />
+                </motion.div>
+
+                {/* Date */}
+                <motion.div className="block" {...childMotion}>
+                  <DateSelect
+                    value={form.date}
+                    onChange={handleChange}
+                    error={errors.date}
+                    disabled={isSubmitting}
+                    min={new Date().toISOString().slice(0, 10)} // today forward
+                  />
+                </motion.div>
+
                 {/* Time */}
-                <motion.label className="block" {...childMotion} htmlFor="time">
-                  <span className="block text-xs dark:text-grey-midLight mb-2">
-                    Preferred Time
-                  </span>
-                  <input
-                    id="time"
-                    type="time"
-                    name="time"
+                <motion.label className="block" {...childMotion}>
+                  <TimeSelect
                     value={form.time}
                     onChange={handleChange}
-                    className={`input-style ${
-                      errors.time ? 'ring-1 ring-red-500' : ''
-                    }`}
                     disabled={isSubmitting}
-                    aria-required="true"
-                    aria-invalid={!!errors.time}
+                    error={errors.time}
+                    start="08:00"
+                    end="17:00"
+                    step={30}
                   />
                 </motion.label>
 

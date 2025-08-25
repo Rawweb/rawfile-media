@@ -12,8 +12,9 @@ const fadeUp = (d = 0) => ({
 export default function ThankYou() {
   const { state } = useLocation() || {};
   const name = state?.name;
-  const email = state?.email; // customer’s email
+  const email = state?.email;
   const session = state?.session;
+  const variant = state?.variant;
   const date = state?.date;
   const time = state?.time;
 
@@ -46,8 +47,18 @@ export default function ThankYou() {
                 className="mt-2 text-[15px] leading-7 dark:text-grey-midLight text-grey-dark"
                 {...fadeUp(0.25)}
               >
-                We’ve received your{' '}
-                {session ? <b>{session.toLowerCase()}</b> : 'message'} request.
+                We’ve received your We’ve received your{' '}
+                {session ? (
+                  <b>
+                    {[session, variant]
+                      .filter(Boolean)
+                      .join(' — ')
+                      .toLowerCase()}
+                  </b>
+                ) : (
+                  'message'
+                )}{' '}
+                request.
                 {email && (
                   <>
                     {' '}
@@ -70,6 +81,17 @@ export default function ThankYou() {
                       {session}
                     </div>
                   )}
+
+                  {variant && (
+                    <div>
+                      {' '}
+                      <span className="dark:text-grey-midLight text-dark-light font-bold">
+                        Session Type:
+                      </span>{' '}
+                      {variant}
+                    </div>
+                  )}
+
                   {date && (
                     <div>
                       <span className="dark:text-grey-midLight text-dark-light font-bold">
