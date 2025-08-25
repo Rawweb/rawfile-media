@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import {
+  FaArrowRight,
+  FaFacebookF,
+  FaInstagram,
+  FaTiktok
+} from 'react-icons/fa';
 import { TiStarFullOutline } from 'react-icons/ti';
 import { motion, useMotionValue, animate } from 'framer-motion';
 
@@ -13,13 +18,12 @@ const TestimonialsSection = () => {
   const containerRef = useRef(null);
   const animationRef = useRef(null);
 
-   const fadeUp = (delay = 0) => ({
+  const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 24, filter: 'blur(2px)' },
     whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
     transition: { duration: 0.6, ease: 'easeOut', delay },
     viewport: { once: true, amount: 0.45 },
   });
-
 
   const testimonials = [
     {
@@ -75,7 +79,8 @@ const TestimonialsSection = () => {
       name: 'Ifeanyi Nnaji',
       location: 'Nnewi, Anambra State',
       rating: 5,
-      review: 'Absolutely amazing work! My family and I love every single shot.',
+      review:
+        'Absolutely amazing work! My family and I love every single shot.',
     },
     {
       id: 8,
@@ -136,11 +141,21 @@ const TestimonialsSection = () => {
       {/* TOP */}
       <div className="flex flex-col gap-4 md:flex-row items-start justify-between md:items-center mt-20 border-b border-dark-midLight pb-8 relative">
         <div>
-          <motion.p className="text-grey-midDark uppercase text-sm" {...fadeUp(0.4)}>testimonials</motion.p>
-          <motion.h1 className="uppercase text-2xl md:text-3xl font-bold leading-tight" {...fadeUp(0.4)}>
+          <motion.p
+            className="text-grey-midDark uppercase text-sm"
+            {...fadeUp(0.4)}
+          >
+            testimonials
+          </motion.p>
+          <motion.h1
+            className="uppercase text-2xl md:text-3xl font-bold leading-tight"
+            {...fadeUp(0.4)}
+          >
             what my clients say
           </motion.h1>
-          <motion.p className="text-xs mt-2 text-grey-dark" {...fadeUp(0.4)}>Total Reviews</motion.p>
+          <motion.p className="text-xs mt-2 text-grey-dark" {...fadeUp(0.4)}>
+            Total Reviews
+          </motion.p>
           <motion.p {...fadeUp(0.4)}>{testimonials.length}</motion.p>
         </div>
 
@@ -153,10 +168,7 @@ const TestimonialsSection = () => {
       </div>
 
       {/* BOTTOM */}
-      <div
-        ref={containerRef}
-        className="relative overflow-hidden"
-      >
+      <div ref={containerRef} className="relative overflow-hidden">
         <motion.div
           ref={carouselRef}
           className="pt-12 flex gap-6 cursor-grab active:cursor-grabbing relative"
@@ -193,19 +205,41 @@ const TestimonialsSection = () => {
                 {/* Heading */}
                 <div className="flex justify-between items-center gap-4 relative z-10">
                   <div>
-                    <h1 className="dark:text-grey-midLight text-sm">{testimonial.name}</h1>
-                    <p className="text-xs dark:text-grey-midDark">{testimonial.location}</p>
+                    <h1 className="dark:text-grey-midLight text-sm">
+                      {testimonial.name}
+                    </h1>
+                    <p className="text-xs dark:text-grey-midDark">
+                      {testimonial.location}
+                    </p>
                   </div>
                   <div>
                     <div className="flex items-center gap-2 border dark:bg-dark-dark border-dark-midLight rounded-full p-2">
-                      <a href="#" className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition">
+                      <a
+                        href="https://web.facebook.com/Rawimagix"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Follow us on Facebook"
+                        className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition"
+                      >
                         <FaFacebookF />
                       </a>
-                      <a href="#" className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition">
-                        <FaTwitter />
+                      <a
+                        href="https://www.instagram.com/rawfilefotografy/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Follow us on Instagram"
+                        className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition"
+                      >
+                        <FaInstagram />
                       </a>
-                      <a href="#" className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition">
-                        <FaLinkedinIn />
+                      <a
+                        href="https://www.tiktok.com/@rawfilefotografy?lang=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Follow us on TikTok"  
+                        className="btn size-6 border border-dark-light hover:shadow-[0_0_10px_rgba(168,85,247,0.7)] transition"
+                      >
+                        <FaTiktok />
                       </a>
                     </div>
                   </div>
@@ -213,12 +247,19 @@ const TestimonialsSection = () => {
 
                 {/* Stars */}
                 <div className="flex gap-1 items-center text-yellow-light">
-                  {Array.from({ length: testimonial.rating }).map((_, index) => (
-                    <TiStarFullOutline key={index} className="size-5" />
-                  ))}
-                  {Array.from({ length: 5 - testimonial.rating }).map((_, index) => (
-                    <TiStarFullOutline key={`empty-${index}`} className="size-5 text-grey-dark" />
-                  ))}
+                  {Array.from({ length: testimonial.rating }).map(
+                    (_, index) => (
+                      <TiStarFullOutline key={index} className="size-5" />
+                    )
+                  )}
+                  {Array.from({ length: 5 - testimonial.rating }).map(
+                    (_, index) => (
+                      <TiStarFullOutline
+                        key={`empty-${index}`}
+                        className="size-5 text-grey-dark"
+                      />
+                    )
+                  )}
                 </div>
 
                 {/* Review */}

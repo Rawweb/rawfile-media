@@ -1,12 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
-import {
-  FaArrowRight,
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-} from 'react-icons/fa';
+import { FaFacebookF, FaTiktok, FaInstagram } from 'react-icons/fa';
 import contactCard from '@assets/contact-hero-card.png';
 import contactHero from '@assets/contact-hero.jpg';
 
@@ -129,22 +124,31 @@ const ContactHero = () => {
             {...slideRight(0.6)}
           >
             <a
-              href="#"
+              href="https://web.facebook.com/Rawimagix"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Facebook"
               className="p-2 dark:bg-dark-midLight border border-dark-dark rounded-full dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white lg:size-10 flex items-center justify-center transition duration-300"
             >
               <FaFacebookF />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/rawfilefotografy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Instagram"
               className="p-2 dark:bg-dark-midLight border border-dark-dark rounded-full dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white lg:size-10 flex items-center justify-center transition duration-300"
             >
-              <FaTwitter />
+              <FaInstagram />
             </a>
             <a
-              href="#"
+              href="https://www.tiktok.com/@rawfilefotografy?lang=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on TikTok"
               className="p-2 dark:bg-dark-midLight border border-dark-dark rounded-full dark:hover:bg-purple-midLight hover:bg-purple-midLight hover:text-absolute-white lg:size-10 flex items-center justify-center transition duration-300"
             >
-              <FaLinkedinIn />
+              <FaTiktok />
             </a>
           </motion.div>
 

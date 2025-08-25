@@ -9,6 +9,8 @@ import DateSelect from '@components/ui/DateSelect';
 import TimeSelect from '@components/ui/TimeSelect';
 import VariantSelect from '@components/ui/VariantSelect';
 import { getDefaultVariant, getVariants } from '@components/ui/SessionVariants';
+import FaqSection from '@sections/Home/FaqSection';
+import TestimonialsSection from '@sections/Home/TestimonialsSection';
 
 
 
@@ -458,6 +460,9 @@ const BookingPage = () => {
           </div>
         </motion.div>
       </div>
+
+      <FaqSection/>
+      <TestimonialsSection/>
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TiStarFullOutline } from 'react-icons/ti';
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { FaFacebookF, FaTiktok, FaInstagram } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const TestimonialsPage = () => {
@@ -107,13 +107,13 @@ const TestimonialsPage = () => {
   };
 
   return (
-    <section className="container py-16">
+    <section className="container py-16 mt-12">
       {/* HERO */}
       <motion.div className="text-center mb-12" {...fadeUp(0)}>
-        <h1 className="uppercase text-3xl md:text-4xl font-bold text-white">
+        <h1 className="uppercase text-3xl md:text-4xl font-bold dark:text-white">
           What My Clients Say
         </h1>
-        <p className="text-grey-midLight mt-2">
+        <p className="dark:text-grey-midLight mt-2">
           Real stories and feedback from amazing people I’ve worked with.
         </p>
       </motion.div>
@@ -151,7 +151,7 @@ const TestimonialsPage = () => {
           <motion.div
             key={testimonial.id}
             variants={card}
-            className="relative border border-dark-midLight rounded-xl p-6 bg-dark-dark space-y-4 overflow-hidden"
+            className="relative border border-dark-midLight rounded-xl p-6 bg:bg-dark-dark space-y-4 overflow-hidden"
           >
             {/* Overlay / mask */}
             <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-dark-midLight/40 to-transparent rounded-bl-[150px] pointer-events-none" />
@@ -159,10 +159,12 @@ const TestimonialsPage = () => {
 
             {/* Name + Location */}
             <div className="relative z-10">
-              <h1 className="text-grey-midLight text-sm font-semibold">
+              <h1 className="dark:text-grey-midLight text-sm font-semibold">
                 {testimonial.name}
               </h1>
-              <p className="text-xs text-grey-dark">{testimonial.location}</p>
+              <p className="text-xs dark:text-grey-dark">
+                {testimonial.location}
+              </p>
             </div>
 
             {/* Stars */}
@@ -173,35 +175,44 @@ const TestimonialsPage = () => {
               {Array.from({ length: 5 - testimonial.rating }).map((_, i) => (
                 <TiStarFullOutline
                   key={`empty-${i}`}
-                  className="size-5 text-grey-dark"
+                  className="size-5 dark:text-grey-dark"
                 />
               ))}
             </div>
 
             {/* Review */}
-            <p className="text-grey-midLight text-sm relative z-10">
+            <p className="dark:text-grey-midLight text-sm relative z-10">
               {testimonial.review}
             </p>
 
             {/* Social Links */}
             <div className="flex gap-2 relative z-10">
               <a
-                href="#"
+                href="https://web.facebook.com/Rawimagix"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Facebook"
                 className="btn size-6 border border-dark-light flex items-center justify-center rounded-full"
               >
                 <FaFacebookF />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/rawfilefotografy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
                 className="btn size-6 border border-dark-light flex items-center justify-center rounded-full"
               >
-                <FaTwitter />
+                <FaInstagram />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@rawfilefotografy?lang=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on TikTok"
                 className="btn size-6 border border-dark-light flex items-center justify-center rounded-full"
               >
-                <FaLinkedinIn />
+                <FaTiktok />
               </a>
             </div>
           </motion.div>

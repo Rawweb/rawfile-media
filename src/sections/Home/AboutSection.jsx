@@ -1,11 +1,6 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  FaArrowRight,
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-} from 'react-icons/fa';
+import { FaFacebookF, FaTiktok, FaInstagram, FaArrowRight } from 'react-icons/fa';
 import { GiNinjaStar } from 'react-icons/gi';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import rawfileImage from '@assets/rawfile.png';
@@ -152,14 +147,32 @@ const AboutSection = () => {
                 className="flex items-center gap-2 border border-dark-midLight rounded-full p-2 relative"
                 {...fadeUp(0.4)}
               >
-                <a href="#" className="btn">
+                <a
+                  href="https://web.facebook.com/Rawimagix"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow us on Facebook"
+                  className="btn"
+                >
                   <FaFacebookF />
                 </a>
-                <a href="#" className="btn">
-                  <FaTwitter />
+                <a
+                  href="https://www.instagram.com/rawfilefotografy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow us on Instagram"
+                   className="btn"
+                >
+                  <FaInstagram />
                 </a>
-                <a href="#" className="btn">
-                  <FaLinkedinIn />
+                <a
+                  href="https://www.tiktok.com/@rawfilefotografy?lang=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow us on TikTok"
+                  className="btn"
+                >
+                  <FaTiktok />
                 </a>
               </motion.div>
 

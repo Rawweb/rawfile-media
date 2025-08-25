@@ -18,6 +18,8 @@ import Contact from '@pages/Contact';
 import TestimonialsPage from '@pages/TestimonialsPage';
 import ThankYou from '@pages/ThankYou';
 import Booking from '@pages/Booking';
+import PrivacyPolicy from '@pages/PrivacyPolicy';
+import TermsAndConditions from '@pages/TermsAndConditions';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -69,6 +71,8 @@ function App() {
               <Route path="/testimonials" element={<TestimonialsPage />} />
               <Route path="/thank-you" element={<ThankYou />} />
               <Route path="/book-us" element={<Booking />} />
+              <Route path='/privacy' element={<PrivacyPolicy />} />
+              <Route path='/terms' element={<TermsAndConditions />} />
             </Routes>
           </main>
           <Footer />
