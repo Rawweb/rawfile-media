@@ -1,5 +1,5 @@
 import SessionSelect from '@components/ui/SessionSelect';
-import { getVariants } from './SessionVariants';
+import { getVariants } from './sessionVariants';
 
 
 

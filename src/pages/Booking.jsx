@@ -8,7 +8,7 @@ import SessionSelect from '@components/ui/SessionSelect';
 import DateSelect from '@components/ui/DateSelect';
 import TimeSelect from '@components/ui/TimeSelect';
 import VariantSelect from '@components/ui/VariantSelect';
-import { getDefaultVariant, getVariants } from '@components/ui/SessionVariants';
+import { getDefaultVariant, getVariants } from '@components/ui/sessionVariants';
 import FaqSection from '@sections/Home/FaqSection';
 import TestimonialsSection from '@sections/Home/TestimonialsSection';
 

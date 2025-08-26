@@ -20,6 +20,7 @@ import ThankYou from '@pages/ThankYou';
 import Booking from '@pages/Booking';
 import PrivacyPolicy from '@pages/PrivacyPolicy';
 import TermsAndConditions from '@pages/TermsAndConditions';
+import Project from '@pages/Projects';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -73,6 +74,7 @@ function App() {
               <Route path="/book-us" element={<Booking />} />
               <Route path='/privacy' element={<PrivacyPolicy />} />
               <Route path='/terms' element={<TermsAndConditions />} />
+              <Route path="/projects" element={<Project />} />
             </Routes>
           </main>
           <Footer />
