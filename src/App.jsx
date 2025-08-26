@@ -21,7 +21,8 @@ import ThankYou from '@pages/ThankYou';
 import Booking from '@pages/Booking';
 import PrivacyPolicy from '@pages/PrivacyPolicy';
 import TermsAndConditions from '@pages/TermsAndConditions';
-import Project from '@pages/Projects';
+import Project from '@pages/ProjectsPage';
+import ProjectDetail from '@components/ui/ProjectDetail';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -76,6 +77,7 @@ function App() {
               <Route path='/privacy' element={<PrivacyPolicy />} />
               <Route path='/terms' element={<TermsAndConditions />} />
               <Route path="/projects" element={<Project />} />
+              <Route path="/projects/:slug" element={<ProjectDetail />} />
             </Routes>
           </main>
           <Footer />

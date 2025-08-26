@@ -1,91 +1,45 @@
 // /pages/ProjectsPage.jsx
-import React, { useMemo, useState } from "react";
-import { FiSearch, FiX } from "react-icons/fi";
-import ProjectCard from "@components/ui/ProjectCard";
+import React, { useMemo, useState } from 'react';
+import { FiSearch, FiX } from 'react-icons/fi';
+import ProjectCard from '@components/ui/ProjectCard';
+import { PROJECTS } from '@data/projectsData';
 
-// ---- Sample data (replace with your real data/images) ----
-const PROJECTS = [
-  {
-    id: 1,
-    title: "Golden Hour Portrait",
-    category: "Portraits",
-    tags: ["Outdoor", "Natural Light"],
-    date: "2025-06-12",
-    cover: "https://picsum.photos/200/300/?random=3",
-  },
-  {
-    id: 2,
-    title: "White Wedding – Chika & Ugo",
-    category: "Weddings",
-    tags: ["White Wedding", "Lagos"],
-    date: "2025-05-20",
-    cover: "https://picsum.photos/200/300/?random=2",
-  },
-  {
-    id: 3,
-    title: "Traditional Ceremony – Ada & Kene",
-    category: "Weddings",
-    tags: ["Traditional", "Ankara"],
-    date: "2025-04-28",
-    cover: "https://picsum.photos/200/300/?random=1",
-  },
-  {
-    id: 4,
-    title: "Product Elegance",
-    category: "Commercial",
-    tags: ["Studio", "Product"],
-    date: "2024-11-10",
-    cover: "https://picsum.photos/200/300/?random=4",
-  },
-  {
-    id: 5,
-    title: "Birthday Brunch",
-    category: "Events",
-    tags: ["Indoor", "Candid"],
-    date: "2025-02-14",
-    cover: "https://picsum.photos/200/300/?random=7",
-  },
-];
-
-const CATEGORIES = ["All", "Portraits", "Weddings", "Events", "Commercial"];
+const CATEGORIES = ['All', 'Portraits', 'Weddings', 'Events', 'Commercial'];
 const ALL_TAGS = [
-  "Outdoor",
-  "Natural Light",
-  "White Wedding",
-  "Traditional",
-  "Ankara",
-  "Studio",
-  "Product",
-  "Indoor",
-  "Candid",
-  "Lagos",
+  'Outdoor',
+  'Natural Light',
+  'White Wedding',
+  'Traditional',
+  'Studio',
+  'Product',
+  'Indoor',
+  'Candid',
+  'Anambra',
 ];
 
 const sortFns = {
-  "Newest first": (a, b) => new Date(b.date) - new Date(a.date),
-  "Oldest first": (a, b) => new Date(a.date) - new Date(b.date),
-  "Title A–Z": (a, b) => a.title.localeCompare(b.title),
+  'Newest first': (a, b) => new Date(b.date) - new Date(a.date),
+  'Oldest first': (a, b) => new Date(a.date) - new Date(b.date),
+  'Title A–Z': (a, b) => a.title.localeCompare(b.title),
 };
 
 const ProjectsPage = () => {
-  const [category, setCategory] = useState("All");
-  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState('All');
+  const [query, setQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
-  const [sortBy, setSortBy] = useState("Newest first");
+  const [sortBy, setSortBy] = useState('Newest first');
 
   const filtered = useMemo(() => {
     let list = [...PROJECTS];
 
     // category
-    if (category !== "All") {
+    if (category !== 'All') {
       list = list.filter(p => p.category === category);
     }
 
     // tags (all selected must be present)
     if (selectedTags.length) {
-      list = list.filter(p =>
-        selectedTags.every(t => p.tags.includes(t))
-      );
+      list = list.filter(p => selectedTags.every(t => p.tags.includes(t)));
     }
 
     // search
@@ -95,7 +49,7 @@ const ProjectsPage = () => {
         p =>
           p.title.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q) ||
-          p.tags.join(" ").toLowerCase().includes(q)
+          p.tags.join(' ').toLowerCase().includes(q)
       );
     }
 
@@ -111,10 +65,10 @@ const ProjectsPage = () => {
   };
 
   const clearFilters = () => {
-    setCategory("All");
+    setCategory('All');
     setSelectedTags([]);
-    setQuery("");
-    setSortBy("Newest first");
+    setQuery('');
+    setSortBy('Newest first');
   };
 
   return (
@@ -173,8 +127,8 @@ const ProjectsPage = () => {
                     onClick={() => setCategory(cat)}
                     className={`px-3 py-1.5 rounded-full border transition ${
                       active
-                        ? "border-purple-500 bg-purple-500/10"
-                        : "border-dark-midLight hover:bg-purple-500/10 "
+                        ? 'border-purple-500 bg-purple-500/10'
+                        : 'border-dark-midLight hover:bg-purple-500/10 '
                     }`}
                   >
                     {cat}
@@ -196,8 +150,8 @@ const ProjectsPage = () => {
                     onClick={() => toggleTag(tag)}
                     className={`px-3 py-1.5 rounded-full border text-sm transition ${
                       active
-                        ? "border-purple-500 bg-purple-500/10"
-                        : "border-dark-midLight hover:bg-purple-500/10"
+                        ? 'border-purple-500 bg-purple-500/10'
+                        : 'border-dark-midLight hover:bg-purple-500/10'
                     }`}
                   >
                     {tag}
