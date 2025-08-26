@@ -118,7 +118,7 @@ const ProjectsPage = () => {
   };
 
   return (
-    <section className="container section-heading relative mt-12">
+    <section className="container section-heading relative pt-20">
       {/* Top Bar */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6">
         <h1 className="text-2xl md:text-3xl font-semibold">Projects</h1>

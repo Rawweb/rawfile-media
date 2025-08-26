@@ -23,12 +23,12 @@ export default function ThankYou() {
     import.meta.env.VITE_BUSINESS_EMAIL || 'rawfile.webdev@gmail.com';
 
   return (
-    <section className="relative min-h-[70vh] flex items-center">
+    <section className="relative min-h-[70vh] flex items-center pt-28">
       <div className="pointer-events-none absolute inset-0 [background:radial-gradient(600px_300px_at_30%_10%,rgba(175,164,248,0.18),transparent_60%)]" />
 
       <div className="container">
         <motion.div
-          className="mx-auto max-w-2xl rounded-2xl border dark:border-dark-midLight border-dark-dark dark:bg-dark-dark p-8 md:p-10 backdrop-blur"
+          className="mx-auto max-w-2xl rounded-2xl border dark:border-dark-midLight border-dark-dark dark:bg-dark-dark p-8 md:p-10 backdrop-blur shadow-lg"
           {...fadeUp(0.1)}
         >
           <div className="flex items-start gap-3">
@@ -38,7 +38,7 @@ export default function ThankYou() {
             />
             <div>
               <motion.h1
-                className="text-2xl font-semibold tracking-wide dark:text-grey-light"
+                className="text-2xl  font-semibold tracking-wide dark:text-grey-light"
                 {...fadeUp(0.15)}
               >
                 Thank you{name ? `, ${name.split(' ')[0]}` : ''}! 🎉
@@ -47,7 +47,7 @@ export default function ThankYou() {
                 className="mt-2 text-[15px] leading-7 dark:text-grey-midLight text-grey-dark"
                 {...fadeUp(0.25)}
               >
-                We’ve received your We’ve received your{' '}
+                We’ve received your{' '}
                 {session ? (
                   <b>
                     {[session, variant]
@@ -65,7 +65,7 @@ export default function ThankYou() {
                     A confirmation has been sent to <b>{OWNER_EMAIL}</b>.
                   </>
                 )}{' '}
-                I’ll get back to you shortly.
+                We’ll get back to you shortly.
               </motion.p>
 
               {(session || date || time) && (

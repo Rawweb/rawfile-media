@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import FaqSection from "@sections/Home/FaqSection";
+
 
 const fadeUp = (d = 0) => ({
   initial: { opacity: 0, y: 20, filter: "blur(1px)" },
@@ -16,7 +18,7 @@ const fadeUp = (d = 0) => ({
   const UPDATED = "25 Aug 2025";
 
   return (
-    <section className="container section-heading mt-12">
+    <section className="container section-heading mt-20">
       <motion.div className="max-w-4xl mx-auto space-y-8" {...fadeUp(0.05)}>
         <header className="space-y-2">
           <h1 className="text-3xl md:text-4xl font-bold">Privacy Policy</h1>
@@ -143,6 +145,8 @@ const fadeUp = (d = 0) => ({
           <Link to="/book-us" className="button">Book a Session</Link>
         </div>
       </motion.div>
+
+      <FaqSection/>
     </section>
   );
 }

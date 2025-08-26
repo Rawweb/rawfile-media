@@ -9,6 +9,7 @@ import { Toaster } from 'sonner';
 import Navbar from '@components/layout/Navbar';
 import Footer from '@components/layout/Footer';
 import Loader from '@components/layout/Loader';
+import ScrollToTopButton from '@components/ui/ScrollToTopButton';
 
 import Home from '@pages/Home';
 import About from '@pages/About';
@@ -61,7 +62,7 @@ function App() {
           <ScrollToTop />
           <main
             className="min-h-screen bg-absolute-white text-dark-dark 
-  dark:bg-dark-dark dark:text-grey-light"
+  dark:bg-dark-dark dark:text-grey-light overflow-hidden"
           >
             <Routes>
               <Route path="/" element={<Home />} />
@@ -78,6 +79,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <ScrollToTopButton />
         </div>
       )}
     </Router>

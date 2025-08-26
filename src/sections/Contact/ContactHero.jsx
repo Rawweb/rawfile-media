@@ -28,7 +28,7 @@ const ContactHero = () => {
   });
 
   return (
-    <section className="section-heading relative pt-28">
+    <section className="section-heading relative pt-32">
       {/* MOBILE HERO IMAGE */}
       <div className="container md:hidden">
         <motion.div

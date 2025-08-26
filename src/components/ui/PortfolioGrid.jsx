@@ -97,7 +97,7 @@ const PortfolioGrid = ({
       {/* DESKTOP GRID (scrollable + draggable + stagger motion) */}
       <motion.div
         ref={scrollRef}
-        className="hidden md:flex gap-4 overflow-x-auto scroll-smooth scrollbar-blue mt-12 cursor-grab active:cursor-grabbing"
+        className="hidden md:flex gap-4 overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-blue mt-12 cursor-grab active:cursor-grabbing"
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}

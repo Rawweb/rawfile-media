@@ -29,7 +29,7 @@ const PortfolioHero = () => {
   })
 
   return (
-    <section className="section-heading relative pt-28">
+    <section className="section-heading relative pt-32">
       {/* MOBILE HERO IMAGE */}
       <div className="container md:hidden">
         <motion.div className="relative w-full rounded-2xl overflow-hidden mb-6" {...slideLeft(0.2)}>

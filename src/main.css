@@ -143,6 +143,45 @@
     animation: grainAnimation 1s steps(6) infinite;
   }
 
+  /* For the entire page scrollbar */
+  html {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #8b5cf6 #ffffff; /* thumb | track */
+  }
+
+  /* Dark mode */
+  html.dark {
+    scrollbar-color: #8b5cf6 #0f0f13;
+  }
+
+  /* Chrome/Edge/Safari */
+  html::-webkit-scrollbar {
+    width: 10px; /* scrollbar thickness */
+  }
+
+  html::-webkit-scrollbar-track {
+    background: #ffffff; /* track color (light mode) */
+  }
+
+  html.dark::-webkit-scrollbar-track {
+    background: #0f0f13; /* track color (dark mode) */
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: #7c3aed; /* thumb color */
+    border-radius: 8px;
+    border: 2px solid #ffffff; /* contrast border for light mode */
+  }
+
+  html.dark::-webkit-scrollbar-thumb {
+    background: #6d28d9; /* darker purple thumb */
+    border: 2px solid #0f0f13; /* contrast border in dark mode */
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: #8b5cf6; /* hover color */
+  }
+
   .scrollbar-blue {
     position: relative;
   }

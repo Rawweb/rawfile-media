@@ -12,12 +12,33 @@ import { getDefaultVariant, getVariants } from '@components/ui/sessionVariants';
 import FaqSection from '@sections/Home/FaqSection';
 import TestimonialsSection from '@sections/Home/TestimonialsSection';
 
-
-
-
-
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 const PHONE_RE = /^\+?[0-9()\-\s]{7,}$/;
+
+// Persisting form to localStorage
+const DRAFT_KEY = 'bookingDraft.v1';
+
+const loadDraft = () => {
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+};
+
+const saveDraft = data => {
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+  } catch {}
+};
+
+const clearDraft = () => {
+  try {
+    localStorage.removeItem(DRAFT_KEY);
+  } catch {}
+};
 
 const sessions = [
   {
@@ -82,7 +103,7 @@ const BookingPage = () => {
   };
 
   // ---------- State ----------
-  const [form, setForm] = useState({
+  const DEFAULT_FORM = {
     session: firstSession,
     variant: getDefaultVariant(firstSession),
     date: '',
@@ -92,6 +113,19 @@ const BookingPage = () => {
     phone: '',
     notes: '',
     botcheck: '',
+  };
+
+  const [form, setForm] = useState(() => {
+    const draft = loadDraft();
+    if (!draft) return DEFAULT_FORM;
+
+    // ensure variant is valid
+    const validVariants = getVariants(draft.session || DEFAULT_FORM.session);
+    const safeVariant = validVariants.includes(draft.variant)
+      ? draft.variant
+      : getDefaultVariant(draft.session || DEFAULT_FORM.session);
+
+    return { ...DEFAULT_FORM, ...draft, variant: safeVariant };
   });
 
   const [errors, setErrors] = useState({});
@@ -124,22 +158,29 @@ const BookingPage = () => {
   };
 
   // ---------- Handlers ----------
+  const saveTimer = useRef(null);
+
   const handleChange = e => {
     const { name, value } = e.target;
     const updated = { ...form, [name]: value };
 
     if (name === 'session') {
-      updated.variant = getDefaultVariant(value); // auto-pick first option or ''
+      updated.variant = getDefaultVariant(value);
     }
 
     setForm(updated);
 
+    // live validate
     const fieldErrs = validate(updated);
     setErrors(prev => {
       const merged = { ...prev, [name]: fieldErrs[name] };
       if (!fieldErrs[name]) delete merged[name];
       return merged;
     });
+
+    // persist draft (debounced)
+    clearTimeout(saveTimer.current);
+    saveTimer.current = setTimeout(() => saveDraft(updated), 250);
   };
 
   const handleSubmit = async e => {
@@ -207,16 +248,10 @@ const BookingPage = () => {
         toast.success(
           result.message || "Booking request sent! We'll be in touch soon."
         );
-        setForm({
-          session: sessions[0].items[0].name,
-          date: '',
-          time: '',
-          name: '',
-          email: '',
-          phone: '',
-          notes: '',
-          botcheck: '',
-        });
+
+        clearDraft(); //  remove saved draft once submitted successfully
+
+        setForm(DEFAULT_FORM);
         setErrors({});
         navigate('/thank-you', {
           state: {
@@ -240,8 +275,8 @@ const BookingPage = () => {
   };
 
   return (
-    <section className="container section-heading relative">
-      <div className="mt-12 border-b border-dark-midLight pt-10 pb-10">
+    <section className="container section-heading relative pt-28">
+      <div className="border-b border-dark-midLight pt-10 pb-10">
         <motion.div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* LEFT INFO */}
           <motion.div className="lg:col-span-4" {...slideLeft(0.4)}>
@@ -461,8 +496,8 @@ const BookingPage = () => {
         </motion.div>
       </div>
 
-      <FaqSection/>
-      <TestimonialsSection/>
+      <FaqSection />
+      <TestimonialsSection />
     </section>
   );
 };

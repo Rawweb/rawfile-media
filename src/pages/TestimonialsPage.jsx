@@ -107,7 +107,7 @@ const TestimonialsPage = () => {
   };
 
   return (
-    <section className="container py-16 mt-12">
+    <section className="container py-16 mt-20">
       {/* HERO */}
       <motion.div className="text-center mb-12" {...fadeUp(0)}>
         <h1 className="uppercase text-3xl md:text-4xl font-bold dark:text-white">
