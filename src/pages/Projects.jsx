@@ -11,7 +11,7 @@ const PROJECTS = [
     category: "Portraits",
     tags: ["Outdoor", "Natural Light"],
     date: "2025-06-12",
-    cover: "/images/portfolio-1.jpg",
+    cover: "https://picsum.photos/200/300/?random=3",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const PROJECTS = [
     category: "Weddings",
     tags: ["White Wedding", "Lagos"],
     date: "2025-05-20",
-    cover: "/images/portfolio-2.jpg",
+    cover: "https://picsum.photos/200/300/?random=2",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const PROJECTS = [
     category: "Weddings",
     tags: ["Traditional", "Ankara"],
     date: "2025-04-28",
-    cover: "/images/portfolio-3.jpg",
+    cover: "https://picsum.photos/200/300/?random=1",
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ const PROJECTS = [
     category: "Commercial",
     tags: ["Studio", "Product"],
     date: "2024-11-10",
-    cover: "/images/portfolio-4.jpg",
+    cover: "https://picsum.photos/200/300/?random=4",
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ const PROJECTS = [
     category: "Events",
     tags: ["Indoor", "Candid"],
     date: "2025-02-14",
-    cover: "/images/portfolio-5.jpg",
+    cover: "https://picsum.photos/200/300/?random=7",
   },
 ];
 
@@ -118,10 +118,10 @@ const ProjectsPage = () => {
   };
 
   return (
-    <section className="container section-heading relative pt-20">
+    <section className="container section-heading relative pt-32">
       {/* Top Bar */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6">
-        <h1 className="text-2xl md:text-3xl font-semibold">Projects</h1>
+        <h1 className="text-2xl md:text-3xl font-bold uppercase">Projects</h1>
         <div className="flex flex-col md:flex-row gap-3 md:items-center">
           {/* Search */}
           <div className="relative">
@@ -163,7 +163,7 @@ const ProjectsPage = () => {
         <aside className="space-y-6">
           {/* Category */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Category</h3>
+            <h3 className=" font-semibold mb-3 uppercase">Category</h3>
             <div className="flex flex-wrap gap-2">
               {CATEGORIES.map(cat => {
                 const active = category === cat;
@@ -174,7 +174,7 @@ const ProjectsPage = () => {
                     className={`px-3 py-1.5 rounded-full border transition ${
                       active
                         ? "border-purple-500 bg-purple-500/10"
-                        : "border-dark-midLight hover:bg-white/5"
+                        : "border-dark-midLight hover:bg-purple-500/10 "
                     }`}
                   >
                     {cat}
@@ -186,7 +186,7 @@ const ProjectsPage = () => {
 
           {/* Tags */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Tags</h3>
+            <h3 className="uppercase font-semibold mb-3">Tags</h3>
             <div className="flex flex-wrap gap-2">
               {ALL_TAGS.map(tag => {
                 const active = selectedTags.includes(tag);
@@ -197,7 +197,7 @@ const ProjectsPage = () => {
                     className={`px-3 py-1.5 rounded-full border text-sm transition ${
                       active
                         ? "border-purple-500 bg-purple-500/10"
-                        : "border-dark-midLight hover:bg-white/5"
+                        : "border-dark-midLight hover:bg-purple-500/10"
                     }`}
                   >
                     {tag}

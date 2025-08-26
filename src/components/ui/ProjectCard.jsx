@@ -2,12 +2,12 @@ import React from 'react';
 
 const ProjectCard = ({ project }) => {
   return (
-    <article className="group border border-dark-midLight rounded-2xl overflow-hidden hover:shadow-lg transition">
+    <article className="group border border-dark-midLight rounded-lg overflow-hidden hover:shadow-lg transition">
       <div className="aspect-[4/3] overflow-hidden">
         <img
           src={project.cover}
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-[1.03] transition"
+          className="w-full h-full object-cover group-hover:scale-[1.06] transition"
           loading="lazy"
         />
       </div>
