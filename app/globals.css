@@ -8,6 +8,7 @@
   --color-amber-deep: #b5761b;
   --color-amber-brown: #7a5314;
   --color-steel: #7fb0d9;
+  --color-ice: #d3ecff;
   --color-muted: #868b90;
 
   /* fonts */
@@ -29,3 +30,15 @@
   background: linear-gradient(150deg, #2b3a4a 0%, #16222d 55%, #0a0f14 100%);
 }
 
+/* blinking dot */
+@keyframes ring {
+  0%   { box-shadow: 0 0 0 0 rgba(232,163,61,.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(232,163,61,0); }
+  100% { box-shadow: 0 0 0 0 rgba(232,163,61,0); }
+}
+.dot-live { animation: ring 2.4s infinite; }
+
+/* hover expand */
+.split:hover .half { flex: .82; }
+.split .half:hover { flex: 1.45; }
+.half { transition: flex .5s cubic-bezier(.2,.7,.2,1); }
