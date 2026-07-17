@@ -1,7 +1,31 @@
 @import 'tailwindcss';
 
-:root {
+@theme {
+  /* brand colors */
+  --color-ink: #0d0f11;
+  --color-paper: #f4efe6;
+  --color-amber: #e8a33d;
+  --color-amber-deep: #b5761b;
+  --color-amber-brown: #7a5314;
+  --color-steel: #7fb0d9;
+  --color-muted: #868b90;
+
+  /* fonts */
+--font-sans: var(--font-sans-base);
+--font-mono: var(--font-mono-base);
+--font-display: var(--font-display-base);
 }
 
-@theme inline {
+/* gradients */
+.portal-photo {
+  background: radial-gradient(
+    120% 130% at 30% 20%,
+    #fdf9f0 0%,
+    #f0e5d0 45%,
+    #dcc9a5 100%
+  );
 }
+.portal-dev {
+  background: linear-gradient(150deg, #2b3a4a 0%, #16222d 55%, #0a0f14 100%);
+}
+
