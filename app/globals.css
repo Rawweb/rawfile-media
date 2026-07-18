@@ -3,6 +3,7 @@
 @theme {
   /* brand colors */
   --color-ink: #0d0f11;
+  --color-surface: #15181b;
   --color-paper: #f4efe6;
   --color-amber: #e8a33d;
   --color-amber-deep: #b5761b;
@@ -12,9 +13,9 @@
   --color-muted: #868b90;
 
   /* fonts */
---font-sans: var(--font-sans-base);
---font-mono: var(--font-mono-base);
---font-display: var(--font-display-base);
+  --font-sans: var(--font-sans-base);
+  --font-mono: var(--font-mono-base);
+  --font-display: var(--font-display-base);
 }
 
 /* gradients */
@@ -32,13 +33,31 @@
 
 /* blinking dot */
 @keyframes ring {
-  0%   { box-shadow: 0 0 0 0 rgba(232,163,61,.5); }
-  70%  { box-shadow: 0 0 0 8px rgba(232,163,61,0); }
-  100% { box-shadow: 0 0 0 0 rgba(232,163,61,0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(232, 163, 61, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(232, 163, 61, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(232, 163, 61, 0);
+  }
 }
-.dot-live { animation: ring 2.4s infinite; }
+.dot-live {
+  animation: ring 2.4s infinite;
+}
 
 /* hover expand */
-.split:hover .half { flex: .82; }
-.split .half:hover { flex: 1.45; }
-.half { transition: flex .5s cubic-bezier(.2,.7,.2,1); }
+.split:hover .half {
+  flex: 0.82;
+}
+.split .half:hover {
+  flex: 1.45;
+}
+.half {
+  transition: flex 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.container {
+  @apply mx-auto max-w-6xl px-6 md:px-8;
+}

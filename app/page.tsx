@@ -11,7 +11,7 @@ export default function Home() {
             AVAILABLE FOR WORK
           </div>
 
-          <p className='text-muted'>ANAMBRA, NG · 2026</p>
+          <p className='text-muted'>ANAMBRA, NG · {new Date().getFullYear()}</p>
         </nav>
         <div className='py-6 flex flex-col justify-center items-center font-sans space-y-2'>
           <h1 className='text-2xl md:text-[40px] font-black text-amber font-display'>
