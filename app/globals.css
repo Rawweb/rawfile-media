@@ -4,6 +4,8 @@
   /* brand colors */
   --color-ink: #0d0f11;
   --color-surface: #15181b;
+  --color-term-bar: #101316;
+  --color-term: #0a0c0e;
   --color-paper: #f4efe6;
   --color-amber: #e8a33d;
   --color-amber-deep: #b5761b;
@@ -11,6 +13,7 @@
   --color-steel: #7fb0d9;
   --color-ice: #d3ecff;
   --color-muted: #868b90;
+  --color-dev: #8fd6a8;
 
   /* fonts */
   --font-sans: var(--font-sans-base);
@@ -45,6 +48,21 @@
 }
 .dot-live {
   animation: ring 2.4s infinite;
+}
+
+/* caret */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.caret {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: #7fb0d9;
+  vertical-align: middle;
+  animation: blink 1s steps(1) infinite;
 }
 
 /* hover expand */

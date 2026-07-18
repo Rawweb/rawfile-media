@@ -1,3 +1,9 @@
+import DevHero from './hero';
+
 export default function Page() {
-  return <div> development home page</div>;
+  return (
+    <div>
+      <DevHero />
+    </div>
+  );
 }
