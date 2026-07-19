@@ -6,7 +6,12 @@ import { useEffect, useState } from 'react';
 import { isActive, type NavLink } from '@/app/lib/nav';
 
 const navLinks: NavLink[] = [
-  { href: '/development', label: 'work', exact: true },
+  {
+    href: '/development',
+    label: 'work',
+    exact: true,
+    match: ['/development/projects'],
+  },
   { href: '/development/about', label: 'about' },
   { href: '/development/contact', label: 'contact' },
 ];

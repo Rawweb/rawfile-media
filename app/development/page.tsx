@@ -4,6 +4,10 @@ import ProjectCard from '@/app/development/project-card';
 import { projects } from '@/app/lib/projects';
 import Link from 'next/link';
 
+const tools = [
+ 'Next.js 16', 'TypeScript', 'React', 'Tailwind', 'Node', 'Express', 'MongoDB', 'Vercel', 'Motion'
+]
+
 export default function Page() {
   return (
     <div>
@@ -25,13 +29,24 @@ export default function Page() {
           ))}
         </div>
         {/* view all */}
-        <div className='text-center mt-10'>
+        <div className='text-center mt-10 pb-10'>
           <Link
             href='/development/projects'
-            className='inline-block font-mono text-xs border border-white/10 rounded-sm px-6 py-4 tracking-[.14em] hover:bg-steel hover:text-ink transition-colors'
+            className='inline-block font-mono text-steel text-xs border border-steel rounded-sm px-6 py-4 tracking-[.14em] hover:bg-steel hover:text-ink transition-colors'
           >
             VIEW ALL PROJECTS →
           </Link>
+        </div>
+
+        {/* tools */}
+        <div className='pt-10 border-t border-white/10 space-y-4'>
+          <p className='font-mono font-bold text-sm text-muted tracking-[.10em]'>TOOLS I REACH FOR</p>
+
+          <div className='flex gap-4 flex-wrap'>
+            {tools.map((tool) => (
+              <div key={tool} className=' text-steel border border-white/10 rounded-md px-3 py-1.5'>{tool}</div>
+            ))}
+          </div>
         </div>
       </Container>
     </div>

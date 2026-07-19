@@ -182,7 +182,7 @@ export const projects: Project[] = [
     repos: [
       {
         label: 'Client',
-        url: '',
+        url: 'https://github.com/Rawweb/smart-job-portal-client',
       },
       {
         label: 'Server',

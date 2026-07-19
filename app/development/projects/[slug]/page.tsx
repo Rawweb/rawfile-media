@@ -32,36 +32,38 @@ export default async function ProjectDetail({
   if (!project) notFound();
   return (
     <Container className='py-14'>
-      {/* back */}
-      <Link
-        href='/development/projects'
-        className='font-mono text-xs text-muted tracking-[.08em] hover:text-steel transition-colors'
-      >
-        ← ALL PROJECTS
-      </Link>
+      <div className='space-y-4 border-b border-b-white/10 pb-10'>
+        {/* back */}
+        <Link
+          href='/development/projects'
+          className='font-mono text-xs text-muted tracking-[.08em] hover:text-steel transition-colors'
+        >
+          ← All projects
+        </Link>
 
-      {/* hero */}
-      <h1 className='font-display font-black text-4xl md:text-6xl uppercase leading-[.95] mt-4 mb-4'>
-        {project.title}
-      </h1>
-      <p className='text-muted text-lg max-w-[60ch]'>{project.blurb}</p>
+        {/* hero */}
+        <h1 className='font-display font-black text-4xl md:text-6xl uppercase leading-[.95] mt-4'>
+          {project.title}
+        </h1>
+        <p className='text-muted text-lg max-w-[60ch]'>{project.blurb}</p>
 
-      {/* meta */}
-      <div className='flex flex-wrap gap-x-9 gap-y-4 mt-7 font-mono text-xs text-muted tracking-[.06em]'>
-        <span>
-          Role
-          <b className='block text-paper font-medium mt-1'>{project.role}</b>
-        </span>
-        <span>
-          Year
-          <b className='block text-paper font-medium mt-1'>{project.year}</b>
-        </span>
-        <span>
-          Stack
-          <b className='block text-steel font-medium mt-1'>
-            {project.tags.join(' · ')}
-          </b>
-        </span>
+        {/* meta */}
+        <div className='flex flex-wrap gap-x-9 gap-y-4 mt-7 font-mono text-xs text-muted tracking-[.06em]'>
+          <span>
+            Role
+            <b className='block text-paper font-medium mt-1'>{project.role}</b>
+          </span>
+          <span>
+            Year
+            <b className='block text-paper font-medium mt-1'>{project.year}</b>
+          </span>
+          <span>
+            Stack
+            <b className='block text-steel font-medium mt-1'>
+              {project.tags.join(' · ')}
+            </b>
+          </span>
+        </div>
       </div>
 
       {/* big shot */}
@@ -110,25 +112,41 @@ export default async function ProjectDetail({
 
       {/* body */}
       {project.description && (
-        <p className='text-muted max-w-[70ch] mb-10'>{project.description}</p>
+        <p className='text-paper/85 text-lg leading-relaxed max-w-[65ch] mb-12'>
+          {project.description}
+        </p>
       )}
 
+      {/* problem / solution */}
       {(project.problem || project.solution) && (
-        <div className='grid md:grid-cols-2 gap-10 pb-11'>
+        <div className='grid md:grid-cols-2 gap-5 pb-14'>
           {project.problem && (
-            <div>
-              <h2 className='font-mono text-xs uppercase tracking-[.14em] text-steel mb-3'>
-                The problem
-              </h2>
-              <p className='text-muted'>{project.problem}</p>
+            <div className='bg-surface border border-white/10 rounded-[10px] p-7'>
+              <div className='flex items-center gap-3 mb-4'>
+                <span className='font-mono text-[11px] text-muted border border-white/15 rounded px-2 py-1'>
+                  01
+                </span>
+                <h2 className='font-mono text-xs uppercase tracking-[.14em] text-muted'>
+                  The problem
+                </h2>
+              </div>
+              <p className='text-paper/70 leading-relaxed'>{project.problem}</p>
             </div>
           )}
+
           {project.solution && (
-            <div>
-              <h2 className='font-mono text-xs uppercase tracking-[.14em] text-steel mb-3'>
-                What I built
-              </h2>
-              <p className='text-muted'>{project.solution}</p>
+            <div className='bg-surface border border-steel/25 rounded-[10px] p-7'>
+              <div className='flex items-center gap-3 mb-4'>
+                <span className='font-mono text-[11px] text-steel border border-steel/35 rounded px-2 py-1'>
+                  02
+                </span>
+                <h2 className='font-mono text-xs uppercase tracking-[.14em] text-steel'>
+                  What I built
+                </h2>
+              </div>
+              <p className='text-paper/70 leading-relaxed'>
+                {project.solution}
+              </p>
             </div>
           )}
         </div>
