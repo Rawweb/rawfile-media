@@ -114,7 +114,7 @@ export const projects: Project[] = [
       'Nigerian students still find SIWES placements by carrying introduction letters from office to office, and many end up somewhere with no relevance to their course. Employers have no channel to advertise openings, and coordinators track placements on paper with no real-time view of who is placed where.',
     solution:
       'One platform for the three parties. Students search verified openings filtered by discipline and location, then apply and track status online. Employers register, get verified, post openings, and manage applicants from a dashboard. Coordinators see placement status across the whole cohort as it updates.',
-    tags: ['Next.js', 'Node', 'MongoDB', 'Tailwind'],
+    tags: ['React', 'Node', 'MongoDB', 'Tailwind'],
     year: '2026',
     role: 'Full-stack developer',
     gradient: 'pv4',
@@ -143,7 +143,7 @@ export const projects: Project[] = [
       'Set as a group project where I was the only developer among five. The easy path was a static site that satisfied the brief. The harder and more useful problem was building something with real rules: an assessment system that cannot be gamed from the browser.',
     solution:
       'Rules enforced on the server, not in the UI. A student must start a quiz before submitting, only one attempt stays active, retakes are blocked once submitted, the timer is enforced backend-side, and pass or fail is graded against stored answers rather than trusted from the client. Duplicate course registrations are prevented at the database level, and JWT-protected routes gate every request.',
-    tags: ['React', 'Tailwind', 'Node', 'Express', 'MongoDB', 'JWT'],
+    tags: ['React', 'Tailwind', 'Node', 'Express', 'MongoDB', 'JWT', 'Framer motion'],
     year: '2026',
     role: 'Sole developer · team of five',
     gradient: 'pv3',

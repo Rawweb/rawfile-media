@@ -32,7 +32,7 @@ export default function DevHero() {
           <p className='font-mono text-xs'>
             core stack →{' '}
             <span className='text-steel'>
-              Next.js · TypeScript · React · Node
+              React · Javascript · Next.js · Typescript · Node
             </span>
           </p>
 
