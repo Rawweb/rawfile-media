@@ -17,6 +17,25 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: 'talentflow-lms',
+    title: 'TalentFlow LMS',
+    blurb:
+      'Learning platform for a 50+ intern cohort, where I led frontend architecture and delivery.',
+    description:
+      "TalentFlow is Trueminds Innovations' internal learning platform, built to replace a scattered mix of email, chat, shared drives, and separate learning portals with one system. It covers course delivery, assignment submission and feedback, progress tracking with certification at completion, team allocation, and peer collaboration, across three user types: learners, instructors, and program administrators. I led the frontend team from architecture setup through delivery.",
+    problem:
+      'Learning programs were running across email, messaging apps, shared drives, and multiple portals at once. Learners could not find materials or tell what to do next, instructors had no reliable view of progress, and collaboration had no structure. The fragmentation cost both sides time and made outcomes impossible to measure.',
+    solution:
+      'One platform replacing the scattered tools. I set up the frontend architecture and component structure, then guided the team in building against it so the product stayed consistent as it grew. Reviewed contributions, coordinated a sub-team, and kept a 5–6 hour update cadence that held everyone aligned. Closed with a 100/100 performance review across Technical Skill, Teamwork, and Workplace Attitude.',
+    tags: ['React', 'Tailwind', 'REST API'],
+    year: '2026',
+    role: 'Frontend Team Lead · Trueminds Innovations',
+    gradient: 'pv1',
+    domain: 'team-delta-lms.vercel.app',
+    url: 'https://team-delta-lms.vercel.app',
+    image: '/projects/talentflow-lms.png',
+  },
+  {
     slug: 'smart-job-portal',
     title: 'Smart Job Portal',
     blurb:
@@ -28,7 +47,7 @@ export const projects: Project[] = [
     solution:
       "A matching engine that compares a candidate's skill profile against each role's requirements and returns a compatibility score, not just a yes or no. Missing skills are split into technical and soft categories with concrete suggestions for closing each gap. Employers see applicants ranked by fit instead of arrival order.",
     tags: ['React', 'Javascript', 'Express', 'Node', 'MongoDB'],
-    year: '2025',
+    year: '2026',
     role: 'Full-stack · design + build',
     gradient: 'pv1',
     domain: 'raw-smart-job-portal.vercel.app',
@@ -86,7 +105,7 @@ export const projects: Project[] = [
     solution:
       'Per-category budgets tracked in real time, with automated alerts firing as utilisation crosses 50%, 80%, and 100%. The warning arrives while the money still exists. A category breakdown and progress bars turn a transaction list into a visible spending pattern.',
     tags: ['React', 'Node', 'Express', 'MongoDB'],
-    year: '2025',
+    year: '2026',
     role: 'Full-stack design + build',
     gradient: 'pv2',
     domain: 'smart-expense-client-ruby.vercel.app',
@@ -143,8 +162,16 @@ export const projects: Project[] = [
       'Set as a group project where I was the only developer among five. The easy path was a static site that satisfied the brief. The harder and more useful problem was building something with real rules: an assessment system that cannot be gamed from the browser.',
     solution:
       'Rules enforced on the server, not in the UI. A student must start a quiz before submitting, only one attempt stays active, retakes are blocked once submitted, the timer is enforced backend-side, and pass or fail is graded against stored answers rather than trusted from the client. Duplicate course registrations are prevented at the database level, and JWT-protected routes gate every request.',
-    tags: ['React', 'Tailwind', 'Node', 'Express', 'MongoDB', 'JWT', 'Framer motion'],
-    year: '2026',
+    tags: [
+      'React',
+      'Tailwind',
+      'Node',
+      'Express',
+      'MongoDB',
+      'JWT',
+      'Framer motion',
+    ],
+    year: '2024',
     role: 'Sole developer · team of five',
     gradient: 'pv3',
     domain: 'school-management-app-sage-one.vercel.app',
@@ -180,10 +207,6 @@ export const projects: Project[] = [
     url: undefined,
     image: undefined,
     repos: [
-      {
-        label: 'Client',
-        url: 'https://github.com/Rawweb/smart-job-portal-client',
-      },
       {
         label: 'Server',
         url: 'https://github.com/Rawweb/alert_system_server',
