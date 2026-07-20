@@ -26,12 +26,12 @@ export const metadata: Metadata = {
   },
   description:
     'Rawfile Media is the studio of Kingsley Chibuikem, a photographer and web developer based in Anambra, Nigeria. Where ideas come to life.',
-  metadataBase: new URL('https://rawfile-media-tau.vercel.app'),
+  metadataBase: new URL('https://rawfilemedia.vercel.app'),
   openGraph: {
     title: 'Rawfile Media - Photography & Web Development',
     description:
       'Photography and web development, under one brand. Where ideas come to life.',
-    url: 'https://rawfile-media-tau.vercel.app',
+    url: 'https://rawfilemedia.vercel.app',
     siteName: 'Rawfile Media',
     type: 'website',
   },
