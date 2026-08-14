@@ -4,7 +4,7 @@ import type { Project } from '@/app/lib/projects';
 
 export default function ProjectCard({
   project,
-  priority = false
+  priority = false,
 }: {
   project: Project;
   priority?: boolean;
@@ -12,7 +12,7 @@ export default function ProjectCard({
   return (
     <Link
       href={`/development/projects/${project.slug}`}
-      className='group bg-surface border border-white/10 rounded-[10px] overflow-hidden block transition-transform duration-300 hover:-translate-y-1 hover:border-steel/35'
+      className='group bg-surface border border-white/10 rounded-[10px] overflow-hidden block transition-transform duration-300 hover:-translate-y-1 hover:border-steel/35 active:translate-y-0 active:border-steel/50 active:scale-[0.98]'
     >
       {/* shot */}
       <div className='relative aspect-[16/10] border-b border-white/10 overflow-hidden'>
@@ -56,10 +56,6 @@ export default function ProjectCard({
             </span>
           ))}
         </div>
-
-        <span className='inline-block mt-4 font-mono text-xs uppercase tracking-[.08em] text-steel'>
-          View project →
-        </span>
       </div>
     </Link>
   );

@@ -8,8 +8,7 @@ const footerColumns: FooterColumn[] = [
   {
     heading: 'Explore',
     links: [
-      { href: '/development', label: 'Work' },
-      { href: '/development/projects', label: 'All projects' },
+      { href: '/development/projects', label: 'Projects' },
       { href: '/development/about', label: 'About' },
       { href: '/', label: 'Studio home' },
     ],
@@ -68,7 +67,7 @@ function FooterItem({ link }: { link: FooterLink }) {
 }
 export default function DevFooter() {
   return (
-    <footer className='bg-surface border-t border-t-white/10'>
+    <footer className='border-t border-t-white/10'>
       <Container className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-4 md:gap-8 py-10'>
         <div className='space-y-2'>
           <h1 className='font-black font-display text-xl'>

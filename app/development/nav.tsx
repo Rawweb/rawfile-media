@@ -8,10 +8,10 @@ import { isActive, type NavLink } from '@/app/lib/nav';
 const navLinks: NavLink[] = [
   {
     href: '/development',
-    label: 'work',
+    label: 'home',
     exact: true,
-    match: ['/development/projects'],
   },
+  { href: '/development/projects', label: 'projects' },
   { href: '/development/about', label: 'about' },
   { href: '/development/contact', label: 'contact' },
 ];
@@ -33,12 +33,12 @@ export default function DevNav() {
         >
           RAWFILE
           <span className='font-mono font-normal text-steel text-[11px] ml-2 pl-2 border-l border-white/10 tracking-[.14em]'>
-            DEVELOPMENT
+            development
           </span>
         </Link>
 
         {/* nav links */}
-        <nav className='hidden md:flex gap-6 font-mono uppercase text-xs tracking-[.1em]'>
+        <nav className='hidden md:flex gap-6 font-mono capitalize text-xs tracking-[.1em]'>
           {navLinks.map((item) => (
             <Link
               key={item.href}
@@ -46,7 +46,7 @@ export default function DevNav() {
               className={`transition-colors border-b pb-1 ${
                 isActive(pathname, item)
                   ? 'text-steel border-steel'
-                  : 'text-muted border-transparent hover:text-paper'
+                  : 'text-muted border-transparent hover:text-paper active:text-steel'
               }`}
             >
               {item.label}
@@ -58,7 +58,7 @@ export default function DevNav() {
           onClick={() => setOpen(!open)}
           aria-label='Toggle menu'
           aria-expanded={open}
-          className='md:hidden border border-white/10 rounded-lg w-10 h-10 flex items-center justify-center text-paper hover:text-steel hover:border-steel transition-colors'
+          className='md:hidden border border-white/10 rounded-lg w-10 h-10 flex items-center justify-center text-paper hover:text-steel hover:border-steel active:scale-95 active:border-steel transition-all'
         >
           {open ? '✕' : '☰'}
         </button>
@@ -70,10 +70,10 @@ export default function DevNav() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className={`transition-colors px-6 py-4 border-b border-white/10 font-mono uppercase text-xs tracking-[.1em] ${
+              className={`transition-colors px-6 py-4 border-b border-white/10 font-mono capitalize text-xs tracking-[.1em] ${
                 isActive(pathname, item)
                   ? 'text-steel'
-                  : 'text-muted hover:text-paper'
+                  : 'text-muted hover:text-paper active:text-steel'
               }`}
             >
               {item.label}

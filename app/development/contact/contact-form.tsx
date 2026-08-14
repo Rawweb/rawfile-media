@@ -1,22 +1,22 @@
 'use client';
 
 import { useActionState, useState } from 'react';
-import { sendInquiry,  type ContactState } from './actions';
+import { sendInquiry, type ContactState } from './actions';
 
 const projectType = ['Website', 'Web app', 'Redesign'];
 const initialState: ContactState = { ok: false };
 
 export default function DevContactForm() {
   const [type, setType] = useState('Website');
-    const [state, formAction, pending] = useActionState(
-      sendInquiry,
-      initialState,
-    );
+  const [state, formAction, pending] = useActionState(
+    sendInquiry,
+    initialState,
+  );
 
   return (
     <form
       action={formAction}
-      className='bg-surface  border border-white/10 p-7 rounded-md font-mono space-y-4'
+      className='border border-white/10 p-7 rounded-md font-mono space-y-4'
     >
       <div className='text-[11px] text-muted'>
         <label htmlFor='name' className='tracking-[.1em]'>
@@ -46,17 +46,18 @@ export default function DevContactForm() {
 
       <div className='flex items-center gap-2'>
         {projectType.map((t) => (
-          <div
+          <button
+            type='button'
             key={t}
             onClick={() => setType(t)}
-            className={`flex-1 text-center border text-xs p-3 rounded-sm cursor-pointer transition-colors ${
+            className={`flex-1 text-center border text-xs p-3 rounded-sm cursor-pointer transition-all ${
               type === t
                 ? 'border-steel bg-steel/10 text-steel'
                 : 'border-white/10 text-muted hover:border-steel'
             }`}
           >
             {t}
-          </div>
+          </button>
         ))}
       </div>
 
@@ -91,7 +92,7 @@ export default function DevContactForm() {
       {/* button */}
       <button
         disabled={pending}
-        className='bg-paper text-ink text-xs p-3 rounded-sm w-full hover:bg-steel transition-colors disabled:opacity-50'
+        className='bg-steel text-ink text-xs p-3 rounded-sm w-full hover:brightness-110 active:brightness-95 transition-all disabled:opacity-50'
       >
         {pending ? 'SENDING...' : 'SEND INQUIRY →'}
       </button>
@@ -102,11 +103,7 @@ export default function DevContactForm() {
         </p>
       )}
 
-      {state.error && (
-        <p className='text-red-400 text-xs'>
-          {state.error}
-        </p>
-      )}
+      {state.error && <p className='text-red-400 text-xs'>{state.error}</p>}
     </form>
   );
 }

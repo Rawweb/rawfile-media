@@ -10,43 +10,53 @@ const socialLinks = [
 export default function DevContact() {
   return (
     <main>
-      <Container className='py-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-start'>
-        {/* left - text */}
-        <div className='space-y-4'>
-          <h1 className='text-4xl md:text-6xl font-black font-display'>
-            LET'S <span className='text-steel'>BUILD</span>.
-          </h1>
-          <p className='text-muted max-w-sm'>
-            Tell me what you need and roughly when, and I'll come back with an
-            approach and a timeline.
+      <Container className='py-16'>
+        <div className='pb-10 flex flex-col gap-3 items-center'>
+          <p className='font-mono text-xs text-steel tracking-[.08em] uppercase'>
+            get in touch
           </p>
-
-          <a
-            href='mailto:rawfile.webdev@gmail.com'
-            className='border-b border-steel font-mono text-sm'
-          >
-            rawfile.webdev@gmail.com
-          </a>
-
-          {/* social links */}
-          <div className='flex items-center gap-4 mt-4'>
-            {socialLinks.map((link) => (
-              <a
-                target='_blank'
-                rel='noopener noreferrer'
-                href={link.href}
-                key={link.href}
-                className='font-mono text-xs text-muted tracking-[.14em] hover:text-paper transition-colors'
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+          <h1 className='font-display font-bold text-4xl md:text-6xl leading-[.95] text-paper'>
+            Contact
+          </h1>
         </div>
+        <div className=' grid grid-cols-1 md:grid-cols-2 gap-8 items-start'>
+          {/* left - text */}
+          <div className='space-y-4'>
+            <h2 className='text-4xl md:text-6xl font-black font-display'>
+              LET'S <span className='text-steel'>BUILD</span>.
+            </h2>
+            <p className='text-muted max-w-sm'>
+              Tell me what you need and roughly when, and I'll come back with an
+              approach and a timeline.
+            </p>
 
-        {/* right - form */}
-        <div>
-          <DevContactForm />
+            <a
+              href='mailto:rawfile.webdev@gmail.com'
+              className='border-b border-steel font-mono text-sm'
+            >
+              rawfile.webdev@gmail.com
+            </a>
+
+            {/* social links */}
+            <div className='flex items-center gap-4 mt-4'>
+              {socialLinks.map((link) => (
+                <a
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href={link.href}
+                  key={link.href}
+                  className='font-mono text-xs text-muted tracking-[.14em] hover:text-paper active:text-paper transition-all'
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* right - form */}
+          <div>
+            <DevContactForm />
+          </div>
         </div>
       </Container>
     </main>

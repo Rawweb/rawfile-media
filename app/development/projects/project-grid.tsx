@@ -12,7 +12,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
 
   return (
     <>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-[22px]'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-[22px]'>
         {shown.map((p, i) => (
           <ProjectCard key={p.slug} project={p} priority={i === 0} />
         ))}

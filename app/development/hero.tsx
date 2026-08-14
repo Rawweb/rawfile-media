@@ -40,13 +40,13 @@ export default function DevHero() {
           <div className='flex flex-col sm:flex-row gap-5'>
             <Link
               href='/development/projects'
-              className='font-mono text-xs text-ink bg-steel rounded-sm px-6 py-4 tracking-[.14em] hover:brightness-110 transition-all w-fit'
+              className='font-mono text-xs text-ink bg-steel rounded-sm px-6 py-4 tracking-[.14em] hover:brightness-110 active:brightness-95 active:scale-[0.98] transition-all w-fit'
             >
               VIEW ALL PROJECTS
             </Link>
             <Link
               href='/development/contact'
-              className='font-mono text-xs bg-transparent border border-white/10 rounded-sm px-6 py-4 tracking-[.14em] hover:border-steel hover:text-steel transition-colors w-fit'
+              className='font-mono text-xs bg-transparent border border-white/10 rounded-sm px-6 py-4 tracking-[.14em] hover:border-steel hover:text-steel active:border-steel active:text-steel active:bg-steel/5 transition-all w-fit'
             >
               START A PROJECT
             </Link>

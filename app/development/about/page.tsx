@@ -30,12 +30,14 @@ export default function DevAbout() {
     <main>
       <Container className='py-10'>
         {/* breadcrumb */}
-        <Link
-          href='/development'
-          className='flex gap-2 font-mono items-center text-xs text-muted tracking-[.08em] hover:text-steel transition-colors'
-        >
-          ← work
-        </Link>
+        <div className='pb-10 flex flex-col gap-3 items-center'>
+          <p className='font-mono text-xs text-steel tracking-[.08em] uppercase'>
+            Know me
+          </p>
+          <h1 className='font-display font-bold text-4xl md:text-6xl leading-[.95] text-paper'>
+            About
+          </h1>
+        </div>
         <div className='grid grid-cols-1 md:grid-cols-[.85fr_1.15fr] gap-12 py-14 items-start'>
           {/* left */}
           <div>
@@ -44,6 +46,7 @@ export default function DevAbout() {
                 src='/profile-img.jpg'
                 alt='Kingsley Chibuikem, developer and photographer'
                 fill
+                priority
                 sizes='(max-width: 768px) 100vw, 40vw'
                 className='object-cover'
               />
@@ -58,7 +61,7 @@ export default function DevAbout() {
                 href='/kingsley-chibuikem-cv.pdf'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='flex items-center justify-between w-full font-mono text-xs uppercase tracking-[.14em] border border-white/10 rounded-sm px-5 py-4 hover:border-steel hover:text-steel transition-colors'
+                className='flex items-center justify-between w-full font-mono text-xs uppercase tracking-[.14em] border border-white/10 rounded-sm px-5 py-4 hover:border-steel hover:text-steel active:border-steel active:text-steel transition-all'
               >
                 Download CV
                 <span>↓</span>
@@ -82,9 +85,9 @@ export default function DevAbout() {
           </div>
           {/* right - about me */}
           <div className='space-y-5'>
-            <h1 className='text-2xl md:text-3xl font-black font-display'>
+            <h2 className='text-2xl md:text-3xl font-black font-display'>
               The person in the <span className='text-steel'>editor</span>.
-            </h1>
+            </h2>
 
             <p className='text-muted'>
               In 2021 I watched AI edit a photograph and understood where my
@@ -147,7 +150,7 @@ export default function DevAbout() {
               </p>
               <Link
                 href='/development/contact'
-                className='inline-block mt-4 font-mono text-xs uppercase tracking-[.14em] bg-steel text-ink rounded-sm px-6 py-4 hover:brightness-110 transition-all'
+                className='inline-block mt-4 font-mono text-xs uppercase tracking-[.14em] bg-steel text-ink rounded-sm px-6 py-4 hover:brightness-110 active:brightness-95 transition-all'
               >
                 Start a project →
               </Link>
