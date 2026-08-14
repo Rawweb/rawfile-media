@@ -25,14 +25,14 @@ export default function DevNav() {
   }, [pathname]);
 
   return (
-    <header className='sticky top-0 z-50 border-b border-white/10 bg-ink/90 backdrop-blur-md'>
+    <header className='sticky top-0 z-50 border-b border-paper/10 bg-ink/90 backdrop-blur-md'>
       <Container className='flex items-center justify-between h-[66px] '>
         <Link
           href='/'
           className='font-display font-black text-sm tracking-[.03em] whitespace-nowrap'
         >
           RAWFILE
-          <span className='font-mono font-normal text-steel text-[11px] ml-2 pl-2 border-l border-white/10 tracking-[.14em]'>
+          <span className='font-mono font-normal text-steel text-[11px] ml-2 pl-2 border-l border-paper/10 tracking-[.14em]'>
             development
           </span>
         </Link>

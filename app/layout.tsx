@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
+import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono, Cormorant } from 'next/font/google';
 import './globals.css';
 
 const archivo = Archivo({
@@ -10,13 +10,20 @@ const archivo = Archivo({
 const plexSans = IBM_Plex_Sans({
   variable: '--font-sans-base',
   subsets: ['latin'],
-  weight: ['300','400', '500'],
+  weight: ['300', '400', '500'],
 });
 
 const plexMono = IBM_Plex_Mono({
   variable: '--font-mono-base',
   subsets: ['latin'],
   weight: ['400', '500'],
+});
+
+const cormorant = Cormorant({
+  variable: '--font-display-photo-base',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
 });
 
 export const metadata: Metadata = {
@@ -45,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className='min-h-full flex flex-col font-sans'>{children}</body>
     </html>

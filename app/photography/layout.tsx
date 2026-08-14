@@ -1,11 +1,4 @@
-import { Cormorant } from 'next/font/google';
-
-const cormorant = Cormorant({
-  variable: '--font-display-photo-base',
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
-});
+import PhotoNav from './nav';
 
 export default function PhotographyLayout({
   children,
@@ -13,13 +6,12 @@ export default function PhotographyLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div
-      className={`${cormorant.variable} bg-paper text-ink min-h-screen flex flex-col`}
-    >
+    <div className='bg-paper text-ink min-h-screen flex flex-col'>
       {/* hero */}
+      <PhotoNav />
 
       {/* page content */}
-      <main className='flex-1'>{children}</main>
+      <main className='flex-1 pt-[66px]'>{children}</main>
 
       {/* footer */}
     </div>
