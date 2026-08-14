@@ -9,7 +9,7 @@ const socialLinks = [
 
 export default function DevContact() {
   return (
-    <main>
+    <div>
       <Container className='py-16'>
         <div className='pb-10 flex flex-col gap-3 items-center'>
           <p className='font-mono text-xs text-steel tracking-[.08em] uppercase'>
@@ -59,6 +59,6 @@ export default function DevContact() {
           </div>
         </div>
       </Container>
-    </main>
+    </div>
   );
 }

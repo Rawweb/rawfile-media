@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <main className='bg-ink text-paper min-h-screen flex flex-col items-center justify-center px-8 text-center'>
+    <div className='bg-ink text-paper min-h-screen flex flex-col items-center justify-center px-8 text-center'>
       <p className='font-mono text-xs uppercase tracking-[.24em] text-muted mb-6'>
         Error · 404
       </p>
@@ -36,6 +36,6 @@ export default function NotFound() {
       <p className='font-mono text-[11px] text-muted mt-12 tracking-[.14em]'>
         IMG_0404.RAW · UNRECOVERABLE
       </p>
-    </main>
+    </div>
   );
 }

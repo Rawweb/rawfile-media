@@ -19,6 +19,7 @@
   --font-sans: var(--font-sans-base);
   --font-mono: var(--font-mono-base);
   --font-display: var(--font-display-base);
+  --font-display-photo: var(--font-display-photo-base);
 }
 
 /* gradients */
@@ -77,8 +78,28 @@
 }
 
 /* card gradient */
-.pv1 { background: linear-gradient(140deg,#2f4a63,#16232f 55%,#0b1218); }
-.pv2 { background: radial-gradient(120% 120% at 30% 20%,#3f6b5a,#1c332c 55%,#0e1614); }
-.pv3 { background: linear-gradient(150deg,#5a2e57,#2a1836 55%,#120c18); }
-.pv4 { background: radial-gradient(120% 100% at 70% 30%,#c9973f,#5c3f18 55%,#17110a); }
-.pv5 { background: linear-gradient(160deg,#3d5b78,#22364a 55%,#101c28); }
+.pv1 {
+  background: linear-gradient(140deg, #2f4a63, #16232f 55%, #0b1218);
+}
+.pv2 {
+  background: radial-gradient(
+    120% 120% at 30% 20%,
+    #3f6b5a,
+    #1c332c 55%,
+    #0e1614
+  );
+}
+.pv3 {
+  background: linear-gradient(150deg, #5a2e57, #2a1836 55%, #120c18);
+}
+.pv4 {
+  background: radial-gradient(
+    120% 100% at 70% 30%,
+    #c9973f,
+    #5c3f18 55%,
+    #17110a
+  );
+}
+.pv5 {
+  background: linear-gradient(160deg, #3d5b78, #22364a 55%, #101c28);
+}

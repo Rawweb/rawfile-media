@@ -1,5 +1,4 @@
 import Container from '@/app/components/Container';
-import Link from 'next/link';
 import ProjectGrid from './project-grid';
 import { projects } from '@/app/lib/projects';
 

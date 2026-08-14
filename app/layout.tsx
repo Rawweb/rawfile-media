@@ -10,7 +10,7 @@ const archivo = Archivo({
 const plexSans = IBM_Plex_Sans({
   variable: '--font-sans-base',
   subsets: ['latin'],
-  weight: ['400', '500'],
+  weight: ['300','400', '500'],
 });
 
 const plexMono = IBM_Plex_Mono({

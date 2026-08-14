@@ -27,7 +27,7 @@ const stack = [
 
 export default function DevAbout() {
   return (
-    <main>
+    <div>
       <Container className='py-10'>
         {/* breadcrumb */}
         <div className='pb-10 flex flex-col gap-3 items-center'>
@@ -158,6 +158,6 @@ export default function DevAbout() {
           </div>
         </div>
       </Container>
-    </main>
+    </div>
   );
 }
