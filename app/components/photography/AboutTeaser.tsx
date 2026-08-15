@@ -1,17 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Container from '../Container';
 
 export default function AboutTeaser() {
   return (
-    <section className='px-8 md:px-16 py-16 md:py-24 flex flex-col md:flex-row gap-10 md:gap-16 items-start border-b border-ink/10'>
+    <Container className='grid grid-cols-1 items-center gap-10 border-b border-ink/10 py-16 md:py-24 lg:grid-cols-[460px_minmax(0,1fr)] lg:gap-20'>
       {/* portrait */}
-      <div className='relative w-full md:w-[320px] flex-shrink-0'>
+      <div className='relative w-full shrink-0 lg:w-[460px]'>
         <div className='relative aspect-[4/5] overflow-hidden'>
           <Image
             src='/profile-img.jpg'
             alt='Kingsley Chibuikem'
             fill
-            sizes='(max-width: 768px) 100vw, 320px'
+            sizes='(max-width: 768px) 100vw, 460px'
             className='object-cover object-top'
           />
         </div>
@@ -21,14 +22,14 @@ export default function AboutTeaser() {
       </div>
 
       {/* text */}
-      <div className='flex flex-col gap-5 max-w-lg'>
+      <div className='flex max-w-3xl flex-col gap-6'>
         <p className='font-mono text-[11px] text-amber tracking-[.22em]'>
           THE PERSON BEHIND THE LENS
         </p>
-        <h2 className='font-display-photo font-semibold text-2xl md:text-3xl text-ink leading-snug'>
+        <h2 className='font-display-photo text-3xl font-semibold leading-tight text-ink lg:text-5xl'>
           I'm Kingsley, and I shoot to remember things the way they felt.
         </h2>
-        <p className='font-sans font-light text-sm text-muted leading-relaxed'>
+        <p className='max-w-2xl font-sans text-base font-light leading-relaxed text-muted'>
           Eight years behind the camera, from retouching desks to full-time
           freelance, learning that good light and a real moment beat a hundred
           rushed shots.
@@ -40,6 +41,6 @@ export default function AboutTeaser() {
           READ MY FULL STORY →
         </Link>
       </div>
-    </section>
+    </Container>
   );
 }

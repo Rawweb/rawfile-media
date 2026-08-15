@@ -1,18 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Container from '../Container';
 
 const shots = [
-  { src: '/gallery/shot-1-tall.jpg', alt: 'Portrait session' },
-  { src: '/gallery/shot-5-square.jpg', alt: 'Event coverage' },
-  { src: '/gallery/shot-3-portrait.jpg', alt: 'Editorial shoot' },
-  { src: '/gallery/shot-4-tall.jpg', alt: 'Product shoot' },
-  { src: '/gallery/shot-2-tall.jpg', alt: 'Portrait session' },
-  { src: '/gallery/shot-6-square.jpg', alt: 'Street photography' },
+  { src: '/gallery/shot-7-portrait.jpg', alt: 'Portrait' },
+  { src: '/gallery/shot-12-square.jpg', alt: 'Outdoor' },
+  { src: '/gallery/shot-3-tall.jpg', alt: 'Outdoor' },
+  { src: '/gallery/shot-10-tall.jpg', alt: 'Event' },
+  { src: '/gallery/shot-11-square.jpg', alt: 'Event' },
+  { src: '/gallery/shot-8-tall.jpg', alt: 'Portrait' },
 ];
 
 export default function SelectedWork() {
   return (
-    <section className='px-8 md:px-16 py-16 md:py-24 border-b border-ink/10'>
+    <section className='py-16 md:py-24 border-b border-ink/10'>
+      <Container>
       {/* header */}
       <div className='text-center mb-10 md:mb-14'>
         <p className='font-mono text-[11px] text-muted tracking-[.22em] mb-3'>
@@ -50,6 +52,7 @@ export default function SelectedWork() {
           View full gallery →
         </Link>
       </div>
+      </Container>
     </section>
   );
 }

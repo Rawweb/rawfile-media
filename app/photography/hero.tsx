@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Container from '../components/Container';
 
 export default function PhotoHero() {
   return (
     <div className='relative -mt-[66px] min-h-screen flex flex-col justify-end'>
       {/* background image */}
       <Image
-        src='/hero-2.jpg'
+        src='/hero-6.jpg'
         alt='Photography by Rawfile Media'
         fill
         priority
@@ -17,7 +18,8 @@ export default function PhotoHero() {
       <div className='absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/40 to-ink/40' />
 
       {/* content */}
-      <div className='relative z-10 px-8 md:px-16 pb-16 md:pb-24 max-w-2xl'>
+      <Container className='relative z-10 w-full pb-16 md:pb-24'>
+        <div className='max-w-2xl'>
         <p className='font-mono text-[10px] md:text-xs text-paper/70 tracking-[.22em] mb-4'>
           RAWFILE MEDIA · PHOTOGRAPHY
         </p>
@@ -38,7 +40,8 @@ export default function PhotoHero() {
         >
           SEE THE WORK ↓
         </Link>
-      </div>
+        </div>
+      </Container>
     </div>
   );
 }

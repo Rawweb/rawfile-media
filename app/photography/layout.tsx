@@ -1,3 +1,4 @@
+import PhotoFooter from '../components/photography/PhotoFooter';
 import PhotoNav from './nav';
 
 export default function PhotographyLayout({
@@ -14,6 +15,7 @@ export default function PhotographyLayout({
       <main className='flex-1 pt-[66px]'>{children}</main>
 
       {/* footer */}
+      <PhotoFooter />
     </div>
   );
 }
