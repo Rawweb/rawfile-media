@@ -29,7 +29,7 @@ export default function AboutTeaser() {
           I'm Kingsley, and I shoot to remember things the way they felt.
         </h2>
         <p className='font-sans font-light text-sm text-muted leading-relaxed'>
-          Seven years behind the camera, from retouching desks to full-time
+          Eight years behind the camera, from retouching desks to full-time
           freelance, learning that good light and a real moment beat a hundred
           rushed shots.
         </p>
@@ -37,7 +37,7 @@ export default function AboutTeaser() {
           href='/photography/about'
           className='font-mono text-[11px] text-amber tracking-[.14em] hover:brightness-110 active:brightness-95 transition-all w-fit'
         >
-          Read my full story →
+          READ MY FULL STORY →
         </Link>
       </div>
     </section>

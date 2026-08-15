@@ -41,15 +41,15 @@ export default function PhotoNav() {
     >
       <Container className='flex items-center justify-between h-[66px]'>
         <Link
-          href='/photography'
-          className={`font-display-photo font-bold tracking-[.03em] text-sm whitespace-nowrap uppercase ${
+          href='/'
+          className={`font-display-photo font-semibold tracking-[.03em] whitespace-nowrap uppercase ${
             isHomePage ? 'text-paper' : 'text-ink'
           }`}
         >
           Rawfile
           <span
-            className={`text-amber font-light capitalize text-[11px] font-sans ml-2 pl-2 border-l tracking-[.14em] ${
-              isHomePage ? 'border-paper/25' : 'border-ink/15'
+            className={`font-light capitalize text-[11px] font-sans ml-2 pl-2 border-l tracking-[.14em] ${
+              isHomePage ? 'border-paper/25 text-amber' : 'border-ink/15 text-muted'
             }`}
           >
             photography
@@ -87,7 +87,7 @@ export default function PhotoNav() {
         <nav
           className={`md:hidden border-t flex flex-col ${
             isHomePage
-              ? 'border-paper/15 bg-ink/50 backdrop-blur-md'
+              ? 'border-paper/15 bg-ink/30 backdrop-blur-md'
               : 'border-ink/10 bg-paper'
           }`}
         >

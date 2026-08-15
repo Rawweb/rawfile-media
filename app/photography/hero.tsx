@@ -6,7 +6,7 @@ export default function PhotoHero() {
     <div className='relative -mt-[66px] min-h-screen flex flex-col justify-end'>
       {/* background image */}
       <Image
-        src='/hero-5.jpg'
+        src='/hero-2.jpg'
         alt='Photography by Rawfile Media'
         fill
         priority
@@ -21,7 +21,7 @@ export default function PhotoHero() {
         <p className='font-mono text-[10px] md:text-xs text-paper/70 tracking-[.22em] mb-4'>
           RAWFILE MEDIA · PHOTOGRAPHY
         </p>
-        <h1 className='font-display-photo font-black text-4xl md:text-6xl text-paper leading-[.98] mb-4'>
+        <h1 className='font-display-photo font-semibold text-4xl md:text-6xl text-paper leading-[.98] mb-4'>
           Moments,
           <br />
           Developed with

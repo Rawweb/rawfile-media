@@ -1,4 +1,5 @@
-import AboutTeaser from './AboutTeaser';
+import AboutTeaser from '../components/photography/AboutTeaser';
+import SelectedWork from '../components/photography/SelectedWork';
 import PhotoHero from './hero';
 
 export default function Page() {
@@ -6,6 +7,7 @@ export default function Page() {
     <div>
       <PhotoHero />
       <AboutTeaser />
+      <SelectedWork />
     </div>
   );
 }
